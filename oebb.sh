@@ -180,16 +180,16 @@ function config_oe()
     # Determine the proper machine name
     #--------------------------------------------------------------------------
     case ${CL_MACHINE} in
-        beagle)
+        beagle|beagleboard)
             MACHINE="beagleboard"
             ;;
-        dm6446evm)
+        dm6446evm|davinci-evm)
             MACHINE="davinci-dvevm"
             ;;
         omap3evm)
             MACHINE="omap3evm"
             ;;
-        shiva)
+        shiva|omap3517-evm)
             MACHINE="omap3517-evm"
             ;;
         *)
@@ -325,9 +325,9 @@ echo "You must invoke \"$0 config <machine>\" and then \"$0 update\" prior"
 echo "to your first bitbake command"
 echo ""
 echo "The <machine> argument can be one of the following"
-echo "       beagle:    BeagleBoard"
-echo "       dm6446evm: DM6446 EVM"
-echo "       omap3evm:  OMAP35x EVM"
-echo "       shiva:     OMAP3517 EVM"
+echo "       beagleboard:    BeagleBoard"
+echo "       davinci-evm:    DM6446 EVM"
+echo "       omap3evm:       OMAP35x EVM"
+echo "       omap3517-evm:   OMAP3517 (Shiva) EVM"
 echo ""
 echo "Other machines are valid as well, but listing those would make this message way too long"
