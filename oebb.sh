@@ -60,11 +60,6 @@ function set_environment()
     export BB_ENV_EXTRAWHITE="MACHINE DISTRO http_proxy ftp_proxy no_proxy GIT_PROXY_COMMAND"
 
     #--------------------------------------------------------------------------
-    # Set vm.mmap_min_addr to 0 in the kernel
-    #--------------------------------------------------------------------------
-    config_mmap_min_addr
-
-    #--------------------------------------------------------------------------
     # Specify proxy information
     #--------------------------------------------------------------------------
     if [ -n $PROXYHOST ] ; then
@@ -245,27 +240,6 @@ ENABLE_BINARY_LOCALE_GENERATION = "0"
 _EOF
 fi
 }
-
-
-###############################################################################
-# CONFIG_MMAP_MIN_ADDR() - Configure OpenEmbedded
-###############################################################################
-function config_mmap_min_addr()
-{
-    if [ `cat /proc/sys/vm/mmap_min_addr` -eq 0 ]; then
-        return
-    fi
-
-    #--------------------------------------------------------------------------
-    # Set vm.mmap_min_addr to 0 in the kernel (needs sudo access)
-    #--------------------------------------------------------------------------
-    cat > ${OE_BUILD_DIR}/set-vm.sh <<_EOF
-echo 0 > /proc/sys/vm/mmap_min_addr
-_EOF
-    chmod +x ${OE_BUILD_DIR}/set-vm.sh
-    sudo ${OE_BUILD_DIR}/set-vm.sh
-}
-
 
 ###############################################################################
 # CONFIG_SVN_PROXY() - Configure subversion proxy information
