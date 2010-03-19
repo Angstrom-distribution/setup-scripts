@@ -21,6 +21,7 @@
 
 #PROXYHOST=wwwgate.ti.com
 #PROXYPORT=80
+PROXYHOST=""
 
 ###############################################################################
 # OE_BASE    - The root directory for all OE sources and development.
@@ -32,11 +33,24 @@ OE_BASE=${PWD}
 ###############################################################################
 function set_environment()
 {
+
+#--------------------------------------------------------------------------
+# If an env already exists, use it, otherwise generate it
+#--------------------------------------------------------------------------
+if [ -e ~/.oe/environment ] ; then
+	. ~/.oe/environment
+else
+
+	mkdir -p ~/.oe/
+
     #--------------------------------------------------------------------------
     # Specify distribution information
     #--------------------------------------------------------------------------
     DISTRO="angstrom-2008.1"
     DISTRO_DIRNAME=`echo $DISTRO | sed s#[.-]#_#g`
+
+	echo "export DISTRO=\"${DISTRO}\"" > ~/.oe/environment
+	echo "export DISTRO_DIRNAME=\"${DISTRO_DIRNAME}\"" >> ~/.oe/environment
 
     #--------------------------------------------------------------------------
     # Specify the root directory for your OpenEmbedded development
@@ -48,10 +62,14 @@ function set_environment()
     mkdir -p ${OE_SOURCE_DIR}
     export OE_BASE
 
+	echo "export OE_BASE=\"${OE_BASE}\"" >> ~/.oe/environment
+
     #--------------------------------------------------------------------------
     # Include up-to-date bitbake in our PATH.
     #--------------------------------------------------------------------------
     export PATH=${OE_SOURCE_DIR}/bitbake/bin:${PATH}
+
+	echo "export PATH=\"${PATH}\"" >> ~/.oe/environment
 
     #--------------------------------------------------------------------------
     # Make sure Bitbake doesn't filter out the following variables from our
@@ -59,15 +77,22 @@ function set_environment()
     #--------------------------------------------------------------------------
     export BB_ENV_EXTRAWHITE="MACHINE DISTRO http_proxy ftp_proxy no_proxy GIT_PROXY_COMMAND"
 
+	echo "export BB_ENV_EXTRAWHITE=\"${BB_ENV_EXTRAWHITE}\"" >> ~/.oe/environment
+
     #--------------------------------------------------------------------------
     # Specify proxy information
     #--------------------------------------------------------------------------
-    if [ -n $PROXYHOST ] ; then
+    if [ "x$PROXYHOST" != "x"  ] ; then
         export http_proxy=http://${PROXYHOST}:${PROXYPORT}/
         export ftp_proxy=http://${PROXYHOST}:${PROXYPORT}/
 
         export SVN_CONFIG_DIR=${OE_BUILD_DIR}/subversion_config
         export GIT_CONFIG_DIR=${OE_BUILD_DIR}/git_config
+
+		echo "export http_proxy=\"${http_proxy}\"" >> ~/.oe/environment
+		echo "export ftp_proxy=\"${ftp_proxy}\"" >> ~/.oe/environment
+		echo "export SVN_CONFIG_DIR=\"${SVN_CONFIG_DIR}\"" >> ~/.oe/environment
+		echo "export GIT_CONFIG_DIR=\"${GIT_CONFIG_DIR}\"" >> ~/.oe/environment
 
         config_svn_proxy
         config_git_proxy
@@ -77,14 +102,16 @@ function set_environment()
     # Set up the bitbake path to find the OpenEmbedded recipes.
     #--------------------------------------------------------------------------
     export BBPATH=${OE_BUILD_DIR}:${OE_SOURCE_DIR}/org.openembedded.dev${BBPATH_EXTRA}
-    
+  
+	echo "export BBPATH=\"${BBPATH}\"" >> ~/.oe/environment
+ 
 	#--------------------------------------------------------------------------
     # Reconfigure dash 
     #--------------------------------------------------------------------------
     if [ $(readlink /bin/sh) = "dash" ] ; then
         sudo dpkg-reconfigure dash
     fi
-
+fi # if -e ~/.oe/environment
 }
 
 
@@ -131,7 +158,7 @@ function oe_config()
 ###############################################################################
 function update_bitbake()
 {
-    if [ -n $PROXYHOST ] ; then
+    if [ "x$PROXYHOST" != "x" ] ; then
         config_git_proxy
     fi
 
