@@ -156,10 +156,10 @@ function update_oe()
         echo Checking out OpenEmbedded
         git clone "git://git.openembedded.net/openembedded" ${OE_SOURCE_DIR}/org.openembedded.dev
         cd ${OE_SOURCE_DIR}/org.openembedded.dev
-        if [ ! -r ${COMMIT_ID} ]; 
+        if [ ! -r ${OE_COMMIT_ID} ]; 
         then
-            echo "Checkout commit id: ${COMMIT_ID}"
-            git checkout -b install ${COMMIT_ID}
+            echo "Checkout commit id: ${OE_COMMIT_ID}"
+            git checkout -b install ${OE_COMMIT_ID}
         else
             git checkout -b org.openembedded.dev origin/org.openembedded.dev
         fi
@@ -218,8 +218,10 @@ BBMASK = ""
 # What kind of images do we want?
 IMAGE_FSTYPES += "tar.bz2"
 
-# Make use of my SMP box
-#PARALLEL_MAKE     = "-j3"
+# Make use of SMP:
+#   PARALLEL_MAKE specifies how many concurrent compiler threads are spawned per bitbake process
+#   BB_NUMBER_THREADS specifies how many concurrent bitbake tasks will be run
+#PARALLEL_MAKE     = "-j2"
 BB_NUMBER_THREADS = "2"
 
 DISTRO   = "${DISTRO}"
@@ -228,14 +230,8 @@ MACHINE ?= "${MACHINE}"
 # Set TMPDIR instead of defaulting it to $pwd/tmp
 TMPDIR = "${OE_BUILD_TMPDIR}"
 
-# Work around qemu segfault issues
-ENABLE_BINARY_LOCALE_GENERATION = "0"
-
 # Go through the Firewall
 #HTTP_PROXY        = "http://${PROXYHOST}:${PROXYPORT}/"
-
-# Extra packages to include
-#ANGSTROM_EXTRA_INSTALL=""
 
 _EOF
 fi
@@ -291,7 +287,7 @@ then
             if [  $1 == "commit" ]
             then
                 shift
-                COMMIT_ID=$1
+                OE_COMMIT_ID=$1
             fi
         fi
         update_all
@@ -328,6 +324,6 @@ echo "The <machine> argument can be one of the following"
 echo "       beagleboard:    BeagleBoard"
 echo "       davinci-evm:    DM6446 EVM"
 echo "       omap3evm:       OMAP35x EVM"
-echo "       omap3517-evm:   OMAP3517 (Shiva) EVM"
+echo "       am3517-evm:     AM3517 (Shiva) EVM"
 echo ""
 echo "Other machines are valid as well, but listing those would make this message way too long"
