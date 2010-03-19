@@ -111,6 +111,8 @@ else
     if [ $(readlink /bin/sh) = "dash" ] ; then
         sudo dpkg-reconfigure dash
     fi
+
+	echo "There now is a sourceable script in ~/.oe/enviroment. You can do '. ~/.oe/environment' and run 'bitbake something' without this script"
 fi # if -e ~/.oe/environment
 }
 
