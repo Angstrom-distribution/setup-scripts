@@ -38,6 +38,7 @@ function set_environment()
 # If an env already exists, use it, otherwise generate it
 #--------------------------------------------------------------------------
 if [ -e ~/.oe/environment ] ; then
+	echo "Using ~/.oe/environment to setup needed variables. You can do '. ~/.oe/environment' and run 'bitbake something' without using $0 as wrapper"
 	. ~/.oe/environment
 else
 
@@ -157,6 +158,9 @@ function oe_config()
 {
     set_environment
     config_oe
+
+    echo ""
+	echo "Setup for ${CL_MACHINE} completed"
 }
 
 
