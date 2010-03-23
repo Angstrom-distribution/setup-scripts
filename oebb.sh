@@ -58,9 +58,14 @@ else
     OE_BUILD_DIR=${OE_BASE}/build
     OE_BUILD_TMPDIR="${OE_BUILD_DIR}/tmp-${DISTRO_DIRNAME}"
     OE_SOURCE_DIR=${OE_BASE}/sources
+
     mkdir -p ${OE_BUILD_DIR}
     mkdir -p ${OE_SOURCE_DIR}
     export OE_BASE
+
+    echo "export OE_BUILD_DIR=\"${OE_BUILD_DIR}\"" >> ~/.oe/environment
+    echo "export OE_BUILD_TMPDIR=\"${OE_BUILD_TMPDIR}\"" >> ~/.oe/environment
+    echo "export OE_SOURCE_DIR=\"${OE_SOURCE_DIR}\"" >> ~/.oe/environment
 
 	echo "export OE_BASE=\"${OE_BASE}\"" >> ~/.oe/environment
 
