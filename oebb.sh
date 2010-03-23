@@ -179,7 +179,9 @@ function update_bitbake()
 ###############################################################################
 function update_oe()
 {
-    config_git_proxy
+    if [ "x$PROXYHOST" != "x" ] ; then
+        config_git_proxy
+    fi
 
     if [ ! -d  ${OE_SOURCE_DIR}/org.openembedded.dev ]; then
         echo Checking out OpenEmbedded
