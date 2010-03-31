@@ -14,6 +14,10 @@
 #           Print bitbake command it executes
 # 20091012: Add argument to accept commit id.
 # 20091202: Fix proxy setup
+#
+# For further changes consult 'git log' or browse to:
+#   http://gitorious.org/angstrom/angstrom-setup-scripts/commits
+# to see the latest revision history
 
 ###############################################################################
 # User specific vars like proxy servers
@@ -269,6 +273,9 @@ MACHINE ?= "${MACHINE}"
 
 # Set TMPDIR instead of defaulting it to $pwd/tmp
 TMPDIR = "${OE_BUILD_TMPDIR}"
+
+# Don't generate the mirror tarball for SCM repos, the snapshot is enough
+BB_GENERATE_MIRROR_TARBALLS = "0"
 
 # Go through the Firewall
 #HTTP_PROXY        = "http://${PROXYHOST}:${PROXYPORT}/"
