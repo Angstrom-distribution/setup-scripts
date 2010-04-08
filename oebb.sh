@@ -179,8 +179,8 @@ function update_bitbake()
 
     if [ ! -d ${OE_SOURCE_DIR}/bitbake ]; then
         echo Checking out bitbake
-        git clone git://git.openembedded.net/bitbake ${OE_SOURCE_DIR}/bitbake
-        cd ${OE_SOURCE_DIR}/bitbake && git checkout -b 1.8 origin/1.8
+        git clone git://git.openembedded.org/bitbake ${OE_SOURCE_DIR}/bitbake
+        cd ${OE_SOURCE_DIR}/bitbake && git checkout -b 1.10 origin/1.10
     else
         cd ${OE_SOURCE_DIR}/bitbake && git pull --rebase
     fi
@@ -198,7 +198,7 @@ function update_oe()
 
     if [ ! -d  ${OE_SOURCE_DIR}/org.openembedded.dev ]; then
         echo Checking out OpenEmbedded
-        git clone "git://git.openembedded.net/openembedded" ${OE_SOURCE_DIR}/org.openembedded.dev
+        git clone "git://git.openembedded.org/openembedded" ${OE_SOURCE_DIR}/org.openembedded.dev
         cd ${OE_SOURCE_DIR}/org.openembedded.dev
         if [ ! -r ${OE_COMMIT_ID} ]; 
         then
