@@ -32,6 +32,14 @@ PROXYHOST=""
 ###############################################################################
 OE_BASE=${PWD}
 
+#--------------------------------------------------------------------------
+# Check if this script was cloned from http://gitorious.org/angstrom/angstrom-setup-scripts or not
+#--------------------------------------------------------------------------
+
+if [ -e ${OE_BASE}/.gitmodules ] ; then
+	USE_SUBMODULES = "sort-of-true"
+fi
+
 ###############################################################################
 # SET_ENVIRONMENT() - Setup environment variables for OE development
 ###############################################################################
@@ -111,7 +119,7 @@ else
     #--------------------------------------------------------------------------
     # Set up the bitbake path to find the OpenEmbedded recipes.
     #--------------------------------------------------------------------------
-    export BBPATH=${OE_BUILD_DIR}:${OE_SOURCE_DIR}/org.openembedded.dev${BBPATH_EXTRA}
+    export BBPATH=${OE_BUILD_DIR}:${OE_SOURCE_DIR}/openembedded${BBPATH_EXTRA}
   
     echo "export BBPATH=\"${BBPATH}\"" >> ~/.oe/environment
  
@@ -177,12 +185,16 @@ function update_bitbake()
         config_git_proxy
     fi
 
-    if [ ! -d ${OE_SOURCE_DIR}/bitbake ]; then
-        echo Checking out bitbake
-        git clone git://git.openembedded.org/bitbake ${OE_SOURCE_DIR}/bitbake
-        cd ${OE_SOURCE_DIR}/bitbake && git checkout -b 1.10 origin/1.10
+    if [ "USE_SUBMODULES" = "true" ] ; then
+        git submodule update --init ${OE_SOURCE_DIR}/bitbake
     else
-        cd ${OE_SOURCE_DIR}/bitbake && git pull --rebase
+        if [ ! -d ${OE_SOURCE_DIR}/bitbake ]; then
+            echo Checking out bitbake
+            git clone git://git.openembedded.org/bitbake ${OE_SOURCE_DIR}/bitbake
+            cd ${OE_SOURCE_DIR}/bitbake && git checkout -b 1.10 origin/1.10
+        else
+            cd ${OE_SOURCE_DIR}/bitbake && git pull --rebase
+        fi
     fi
 }
 
@@ -196,21 +208,25 @@ function update_oe()
         config_git_proxy
     fi
 
-    if [ ! -d  ${OE_SOURCE_DIR}/org.openembedded.dev ]; then
-        echo Checking out OpenEmbedded
-        git clone "git://git.openembedded.org/openembedded" ${OE_SOURCE_DIR}/org.openembedded.dev
-        cd ${OE_SOURCE_DIR}/org.openembedded.dev
-        if [ ! -r ${OE_COMMIT_ID} ]; 
-        then
-            echo "Checkout commit id: ${OE_COMMIT_ID}"
-            git checkout -b install ${OE_COMMIT_ID}
-        else
-            git checkout -b org.openembedded.dev origin/org.openembedded.dev
-        fi
+    if [ "USE_SUBMODULES" = "true" ] ; then
+        git submodule update --init ${OE_SOURCE_DIR}/openembedded
     else
-        echo Updating OpenEmbedded
-        cd ${OE_SOURCE_DIR}/org.openembedded.dev
-        git pull --rebase 
+        if [ ! -d  ${OE_SOURCE_DIR}/openembedded ]; then
+            echo Checking out OpenEmbedded
+            git clone "git://git.openembedded.org/openembedded" ${OE_SOURCE_DIR}/openembedded
+            cd ${OE_SOURCE_DIR}/openembedded
+            if [ ! -r ${OE_COMMIT_ID} ]; 
+            then
+                echo "Checkout commit id: ${OE_COMMIT_ID}"
+                git checkout -b install ${OE_COMMIT_ID}
+            else
+                git checkout -b org.openembedded.dev origin/org.openembedded.dev
+            fi
+        else
+            echo Updating OpenEmbedded
+            cd ${OE_SOURCE_DIR}/openembedded
+            git pull --rebase 
+        fi
     fi
 }
 
@@ -256,7 +272,7 @@ DL_DIR = "${OE_BUILD_DIR}/downloads"
 INHERIT += "rm_work"
 
 # Which files do we want to parse:
-BBFILES := "${OE_SOURCE_DIR}/org.openembedded.dev/recipes/*/*.bb"
+BBFILES := "${OE_SOURCE_DIR}/openembedded/recipes/*/*.bb"
 BBMASK = ""
 
 # What kind of images do we want?
