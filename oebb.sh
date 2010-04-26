@@ -145,6 +145,16 @@ function update_all()
     update_oe
 }
 
+###############################################################################
+# CLEAN_OE() - Delete TMPDIR
+###############################################################################
+function clean_oe()
+{
+    set_environment
+	echo "Cleaning ${OE_BUILD_TMPDIR}"
+	rm -rf ${OE_BUILD_TMPDIR}
+}
+
 
 ###############################################################################
 # OE_BUILD() - Build an OE package or image
@@ -342,6 +352,9 @@ _EOF
 ###############################################################################
 # Build the specified OE packages or images.
 ###############################################################################
+
+# FIXME: convert to case/esac
+
 if [ $# -gt 0 ]
 then
     if [ $1 = "update" ]
@@ -371,6 +384,12 @@ then
         CL_MACHINE=$1
         shift
         oe_config $*
+        exit 0
+    fi
+
+    if [ $1 = "clean" ]
+    then
+        clean_oe
         exit 0
     fi
 fi
