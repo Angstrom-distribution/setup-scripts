@@ -196,9 +196,11 @@ function update_bitbake()
     fi
 
     if [ "USE_SUBMODULES" = "true" ] ; then
+        echo "Updating bitbake submodule"
         git submodule update --init ${OE_SOURCE_DIR}/bitbake
     else
-        if [ ! -d ${OE_SOURCE_DIR}/bitbake ]; then
+        if [ ! -d ${OE_SOURCE_DIR}/bitbake/bin ]; then
+            rm -rf  ${OE_SOURCE_DIR}/bitbake
             echo Checking out bitbake
             git clone git://git.openembedded.org/bitbake ${OE_SOURCE_DIR}/bitbake
             cd ${OE_SOURCE_DIR}/bitbake && git checkout -b 1.10 origin/1.10
@@ -219,9 +221,11 @@ function update_oe()
     fi
 
     if [ "USE_SUBMODULES" = "true" ] ; then
+        echo "Updating OE submodule"
         git submodule update --init ${OE_SOURCE_DIR}/openembedded
     else
-        if [ ! -d  ${OE_SOURCE_DIR}/openembedded ]; then
+        if [ ! -d  ${OE_SOURCE_DIR}/openembedded/conf ]; then
+            rm -rf  ${OE_SOURCE_DIR}/openembedded/
             echo Checking out OpenEmbedded
             git clone "git://git.openembedded.org/openembedded" ${OE_SOURCE_DIR}/openembedded
             cd ${OE_SOURCE_DIR}/openembedded
