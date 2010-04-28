@@ -347,9 +347,9 @@ else
 fi
 _EOF
         chmod +x ${GIT_CONFIG_DIR}/git-proxy.sh
+        export GIT_PROXY_COMMAND=${GIT_CONFIG_DIR}/git-proxy.sh
+        echo "export GIT_PROXY_COMMAND=\"\${GIT_CONFIG_DIR}/git-proxy.sh\"" >> ~/.oe/environment
     fi
-    export GIT_PROXY_COMMAND=${GIT_CONFIG_DIR}/git-proxy.sh
-    echo "export GIT_PROXY_COMMAND=\"\${GIT_CONFIG_DIR}/git-proxy.sh\"" >> ~/.oe/environment
 }
 
 
