@@ -93,7 +93,7 @@ else
     # Make sure Bitbake doesn't filter out the following variables from our
     # environment.
     #--------------------------------------------------------------------------
-    export BB_ENV_EXTRAWHITE="MACHINE DISTRO http_proxy ftp_proxy no_proxy GIT_PROXY_COMMAND"
+    export BB_ENV_EXTRAWHITE="MACHINE DISTRO GIT_PROXY_COMMAND"
 
     echo "export BB_ENV_EXTRAWHITE=\"${BB_ENV_EXTRAWHITE}\"" >> ~/.oe/environment
 
