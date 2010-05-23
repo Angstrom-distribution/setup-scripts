@@ -289,6 +289,9 @@ INHERIT += "rm_work"
 BBFILES := "${OE_SOURCE_DIR}/openembedded/recipes/*/*.bb"
 BBMASK = ""
 
+# Qemu 0.12.x is giving too much problems recently (2010.05), so disable it for users
+ENABLE_BINARY_LOCALE_GENERATION = "0"
+
 # What kind of images do we want?
 IMAGE_FSTYPES += "tar.bz2"
 
