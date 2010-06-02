@@ -234,7 +234,8 @@ function update_oe()
                 echo "Checkout commit id: ${OE_COMMIT_ID}"
                 git checkout -b install ${OE_COMMIT_ID}
             else
-                git checkout -b org.openembedded.dev origin/org.openembedded.dev
+				echo "Checking out OE, depending on your git version you might get a harmless, what git alarmingly calls 'fatal' error. It just means the branch already exists."
+                git checkout -b org.openembedded.dev origin/org.openembedded.dev || true
             fi
         else
             echo Updating OpenEmbedded
