@@ -282,7 +282,7 @@ function config_oe()
     if [ ! -e ${OE_BUILD_DIR}/conf/local.conf ]; then
         cat > ${OE_BUILD_DIR}/conf/local.conf <<_EOF
 # Where to store sources
-DL_DIR = "${OE_BUILD_DIR}/downloads"
+DL_DIR = "${OE_SOURCE_DIR}/downloads"
 
 INHERIT += "rm_work"
 
