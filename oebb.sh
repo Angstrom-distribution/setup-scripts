@@ -50,7 +50,6 @@ function set_environment()
 # If an env already exists, use it, otherwise generate it
 #--------------------------------------------------------------------------
 if [ -e ~/.oe/environment ] ; then
-    echo "Using ~/.oe/environment to setup needed variables. You can do '. ~/.oe/environment' and run 'bitbake something' without using $0 as wrapper"
     . ~/.oe/environment
 else
 
@@ -162,6 +161,9 @@ function clean_oe()
 function oe_build()
 {
     set_environment
+    if [ -e ~/.oe/environment ] ; then
+        echo "Using ~/.oe/environment to setup needed variables. It is recommended to do '. ~/.oe/environment' and run 'bitbake something' without using $0 as wrapper"
+    fi
     cd ${OE_BUILD_DIR}
     if [ -z $MACHINE ] ; then
         echo "Executing: bitbake" $*
@@ -205,6 +207,8 @@ function update_bitbake()
             git clone git://git.openembedded.org/bitbake ${OE_SOURCE_DIR}/bitbake
             cd ${OE_SOURCE_DIR}/bitbake && git checkout -b 1.10 origin/1.10
         else
+			echo "Updating bitbake"
+            echo "Executing: cd ${OE_SOURCE_DIR}/bitbake && git pull --rebase"
             cd ${OE_SOURCE_DIR}/bitbake && git pull --rebase
         fi
     fi
@@ -239,8 +243,8 @@ function update_oe()
             fi
         else
             echo Updating OpenEmbedded
-            cd ${OE_SOURCE_DIR}/openembedded
-            git pull --rebase 
+            echo "Executing: cd ${OE_SOURCE_DIR}/openembedded && git pull --rebase"
+            cd ${OE_SOURCE_DIR}/openembedded && git pull --rebase 
         fi
     fi
 }
