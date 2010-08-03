@@ -244,8 +244,16 @@ function update_oe()
             fi
         else
             echo Updating OpenEmbedded
-            echo "Executing: cd ${OE_SOURCE_DIR}/openembedded && git pull --rebase"
-            cd ${OE_SOURCE_DIR}/openembedded && git pull --rebase
+            cd ${OE_SOURCE_DIR}/openembedded
+            if [ ! -r ${OE_COMMIT_ID} ];
+            then
+                echo "Checkout commit id: ${OE_COMMIT_ID}"
+                git remote update origin/org.openembedded.dev
+                git checkout -b install ${OE_COMMIT_ID}
+            else
+                echo "Executing: git pull --rebase"
+                git pull --rebase
+            fi
         fi
     fi
 }
