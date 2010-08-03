@@ -126,7 +126,8 @@ else
     # Reconfigure dash
     #--------------------------------------------------------------------------
     if [ $(readlink /bin/sh) = "dash" ] ; then
-        sudo dpkg-reconfigure dash
+        sudo aptitude install expect -y
+        expect -c 'spawn sudo dpkg-reconfigure -freadline dash; send "n\n"; interact;'
     fi
 
     echo "There now is a sourceable script in ~/.oe/enviroment. You can do '. ~/.oe/environment' and run 'bitbake something' without using $0 as wrapper"
