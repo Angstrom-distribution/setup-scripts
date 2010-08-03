@@ -37,7 +37,7 @@ OE_BASE=${PWD}
 #--------------------------------------------------------------------------
 
 if [ -e ${OE_BASE}/.gitmodules ] ; then
-	USE_SUBMODULES="sort-of-true"
+    USE_SUBMODULES="sort-of-true"
 fi
 
 ###############################################################################
@@ -119,11 +119,11 @@ else
     # Set up the bitbake path to find the OpenEmbedded recipes.
     #--------------------------------------------------------------------------
     export BBPATH=${OE_BUILD_DIR}:${OE_SOURCE_DIR}/openembedded${BBPATH_EXTRA}
-  
+
     echo "export BBPATH=\"${BBPATH}\"" >> ~/.oe/environment
- 
+
     #--------------------------------------------------------------------------
-    # Reconfigure dash 
+    # Reconfigure dash
     #--------------------------------------------------------------------------
     if [ $(readlink /bin/sh) = "dash" ] ; then
         sudo dpkg-reconfigure dash
@@ -150,8 +150,8 @@ function update_all()
 function clean_oe()
 {
     set_environment
-	echo "Cleaning ${OE_BUILD_TMPDIR}"
-	rm -rf ${OE_BUILD_TMPDIR}
+    echo "Cleaning ${OE_BUILD_TMPDIR}"
+    rm -rf ${OE_BUILD_TMPDIR}
 }
 
 
@@ -176,7 +176,7 @@ function oe_build()
 
 
 ###############################################################################
-# OE_CONFIG() - Configure OE for a target 
+# OE_CONFIG() - Configure OE for a target
 ###############################################################################
 function oe_config()
 {
@@ -207,7 +207,7 @@ function update_bitbake()
             git clone git://git.openembedded.org/bitbake ${OE_SOURCE_DIR}/bitbake
             cd ${OE_SOURCE_DIR}/bitbake && git checkout -b 1.10 origin/1.10
         else
-			echo "Updating bitbake"
+            echo "Updating bitbake"
             echo "Executing: cd ${OE_SOURCE_DIR}/bitbake && git pull --rebase"
             cd ${OE_SOURCE_DIR}/bitbake && git pull --rebase
         fi
@@ -233,18 +233,18 @@ function update_oe()
             echo Checking out OpenEmbedded
             git clone "git://git.openembedded.org/openembedded" ${OE_SOURCE_DIR}/openembedded
             cd ${OE_SOURCE_DIR}/openembedded
-            if [ ! -r ${OE_COMMIT_ID} ]; 
+            if [ ! -r ${OE_COMMIT_ID} ];
             then
                 echo "Checkout commit id: ${OE_COMMIT_ID}"
                 git checkout -b install ${OE_COMMIT_ID}
             else
-				echo "Checking out OE, depending on your git version you might get a harmless, what git alarmingly calls 'fatal' error. It just means the branch already exists."
+                echo "Checking out OE, depending on your git version you might get a harmless, what git alarmingly calls 'fatal' error. It just means the branch already exists."
                 git checkout -b org.openembedded.dev origin/org.openembedded.dev || true
             fi
         else
             echo Updating OpenEmbedded
             echo "Executing: cd ${OE_SOURCE_DIR}/openembedded && git pull --rebase"
-            cd ${OE_SOURCE_DIR}/openembedded && git pull --rebase 
+            cd ${OE_SOURCE_DIR}/openembedded && git pull --rebase
         fi
     fi
 }
