@@ -248,8 +248,9 @@ function update_oe()
             if [ ! -r ${OE_COMMIT_ID} ];
             then
                 echo "Checkout commit id: ${OE_COMMIT_ID}"
-                git remote update origin/org.openembedded.dev
-                git checkout -b install ${OE_COMMIT_ID}
+                git remote update origin
+                git checkout ${OE_COMMIT_ID}
+                git checkout -b install
             else
                 echo "Executing: git pull --rebase"
                 git pull --rebase
