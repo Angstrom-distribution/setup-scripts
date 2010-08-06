@@ -292,6 +292,19 @@ function config_oe()
     #--------------------------------------------------------------------------
     mkdir -p ${OE_BUILD_DIR}/conf
 
+    if [ ! -e ${OE_BUILD_DIR}/conf/bblayers.conf ]; then
+	cat > ${OE_BUILD_DIR}/conf/bblayers.conf <<_EOF
+# LAYER_CONF_VERSION is increased each time build/conf/bblayers.conf
+# changes incompatibly
+LCONF_VERSION = "1"
+
+BBFILES ?= ""
+BBLAYERS = " \
+  ${OE_SOURCE_DIR}/meta-marmita \
+  "
+_EOF
+    fi
+
     # There's no need to rewrite local.conf when changing MACHINE
     if [ ! -e ${OE_BUILD_DIR}/conf/local.conf ]; then
         cat > ${OE_BUILD_DIR}/conf/local.conf <<_EOF
