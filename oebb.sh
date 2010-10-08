@@ -299,9 +299,9 @@ function config_oe()
 LCONF_VERSION = "1"
 
 BBFILES ?= ""
-BBLAYERS = " \
-  ${OE_SOURCE_DIR}/openembedded \
-  ${OE_SOURCE_DIR}/meta-marmita \
+BBLAYERS = " \\
+  ${OE_SOURCE_DIR}/openembedded \\
+  ${OE_SOURCE_DIR}/meta-marmita \\
   "
 _EOF
     fi
