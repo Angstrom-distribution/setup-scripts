@@ -300,6 +300,7 @@ LCONF_VERSION = "1"
 
 BBFILES ?= ""
 BBLAYERS = " \
+  ${OE_SOURCE_DIR}/openembedded \
   ${OE_SOURCE_DIR}/meta-marmita \
   "
 _EOF
@@ -314,7 +315,6 @@ DL_DIR = "${OE_SOURCE_DIR}/downloads"
 INHERIT += "rm_work"
 
 # Which files do we want to parse:
-BBFILES := "${OE_SOURCE_DIR}/openembedded/recipes/*/*.bb"
 BBMASK = ""
 
 # Qemu 0.12.x is giving too much problems recently (2010.05), so disable it for users
