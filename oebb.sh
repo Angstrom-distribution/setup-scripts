@@ -299,9 +299,11 @@ function config_oe()
 LCONF_VERSION = "1"
 
 BBFILES ?= ""
+
+# Add your overlay location to BBLAYERS
+# Make sure to have a conf/layers.conf in there
 BBLAYERS = " \\
   ${OE_SOURCE_DIR}/openembedded \\
-  ${OE_SOURCE_DIR}/meta-marmita \\
   "
 _EOF
     fi
