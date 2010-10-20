@@ -161,6 +161,15 @@ function clean_oe()
 ###############################################################################
 function oe_build()
 {
+    if [ ! -e ${OE_BUILD_DIR}/conf/local.conf ] ; then
+        if [ -z $MACHINE ] ; then
+            echo "No config found, please run $0 config <machine> first"
+        else
+            CL_MACHINE=$MACHINE
+            config_oe && update_all
+        fi
+    fi
+
     set_environment
     if [ -e ~/.oe/environment ] ; then
         echo "Using ~/.oe/environment to setup needed variables. It is recommended to do '. ~/.oe/environment' and run 'bitbake something' without using $0 as wrapper"
@@ -183,6 +192,7 @@ function oe_config()
 {
     set_environment
     config_oe
+    update_all
 
     echo ""
     echo "Setup for ${CL_MACHINE} completed"
