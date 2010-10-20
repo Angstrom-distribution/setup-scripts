@@ -125,7 +125,7 @@ else
     #--------------------------------------------------------------------------
     # Reconfigure dash
     #--------------------------------------------------------------------------
-    if [ $(readlink /bin/sh) = "dash" ] ; then
+    if [ "$(readlink /bin/sh)" = "dash" ] ; then
         sudo aptitude install expect -y
         expect -c 'spawn sudo dpkg-reconfigure -freadline dash; send "n\n"; interact;'
     fi
@@ -166,6 +166,7 @@ function oe_build()
             echo "No config found, please run $0 config <machine> first"
         else
             CL_MACHINE=$MACHINE
+            set_environment
             config_oe && update_all
         fi
     fi
