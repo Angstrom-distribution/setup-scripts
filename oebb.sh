@@ -318,7 +318,7 @@ BBFILES ?= ""
 # Make sure to have a conf/layers.conf in there
 BBLAYERS = " \\
   ${OE_SOURCE_DIR}/openembedded/meta \\
-  ${OE_SOURCE_DIR}/angstrom-layers \\
+  ${OE_SOURCE_DIR}/angstrom-layers/meta-angstrom \\
   "
 _EOF
     fi
