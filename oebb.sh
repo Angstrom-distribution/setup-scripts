@@ -58,7 +58,7 @@ else
     #--------------------------------------------------------------------------
     # Specify distribution information
     #--------------------------------------------------------------------------
-    DISTRO="angstrom-2008.1"
+    DISTRO="angstrom-2010.x"
     DISTRO_DIRNAME=`echo $DISTRO | sed s#[.-]#_#g`
 
     echo "export DISTRO=\"${DISTRO}\"" > ~/.oe/environment-yocto
@@ -118,7 +118,7 @@ else
     #--------------------------------------------------------------------------
     # Set up the bitbake path to find the OpenEmbedded recipes.
     #--------------------------------------------------------------------------
-    export BBPATH=${OE_BUILD_DIR}:${OE_SOURCE_DIR}/openembedded${BBPATH_EXTRA}
+    export BBPATH=${OE_BUILD_DIR}:${OE_SOURCE_DIR}/openembedded/meta${BBPATH_EXTRA}
 
     echo "export BBPATH=\"${BBPATH}\"" >> ~/.oe/environment-yocto
 
@@ -239,8 +239,12 @@ function update_oe()
         echo "Updating OE submodule"
         git submodule update --init ${OE_SOURCE_DIR}/openembedded
     else
-        if [ ! -d  ${OE_SOURCE_DIR}/openembedded/conf ]; then
-            rm -rf  ${OE_SOURCE_DIR}/openembedded/
+		if [ ! -d ${OE_SOURCE_DIR}/angstrom-layers ] ; then 
+                echo "Checking out angstrom layers"
+			    git clone "git://gitorious.org/angstrom/angstrom-layers.git" ${OE_SOURCE_DIR}/angstrom-layers
+        fi
+        if [ ! -d ${OE_SOURCE_DIR}/openembedded/meta ]; then
+            rm -rf ${OE_SOURCE_DIR}/openembedded/
             echo Checking out OpenEmbedded
             git clone "git://git.pokylinux.org/poky" ${OE_SOURCE_DIR}/openembedded
             cd ${OE_SOURCE_DIR}/openembedded
@@ -306,14 +310,15 @@ function config_oe()
 	cat > ${OE_BUILD_DIR}/conf/bblayers.conf <<_EOF
 # LAYER_CONF_VERSION is increased each time build/conf/bblayers.conf
 # changes incompatibly
-LCONF_VERSION = "1"
+LCONF_VERSION = "3"
 
 BBFILES ?= ""
 
 # Add your overlay location to BBLAYERS
 # Make sure to have a conf/layers.conf in there
 BBLAYERS = " \\
-  ${OE_SOURCE_DIR}/openembedded \\
+  ${OE_SOURCE_DIR}/openembedded/meta \\
+  ${OE_SOURCE_DIR}/angstrom-layers \\
   "
 _EOF
     fi
@@ -321,6 +326,10 @@ _EOF
     # There's no need to rewrite local.conf when changing MACHINE
     if [ ! -e ${OE_BUILD_DIR}/conf/local.conf ]; then
         cat > ${OE_BUILD_DIR}/conf/local.conf <<_EOF
+
+# CONF_VERSION is increased each time build/conf/ changes incompatibly
+CONF_VERSION = "1"
+
 # Where to store sources
 DL_DIR = "${OE_SOURCE_DIR}/downloads"
 
