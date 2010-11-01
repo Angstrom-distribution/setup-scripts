@@ -49,8 +49,8 @@ function set_environment()
 #--------------------------------------------------------------------------
 # If an env already exists, use it, otherwise generate it
 #--------------------------------------------------------------------------
-if [ -e ~/.oe/environment ] ; then
-    . ~/.oe/environment
+if [ -e ~/.oe/environment-yocto ] ; then
+    . ~/.oe/environment-yocto
 else
 
     mkdir -p ~/.oe/
@@ -61,8 +61,8 @@ else
     DISTRO="angstrom-2008.1"
     DISTRO_DIRNAME=`echo $DISTRO | sed s#[.-]#_#g`
 
-    echo "export DISTRO=\"${DISTRO}\"" > ~/.oe/environment
-    echo "export DISTRO_DIRNAME=\"${DISTRO_DIRNAME}\"" >> ~/.oe/environment
+    echo "export DISTRO=\"${DISTRO}\"" > ~/.oe/environment-yocto
+    echo "export DISTRO_DIRNAME=\"${DISTRO_DIRNAME}\"" >> ~/.oe/environment-yocto
 
     #--------------------------------------------------------------------------
     # Specify the root directory for your OpenEmbedded development
@@ -75,18 +75,18 @@ else
     mkdir -p ${OE_SOURCE_DIR}
     export OE_BASE
 
-    echo "export OE_BUILD_DIR=\"${OE_BUILD_DIR}\"" >> ~/.oe/environment
-    echo "export OE_BUILD_TMPDIR=\"${OE_BUILD_TMPDIR}\"" >> ~/.oe/environment
-    echo "export OE_SOURCE_DIR=\"${OE_SOURCE_DIR}\"" >> ~/.oe/environment
+    echo "export OE_BUILD_DIR=\"${OE_BUILD_DIR}\"" >> ~/.oe/environment-yocto
+    echo "export OE_BUILD_TMPDIR=\"${OE_BUILD_TMPDIR}\"" >> ~/.oe/environment-yocto
+    echo "export OE_SOURCE_DIR=\"${OE_SOURCE_DIR}\"" >> ~/.oe/environment-yocto
 
-    echo "export OE_BASE=\"${OE_BASE}\"" >> ~/.oe/environment
+    echo "export OE_BASE=\"${OE_BASE}\"" >> ~/.oe/environment-yocto
 
     #--------------------------------------------------------------------------
     # Include up-to-date bitbake in our PATH.
     #--------------------------------------------------------------------------
     export PATH=${OE_SOURCE_DIR}/bitbake/bin:${PATH}
 
-    echo "export PATH=\"${PATH}\"" >> ~/.oe/environment
+    echo "export PATH=\"${PATH}\"" >> ~/.oe/environment-yocto
 
     #--------------------------------------------------------------------------
     # Make sure Bitbake doesn't filter out the following variables from our
@@ -94,7 +94,7 @@ else
     #--------------------------------------------------------------------------
     export BB_ENV_EXTRAWHITE="MACHINE DISTRO GIT_PROXY_COMMAND ANGSTROMLIBC http_proxy ftp_proxy https_proxy all_proxy ALL_PROXY no_proxy SSH_AGENT_PID SSH_AUTH_SOCK BB_SRCREV_POLICY SDKMACHINE BB_NUMBER_THREADS"
 
-    echo "export BB_ENV_EXTRAWHITE=\"${BB_ENV_EXTRAWHITE}\"" >> ~/.oe/environment
+    echo "export BB_ENV_EXTRAWHITE=\"${BB_ENV_EXTRAWHITE}\"" >> ~/.oe/environment-yocto
 
     #--------------------------------------------------------------------------
     # Specify proxy information
@@ -106,10 +106,10 @@ else
         export SVN_CONFIG_DIR=${OE_BUILD_DIR}/subversion_config
         export GIT_CONFIG_DIR=${OE_BUILD_DIR}/git_config
 
-        echo "export http_proxy=\"${http_proxy}\"" >> ~/.oe/environment
-        echo "export ftp_proxy=\"${ftp_proxy}\"" >> ~/.oe/environment
-        echo "export SVN_CONFIG_DIR=\"${SVN_CONFIG_DIR}\"" >> ~/.oe/environment
-        echo "export GIT_CONFIG_DIR=\"${GIT_CONFIG_DIR}\"" >> ~/.oe/environment
+        echo "export http_proxy=\"${http_proxy}\"" >> ~/.oe/environment-yocto
+        echo "export ftp_proxy=\"${ftp_proxy}\"" >> ~/.oe/environment-yocto
+        echo "export SVN_CONFIG_DIR=\"${SVN_CONFIG_DIR}\"" >> ~/.oe/environment-yocto
+        echo "export GIT_CONFIG_DIR=\"${GIT_CONFIG_DIR}\"" >> ~/.oe/environment-yocto
 
         config_svn_proxy
         config_git_proxy
@@ -120,7 +120,7 @@ else
     #--------------------------------------------------------------------------
     export BBPATH=${OE_BUILD_DIR}:${OE_SOURCE_DIR}/openembedded${BBPATH_EXTRA}
 
-    echo "export BBPATH=\"${BBPATH}\"" >> ~/.oe/environment
+    echo "export BBPATH=\"${BBPATH}\"" >> ~/.oe/environment-yocto
 
     #--------------------------------------------------------------------------
     # Reconfigure dash
@@ -130,8 +130,8 @@ else
         expect -c 'spawn sudo dpkg-reconfigure -freadline dash; send "n\n"; interact;'
     fi
 
-    echo "There now is a sourceable script in ~/.oe/enviroment. You can do '. ~/.oe/environment' and run 'bitbake something' without using $0 as wrapper"
-fi # if -e ~/.oe/environment
+    echo "There now is a sourceable script in ~/.oe/enviroment. You can do '. ~/.oe/environment-yocto' and run 'bitbake something' without using $0 as wrapper"
+fi # if -e ~/.oe/environment-yocto
 }
 
 
@@ -141,8 +141,8 @@ fi # if -e ~/.oe/environment
 function update_all()
 {
     set_environment
-    update_bitbake
     update_oe
+    update_bitbake
 }
 
 ###############################################################################
@@ -172,8 +172,8 @@ function oe_build()
     fi
 
     set_environment
-    if [ -e ~/.oe/environment ] ; then
-        echo "Using ~/.oe/environment to setup needed variables. It is recommended to do '. ~/.oe/environment' and run 'bitbake something' without using $0 as wrapper"
+    if [ -e ~/.oe/environment-yocto ] ; then
+        echo "Using ~/.oe/environment-yocto to setup needed variables. It is recommended to do '. ~/.oe/environment-yocto' and run 'bitbake something' without using $0 as wrapper"
     fi
     cd ${OE_BUILD_DIR}
     if [ -z $MACHINE ] ; then
@@ -214,10 +214,9 @@ function update_bitbake()
         git submodule update --init ${OE_SOURCE_DIR}/bitbake
     else
         if [ ! -d ${OE_SOURCE_DIR}/bitbake/bin ]; then
-            rm -rf  ${OE_SOURCE_DIR}/bitbake
-            echo Checking out bitbake
-            git clone git://git.openembedded.org/bitbake ${OE_SOURCE_DIR}/bitbake
-            cd ${OE_SOURCE_DIR}/bitbake && git checkout -b 1.10 origin/1.10
+            rm -rf ${OE_SOURCE_DIR}/bitbake
+            echo Installing bitbake
+			ln -sf ${OE_SOURCE_DIR}/openembedded/bitbake ${OE_SOURCE_DIR}/bitbake
         else
             echo "Updating bitbake"
             echo "Executing: cd ${OE_SOURCE_DIR}/bitbake && git pull --rebase"
@@ -243,7 +242,7 @@ function update_oe()
         if [ ! -d  ${OE_SOURCE_DIR}/openembedded/conf ]; then
             rm -rf  ${OE_SOURCE_DIR}/openembedded/
             echo Checking out OpenEmbedded
-            git clone "git://git.openembedded.org/openembedded" ${OE_SOURCE_DIR}/openembedded
+            git clone "git://git.pokylinux.org/poky" ${OE_SOURCE_DIR}/openembedded
             cd ${OE_SOURCE_DIR}/openembedded
             if [ ! -r ${OE_COMMIT_ID} ];
             then
@@ -251,7 +250,7 @@ function update_oe()
                 git checkout -b install ${OE_COMMIT_ID}
             else
                 echo "Checking out OE, depending on your git version you might get a harmless, what git alarmingly calls 'fatal' error. It just means the branch already exists."
-                git checkout -b org.openembedded.dev origin/org.openembedded.dev || true
+                git checkout -b master origin/master || true
             fi
         else
             echo Updating OpenEmbedded
@@ -393,7 +392,7 @@ fi
 _EOF
         chmod +x ${GIT_CONFIG_DIR}/git-proxy.sh
         export GIT_PROXY_COMMAND=${GIT_CONFIG_DIR}/git-proxy.sh
-        echo "export GIT_PROXY_COMMAND=\"\${GIT_CONFIG_DIR}/git-proxy.sh\"" >> ~/.oe/environment
+        echo "export GIT_PROXY_COMMAND=\"\${GIT_CONFIG_DIR}/git-proxy.sh\"" >> ~/.oe/environment-yocto
     fi
 }
 
@@ -450,7 +449,7 @@ echo "       $0 update"
 echo ""
 echo "       Not recommended, but also possible:"
 echo "       $0 bitbake <bitbake target>"
-echo "       It is recommended to do '. ~/.oe/environment' and run 'bitbake something' without using oebb.sh as wrapper"
+echo "       It is recommended to do '. ~/.oe/environment-yocto' and run 'bitbake something' without using oebb.sh as wrapper"
 echo ""
 echo "You must invoke \"$0 config <machine>\" and then \"$0 update\" prior"
 echo "to your first bitbake command"
