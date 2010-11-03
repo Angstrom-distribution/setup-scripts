@@ -320,6 +320,7 @@ BBLAYERS = " \\
   ${OE_SOURCE_DIR}/openembedded/meta \\
   ${OE_SOURCE_DIR}/angstrom-layers/meta-angstrom \\
   ${OE_SOURCE_DIR}/angstrom-layers/meta-openembedded \\
+  ${OE_SOURCE_DIR}/angstrom-layers/BSP/beagleboard \\
   "
 _EOF
     fi
