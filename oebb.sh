@@ -242,6 +242,9 @@ function update_oe()
 		if [ ! -d ${OE_SOURCE_DIR}/angstrom-layers ] ; then 
                 echo "Checking out angstrom layers"
 			    git clone "git://gitorious.org/angstrom/angstrom-layers.git" ${OE_SOURCE_DIR}/angstrom-layers
+        else
+                echo "Updating angstrom-layers"
+                git stash && git pull --rebase && git stash pop
         fi
         if [ ! -d ${OE_SOURCE_DIR}/openembedded/meta ]; then
             rm -rf ${OE_SOURCE_DIR}/openembedded/
