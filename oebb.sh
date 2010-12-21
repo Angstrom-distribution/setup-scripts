@@ -246,6 +246,15 @@ function update_oe()
                 echo "Updating angstrom-layers"
                 cd ${OE_SOURCE_DIR}/angstrom-layers && git stash && git pull --rebase && git stash pop
         fi
+
+        if [ ! -d ${OE_SOURCE_DIR}/layers/meta-openembedded ] ; then
+                echo "Checking out meta-openembedded layer"
+                git clone "git://git.openembedded.org/meta-openembedded" ${OE_SOURCE_DIR}/layers/meta-openembedded
+        else
+                echo "Updating meta-openembedded layer"
+                cd ${OE_SOURCE_DIR}/layers/meta-openembedded && git stash && git pull --rebase && git stash pop
+        fi
+
         if [ ! -d ${OE_SOURCE_DIR}/openembedded/meta ]; then
             rm -rf ${OE_SOURCE_DIR}/openembedded/
             echo Checking out OpenEmbedded
@@ -322,7 +331,7 @@ BBFILES ?= ""
 BBLAYERS = " \\
   ${OE_SOURCE_DIR}/openembedded/meta \\
   ${OE_SOURCE_DIR}/angstrom-layers/meta-angstrom \\
-  ${OE_SOURCE_DIR}/angstrom-layers/meta-openembedded \\
+  ${OE_SOURCE_DIR}/layers/meta-openembedded \\
   ${OE_SOURCE_DIR}/angstrom-layers/BSP/beagleboard \\
   "
 _EOF
