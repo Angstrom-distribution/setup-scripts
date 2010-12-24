@@ -71,11 +71,14 @@ else
     OE_BUILD_TMPDIR="${OE_BUILD_DIR}/tmp-${DISTRO_DIRNAME}"
     OE_SOURCE_DIR=${OE_BASE}/sources
 
+    export BUILDDIR=${OE_BUILD_DIR}
+
     mkdir -p ${OE_BUILD_DIR}
     mkdir -p ${OE_SOURCE_DIR}
     export OE_BASE
 
     echo "export OE_BUILD_DIR=\"${OE_BUILD_DIR}\"" >> ~/.oe/environment-yocto
+    echo "export BUILDDIR=\"${OE_BUILD_DIR}\"" >> ~/.oe/environment-yocto
     echo "export OE_BUILD_TMPDIR=\"${OE_BUILD_TMPDIR}\"" >> ~/.oe/environment-yocto
     echo "export OE_SOURCE_DIR=\"${OE_SOURCE_DIR}\"" >> ~/.oe/environment-yocto
 
@@ -84,7 +87,7 @@ else
     #--------------------------------------------------------------------------
     # Include up-to-date bitbake in our PATH.
     #--------------------------------------------------------------------------
-    export PATH=${OE_SOURCE_DIR}/bitbake/bin:${PATH}
+    export PATH=${OE_SOURCE_DIR}/openembedded/scripts:${OE_SOURCE_DIR}/bitbake/bin:${PATH}
 
     echo "export PATH=\"${PATH}\"" >> ~/.oe/environment-yocto
 
