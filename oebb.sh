@@ -170,7 +170,7 @@ function oe_build()
         else
             CL_MACHINE=$MACHINE
             set_environment
-            config_oe && update_all
+            config_oe #&& update_all
         fi
     fi
 
@@ -248,6 +248,14 @@ function update_oe()
         else
                 echo "Updating angstrom-layers"
                 cd ${OE_SOURCE_DIR}/angstrom-layers && git stash && git pull --rebase && git stash pop
+        fi
+
+        if [ ! -d ${OE_SOURCE_DIR}/layers/meta-angstrom ] ; then
+                echo "Checking out meta-angstrom layer"
+                git clone "git://gitorious.org/angstrom/meta-angstrom.git" ${OE_SOURCE_DIR}/layers/meta-angstrom
+        else
+                echo "Updating meta-angstrom layer"
+                cd ${OE_SOURCE_DIR}/layers/meta-angstrom && git stash && git pull --rebase && git stash pop
         fi
 
         if [ ! -d ${OE_SOURCE_DIR}/layers/meta-openembedded ] ; then
@@ -333,7 +341,7 @@ BBFILES ?= ""
 # Make sure to have a conf/layers.conf in there
 BBLAYERS = " \\
   ${OE_SOURCE_DIR}/openembedded/meta \\
-  ${OE_SOURCE_DIR}/angstrom-layers/meta-angstrom \\
+  ${OE_SOURCE_DIR}/layers/meta-angstrom \\
   ${OE_SOURCE_DIR}/layers/meta-openembedded \\
   ${OE_SOURCE_DIR}/angstrom-layers/BSP/TI \\
   "
