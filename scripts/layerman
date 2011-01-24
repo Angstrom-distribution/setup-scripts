@@ -1,0 +1,25 @@
+#!/bin/bash
+
+LAYERNAME=$1
+LAYERURI=$2
+BRANCH=$3
+REV=$4
+
+if ! [ -e ${OE_SOURCE_DIR}/layers/${LAYERNAME} ] ; then
+	echo "Layer checkout missing at ${OE_SOURCE_DIR}/layers/${LAYERNAME}, creating one"
+	git clone ${LAYERURI} ${OE_SOURCE_DIR}/layers/${LAYERNAME}
+
+	if [ "${BRANCH}" != "master" ] ; then
+		cd ${OE_SOURCE_DIR}/layers/${LAYERNAME} && git checkout origin/${BRANCH} -b ${BRANCH}
+	fi
+
+	if [ "${REV}" != "HEAD" ] ; then
+		git checkout ${REV}
+	fi
+else
+	if [ "${REV}" = "HEAD" ] ; then
+		cd ${OE_SOURCE_DIR}/layers/${LAYERNAME} && echo "Updating layer at layers/${LAYERNAME}" && git stash && git pull --rebase && git stash apply
+	fi
+	echo ""
+fi
+

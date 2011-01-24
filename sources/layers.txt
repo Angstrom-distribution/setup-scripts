@@ -1,0 +1,4 @@
+# Name,repo-uri,branch,rev
+meta-angstrom,http://git.gitorious.org/angstrom/meta-angstrom.git,master,HEAD
+meta-openembedded,git://git.openembedded.net/meta-openembedded,master,HEAD
+angstrom-layers,http://git.gitorious.org/angstrom/angstrom-layers.git,master,HEAD
