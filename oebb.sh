@@ -250,21 +250,8 @@ function update_oe()
                 cd ${OE_SOURCE_DIR}/angstrom-layers && git stash && git pull --rebase && git stash pop
         fi
 
-        if [ ! -d ${OE_SOURCE_DIR}/layers/meta-angstrom ] ; then
-                echo "Checking out meta-angstrom layer"
-                git clone "git://gitorious.org/angstrom/meta-angstrom.git" ${OE_SOURCE_DIR}/layers/meta-angstrom
-        else
-                echo "Updating meta-angstrom layer"
-                cd ${OE_SOURCE_DIR}/layers/meta-angstrom && git stash && git pull --rebase && git stash pop
-        fi
-
-        if [ ! -d ${OE_SOURCE_DIR}/layers/meta-openembedded ] ; then
-                echo "Checking out meta-openembedded layer"
-                git clone "git://git.openembedded.org/meta-openembedded" ${OE_SOURCE_DIR}/layers/meta-openembedded
-        else
-                echo "Updating meta-openembedded layer"
-                cd ${OE_SOURCE_DIR}/layers/meta-openembedded && git stash && git pull --rebase && git stash pop
-        fi
+		# manage meta-openembedded and meta-angstrom with layerman
+		${OE_BASE}/scripts/layers.awk ${OE_SOURCE_DIR}/layers.txt
 
         if [ ! -d ${OE_SOURCE_DIR}/openembedded/meta ]; then
             rm -rf ${OE_SOURCE_DIR}/openembedded/
