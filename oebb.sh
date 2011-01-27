@@ -238,42 +238,8 @@ function update_oe()
         config_git_proxy
     fi
 
-    if [ "USE_SUBMODULES" = "true" ] ; then
-        echo "Updating OE submodule"
-        git submodule update --init ${OE_SOURCE_DIR}/openembedded
-    else
-
-		# manage meta-openembedded and meta-angstrom with layerman
-		${OE_BASE}/scripts/layers.awk ${OE_SOURCE_DIR}/layers.txt
-
-        if [ ! -d ${OE_SOURCE_DIR}/openembedded/meta ]; then
-            rm -rf ${OE_SOURCE_DIR}/openembedded/
-            echo Checking out OpenEmbedded
-            git clone "git://git.pokylinux.org/poky" ${OE_SOURCE_DIR}/openembedded
-            cd ${OE_SOURCE_DIR}/openembedded
-            if [ ! -r ${OE_COMMIT_ID} ];
-            then
-                echo "Checkout commit id: ${OE_COMMIT_ID}"
-                git checkout -b install ${OE_COMMIT_ID}
-            else
-                echo "Checking out OE, depending on your git version you might get a harmless, what git alarmingly calls 'fatal' error. It just means the branch already exists."
-                git checkout -b master origin/master || true
-            fi
-        else
-            echo Updating OpenEmbedded
-            cd ${OE_SOURCE_DIR}/openembedded
-            if [ ! -r ${OE_COMMIT_ID} ];
-            then
-                echo "Checkout commit id: ${OE_COMMIT_ID}"
-                git remote update origin
-                git checkout ${OE_COMMIT_ID}
-                git checkout -b install
-            else
-                echo "Executing: git pull --rebase"
-                git pull --rebase
-            fi
-        fi
-    fi
+    #manage meta-openembedded and meta-angstrom with layerman
+    ${OE_BASE}/scripts/layers.awk ${OE_SOURCE_DIR}/layers.txt
 }
 
 
