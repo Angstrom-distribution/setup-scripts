@@ -242,13 +242,6 @@ function update_oe()
         echo "Updating OE submodule"
         git submodule update --init ${OE_SOURCE_DIR}/openembedded
     else
-		if [ ! -d ${OE_SOURCE_DIR}/angstrom-layers ] ; then 
-                echo "Checking out angstrom layers"
-			    git clone "git://gitorious.org/angstrom/angstrom-layers.git" ${OE_SOURCE_DIR}/angstrom-layers
-        else
-                echo "Updating angstrom-layers"
-                cd ${OE_SOURCE_DIR}/angstrom-layers && git stash && git pull --rebase && git stash pop
-        fi
 
 		# manage meta-openembedded and meta-angstrom with layerman
 		${OE_BASE}/scripts/layers.awk ${OE_SOURCE_DIR}/layers.txt
@@ -328,8 +321,8 @@ BBFILES ?= ""
 # Make sure to have a conf/layers.conf in there
 BBLAYERS = " \\
   ${OE_SOURCE_DIR}/openembedded/meta \\
-  ${OE_SOURCE_DIR}/layers/meta-angstrom \\
-  ${OE_SOURCE_DIR}/layers/meta-openembedded \\
+  ${OE_SOURCE_DIR}/meta-angstrom \\
+  ${OE_SOURCE_DIR}/meta-openembedded \\
   ${OE_SOURCE_DIR}/angstrom-layers/BSP/TI \\
   "
 _EOF
