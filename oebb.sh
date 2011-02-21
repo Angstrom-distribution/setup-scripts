@@ -162,7 +162,7 @@ function oe_build()
         else
             CL_MACHINE=$MACHINE
             set_environment
-            config_oe #&& update_all
+            config_oe && update_all
         fi
     fi
 
