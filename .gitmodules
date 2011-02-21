@@ -1,6 +1,0 @@
-[submodule "sources/bitbake"]
-	path = sources/bitbake
-	url = git://git.openembedded.org/bitbake
-[submodule "sources/openembedded"]
-	path = sources/openembedded
-	url = git://git.openembedded.org/openembedded
