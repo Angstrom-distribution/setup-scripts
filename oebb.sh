@@ -217,7 +217,7 @@ function update_bitbake()
             rm -rf  ${OE_SOURCE_DIR}/bitbake
             echo Checking out bitbake
             git clone git://git.openembedded.org/bitbake ${OE_SOURCE_DIR}/bitbake
-            cd ${OE_SOURCE_DIR}/bitbake && git checkout -b 1.10 origin/1.10
+            cd ${OE_SOURCE_DIR}/bitbake && git checkout -b 1.12 origin/1.12
         else
             echo "Updating bitbake"
             echo "Executing: cd ${OE_SOURCE_DIR}/bitbake && git pull --rebase"
