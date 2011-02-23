@@ -38,6 +38,9 @@ OE_BASE=${PWD}
 function set_environment()
 {
 
+# Workaround for differences between yocto bitbake and vanilla bitbake
+export BBFETCH2=True
+
 #--------------------------------------------------------------------------
 # If an env already exists, use it, otherwise generate it
 #--------------------------------------------------------------------------
@@ -53,7 +56,9 @@ else
     DISTRO="angstrom-2010.x"
     DISTRO_DIRNAME=`echo $DISTRO | sed s#[.-]#_#g`
 
-    echo "export DISTRO=\"${DISTRO}\"" > ~/.oe/environment-oecore
+    echo "export BBFETCH2=True" > ~/.oe/environment-oecore
+
+    echo "export DISTRO=\"${DISTRO}\"" >> ~/.oe/environment-oecore
     echo "export DISTRO_DIRNAME=\"${DISTRO_DIRNAME}\"" >> ~/.oe/environment-oecore
 
     #--------------------------------------------------------------------------
