@@ -21,8 +21,6 @@
 
 # Use this till we get a maintenance branch based of the release tag
 
-OE_COMMIT_ID="release-2011.03"
-
 ###############################################################################
 # User specific vars like proxy servers
 ###############################################################################
@@ -255,7 +253,7 @@ function update_oe()
                 git checkout -b release-2011.03-angstrom ${OE_COMMIT_ID}
             else
                 echo "Checking out OE, depending on your git version you might get a harmless, what git alarmingly calls 'fatal' error. It just means the branch already exists."
-                git checkout -b angstrom origin/org.openembedded.dev || true
+                git checkout -b 2011.03-maintenance origin/2011.03-maintenance || true
             fi
         else
             echo Updating OpenEmbedded
