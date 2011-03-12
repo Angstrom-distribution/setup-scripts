@@ -297,7 +297,7 @@ DL_DIR = "${OE_SOURCE_DIR}/downloads"
 INHERIT += "rm_work"
 
 # Which files do we want to parse:
-BBFILES ?= "${OE_SOURCE_DIR}/openembedded-core/recipes/*/*.bb"
+BBFILES ?= "${OE_SOURCE_DIR}/openembedded-core/meta/recipes-*/*.bb"
 BBMASK = ""
 
 # Qemu 0.12.x is giving too much problems recently (2010.05), so disable it for users
@@ -419,7 +419,7 @@ echo "       $0 update"
 echo ""
 echo "       Not recommended, but also possible:"
 echo "       $0 bitbake <bitbake target>"
-echo "       It is recommended to do '. ~/.oe/environment-oecore' and run 'bitbake something' without using oebb.sh as wrapper"
+echo "       It is recommended to do '. ~/.oe/environment-oecore' and run 'bitbake something' inside ${BUILDDIR} without using oebb.sh as wrapper"
 echo ""
 echo "You must invoke \"$0 config <machine>\" and then \"$0 update\" prior"
 echo "to your first bitbake command"
