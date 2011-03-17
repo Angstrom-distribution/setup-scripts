@@ -278,7 +278,7 @@ BBFILES ?= ""
 BBLAYERS = " \\
   ${OE_SOURCE_DIR}/openembedded-core/meta \\
   ${OE_SOURCE_DIR}/meta-angstrom \\
-  ${OE_SOURCE_DIR}/meta-openembedded \\
+  ${OE_SOURCE_DIR}/meta-openembedded/meta-oe \\
   ${OE_SOURCE_DIR}/angstrom-layers/BSP/TI \\
   "
 _EOF
