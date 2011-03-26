@@ -3,4 +3,4 @@ bitbake,git://git.openembedded.net/bitbake,master,HEAD
 openembedded-core,git://git.openembedded.org/openembedded-core,master,HEAD
 meta-angstrom,git://git.angstrom-distribution.org/meta-angstrom,master,HEAD
 meta-openembedded,git://git.openembedded.net/meta-openembedded,master,HEAD
-angstrom-layers,http://git.gitorious.org/angstrom/angstrom-layers.git,master,HEAD
+angstrom-layers,git://git.angstrom-distribution.org/angstrom-layers,master,HEAD
