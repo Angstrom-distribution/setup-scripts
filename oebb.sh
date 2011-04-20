@@ -142,7 +142,6 @@ function update_all()
 {
     set_environment
     update_oe
-    update_bitbake
 }
 
 ###############################################################################
@@ -198,26 +197,6 @@ function oe_config()
     echo ""
     echo "Setup for ${CL_MACHINE} completed"
 }
-
-
-###############################################################################
-# UPDATE_BITBAKE() - Update Bitbake distribution
-###############################################################################
-function update_bitbake()
-{
-    if [ "x$PROXYHOST" != "x" ] ; then
-        config_git_proxy
-    fi
-
-        if [ ! -d ${OE_SOURCE_DIR}/bitbake/bin ]; then
-            echo "No bitbake to update"
-        else
-            echo "Updating bitbake"
-            echo "Executing: cd ${OE_SOURCE_DIR}/bitbake && git pull --rebase"
-            cd ${OE_SOURCE_DIR}/bitbake && git pull --rebase
-        fi
-}
-
 
 ###############################################################################
 # UPDATE_OE() - Update OpenEmbedded distribution.
