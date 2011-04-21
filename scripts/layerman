@@ -25,3 +25,7 @@ else
 	echo ""
 fi
 
+echo "Layers present in repository:"
+find ${LAYERDIR} -name "layer.conf" | sed -e s:${LAYERDIR}:${LAYERNAME}:g -e s:/conf/layer\.conf::g
+echo
+
