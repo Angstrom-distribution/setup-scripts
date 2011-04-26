@@ -296,6 +296,10 @@ MACHINE ?= "${MACHINE}"
 
 # Set TMPDIR instead of defaulting it to $pwd/tmp
 TMPDIR = "${OE_BUILD_TMPDIR}"
+# Set terminal types by default it expects gnome-terminal
+# but we chose xterm
+TERMCMD = "\${XTERM_TERMCMD}"
+TERMCMDRUN = "\${XTERM_TERMCMDRUN}"
 
 # Don't generate the mirror tarball for SCM repos, the snapshot is enough
 BB_GENERATE_MIRROR_TARBALLS = "0"
