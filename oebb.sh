@@ -276,7 +276,7 @@ DL_DIR = "${OE_SOURCE_DIR}/downloads"
 INHERIT += "rm_work"
 
 # Which files do we want to parse:
-BBFILES ?= "${OE_SOURCE_DIR}/openembedded-core/meta/recipes-*/*.bb"
+BBFILES ?= "${OE_SOURCE_DIR}/openembedded-core/meta/recipes-*/*/*.bb"
 BBMASK = ""
 
 # Qemu 0.12.x is giving too much problems recently (2010.05), so disable it for users
