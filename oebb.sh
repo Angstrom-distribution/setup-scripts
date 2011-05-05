@@ -4,7 +4,7 @@
 # Later changes by Koen Kooi and Brijesh Singh
 
 # Revision history:
-# 20090902: download from twice
+# 20090902: download from twiki
 # 20090903: Weakly assign MACHINE and DISTRO
 # 20090904:  * Don't recreate local.conf is it already exists
 #            * Pass 'unknown' machines to OE directly
@@ -16,7 +16,7 @@
 # 20091202: Fix proxy setup
 #
 # For further changes consult 'git log' or browse to:
-#   http://gitorious.org/angstrom/angstrom-setup-scripts/commits
+#   http://git.angstrom-distribution.org/cgi-bin/cgit.cgi/setup-scripts/
 # to see the latest revision history
 
 ###############################################################################
@@ -160,7 +160,7 @@ function clean_oe()
 ###############################################################################
 function oe_build()
 {
-    if [ ! -e ${OE_BUILD_DIR}/conf/local.conf ] ; then
+    if [ ! -e ${OE_BUILD_DIR}/conf/site.conf ] ; then
         if [ -z $MACHINE ] ; then
             echo "No config found, please run $0 config <machine> first"
         else
@@ -263,46 +263,17 @@ BBLAYERS = " \\
 _EOF
     fi
 
-    # There's no need to rewrite local.conf when changing MACHINE
-    if [ ! -e ${OE_BUILD_DIR}/conf/local.conf ]; then
-        cat > ${OE_BUILD_DIR}/conf/local.conf <<_EOF
-
-# CONF_VERSION is increased each time build/conf/ changes incompatibly
-CONF_VERSION = "1"
+    # There's no need to rewrite site.conf when changing MACHINE
+    if [ ! -e ${OE_BUILD_DIR}/conf/site.conf ]; then
+        cat > ${OE_BUILD_DIR}/conf/site.conf <<_EOF
 
 # Where to store sources
 DL_DIR = "${OE_SOURCE_DIR}/downloads"
 
-INHERIT += "rm_work"
-
 # Which files do we want to parse:
 BBFILES ?= "${OE_SOURCE_DIR}/openembedded-core/meta/recipes-*/*/*.bb"
-BBMASK = ""
 
-# Qemu 0.12.x is giving too much problems recently (2010.05), so disable it for users
-ENABLE_BINARY_LOCALE_GENERATION = "0"
-
-# What kind of images do we want?
-IMAGE_FSTYPES += "tar.bz2"
-
-# Make use of SMP:
-#   PARALLEL_MAKE specifies how many concurrent compiler threads are spawned per bitbake process
-#   BB_NUMBER_THREADS specifies how many concurrent bitbake tasks will be run
-#PARALLEL_MAKE     = "-j2"
-BB_NUMBER_THREADS = "2"
-
-DISTRO   = "${DISTRO}"
-MACHINE ?= "${MACHINE}"
-
-# Set TMPDIR instead of defaulting it to $pwd/tmp
 TMPDIR = "${OE_BUILD_TMPDIR}"
-# Set terminal types by default it expects gnome-terminal
-# but we chose xterm
-TERMCMD = "\${XTERM_TERMCMD}"
-TERMCMDRUN = "\${XTERM_TERMCMDRUN}"
-
-# Don't generate the mirror tarball for SCM repos, the snapshot is enough
-BB_GENERATE_MIRROR_TARBALLS = "0"
 
 # Go through the Firewall
 #HTTP_PROXY        = "http://${PROXYHOST}:${PROXYPORT}/"
