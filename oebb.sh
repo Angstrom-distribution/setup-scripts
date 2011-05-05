@@ -253,6 +253,9 @@ BBLAYERS = " \\
   ${OE_SOURCE_DIR}/openembedded-core/meta \\
   ${OE_SOURCE_DIR}/meta-angstrom \\
   ${OE_SOURCE_DIR}/meta-openembedded/meta-oe \\
+  ${OE_SOURCE_DIR}/meta-openembedded/meta-efl \\
+  ${OE_SOURCE_DIR}/meta-openembedded/meta-gpe \\
+  ${OE_SOURCE_DIR}/meta-openembedded/meta-gnome \\
   ${OE_SOURCE_DIR}/meta-texasinstruments \\
   "
 _EOF
