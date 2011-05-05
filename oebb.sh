@@ -160,7 +160,7 @@ function clean_oe()
 ###############################################################################
 function oe_build()
 {
-    if [ ! -e ${OE_BUILD_DIR}/conf/site.conf ] ; then
+    if [ ! -e ${OE_BUILD_DIR}/conf/auto.conf ] ; then
         if [ -z $MACHINE ] ; then
             echo "No config found, please run $0 config <machine> first"
         else
@@ -279,6 +279,12 @@ TMPDIR = "${OE_BUILD_TMPDIR}"
 #HTTP_PROXY        = "http://${PROXYHOST}:${PROXYPORT}/"
 
 _EOF
+
+    if [ ! -e ${OE_BUILD_DIR}/conf/auto.conf ]; then
+        cat > ${OE_BUILD_DIR}/conf/auto.conf <<_EOF
+MACHINE ?= "${MACHINE}"
+_EOF
+
 fi
 }
 
