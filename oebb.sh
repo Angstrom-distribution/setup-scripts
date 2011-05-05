@@ -33,6 +33,7 @@ PROXYHOST=""
 OE_BASE=${PWD}
 # incremement this to force recreation of config files
 BASE_VERSION=1
+OE_ENV_FILE=~/.oe/environment-oecore
 
 ###############################################################################
 # SET_ENVIRONMENT() - Setup environment variables for OE development
@@ -47,17 +48,17 @@ export BBFETCH2=True
 # If an env already exists, use it, otherwise generate it
 #--------------------------------------------------------------------------
 
-if [ -e ~/.oe/environment-oecore ] ; then
-    . ~/.oe/environment-oecore
+if [ -e ${OE_ENV_FILE} ] ; then
+    . ${OE_ENV_FILE}
 fi	
 
 if [ x"${BASE_VERSION}" != x"${SCRIPTS_BASE_VERSION}" ] ; then
-	echo "BASE_VERSION mismatch, recreating ~/.oe/environment-oecore"
-	rm ~/.oe/environment-oecore
+	echo "BASE_VERSION mismatch, recreating ${OE_ENV_FILE}"
+	rm ${OE_ENV_FILE}
 fi	
 
-if [ -e ~/.oe/environment-oecore ] ; then
-    . ~/.oe/environment-oecore
+if [ -e ${OE_ENV_FILE} ] ; then
+    . ${OE_ENV_FILE}
 else
 
     mkdir -p ~/.oe/
@@ -68,11 +69,11 @@ else
     DISTRO="angstrom-2010.x"
     DISTRO_DIRNAME=`echo $DISTRO | sed s#[.-]#_#g`
 
-    echo "export SCRIPTS_BASE_VERSION=${BASE_VERSION}" > ~/.oe/environment-oecore
-    echo "export BBFETCH2=True" >> ~/.oe/environment-oecore
+    echo "export SCRIPTS_BASE_VERSION=${BASE_VERSION}" > ${OE_ENV_FILE}
+    echo "export BBFETCH2=True" >> ${OE_ENV_FILE}
 
-    echo "export DISTRO=\"${DISTRO}\"" >> ~/.oe/environment-oecore
-    echo "export DISTRO_DIRNAME=\"${DISTRO_DIRNAME}\"" >> ~/.oe/environment-oecore
+    echo "export DISTRO=\"${DISTRO}\"" >> ${OE_ENV_FILE}
+    echo "export DISTRO_DIRNAME=\"${DISTRO_DIRNAME}\"" >> ${OE_ENV_FILE}
 
     #--------------------------------------------------------------------------
     # Specify the root directory for your OpenEmbedded development
@@ -87,19 +88,19 @@ else
     mkdir -p ${OE_SOURCE_DIR}
     export OE_BASE
 
-    echo "export OE_BUILD_DIR=\"${OE_BUILD_DIR}\"" >> ~/.oe/environment-oecore
-    echo "export BUILDDIR=\"${OE_BUILD_DIR}\"" >> ~/.oe/environment-oecore
-    echo "export OE_BUILD_TMPDIR=\"${OE_BUILD_TMPDIR}\"" >> ~/.oe/environment-oecore
-    echo "export OE_SOURCE_DIR=\"${OE_SOURCE_DIR}\"" >> ~/.oe/environment-oecore
+    echo "export OE_BUILD_DIR=\"${OE_BUILD_DIR}\"" >> ${OE_ENV_FILE}
+    echo "export BUILDDIR=\"${OE_BUILD_DIR}\"" >> ${OE_ENV_FILE}
+    echo "export OE_BUILD_TMPDIR=\"${OE_BUILD_TMPDIR}\"" >> ${OE_ENV_FILE}
+    echo "export OE_SOURCE_DIR=\"${OE_SOURCE_DIR}\"" >> ${OE_ENV_FILE}
 
-    echo "export OE_BASE=\"${OE_BASE}\"" >> ~/.oe/environment-oecore
+    echo "export OE_BASE=\"${OE_BASE}\"" >> ${OE_ENV_FILE}
 
     #--------------------------------------------------------------------------
     # Include up-to-date bitbake in our PATH.
     #--------------------------------------------------------------------------
     export PATH=${OE_SOURCE_DIR}/openembedded-core/scripts:${OE_SOURCE_DIR}/bitbake/bin:${PATH}
 
-    echo "export PATH=\"${PATH}\"" >> ~/.oe/environment-oecore
+    echo "export PATH=\"${PATH}\"" >> ${OE_ENV_FILE}
 
     #--------------------------------------------------------------------------
     # Make sure Bitbake doesn't filter out the following variables from our
@@ -107,7 +108,7 @@ else
     #--------------------------------------------------------------------------
     export BB_ENV_EXTRAWHITE="MACHINE DISTRO TCLIBC TCMODE GIT_PROXY_COMMAND http_proxy ftp_proxy https_proxy all_proxy ALL_PROXY no_proxy SSH_AGENT_PID SSH_AUTH_SOCK BB_SRCREV_POLICY SDKMACHINE BB_NUMBER_THREADS"
 
-    echo "export BB_ENV_EXTRAWHITE=\"${BB_ENV_EXTRAWHITE}\"" >> ~/.oe/environment-oecore
+    echo "export BB_ENV_EXTRAWHITE=\"${BB_ENV_EXTRAWHITE}\"" >> ${OE_ENV_FILE}
 
     #--------------------------------------------------------------------------
     # Specify proxy information
@@ -119,10 +120,10 @@ else
         export SVN_CONFIG_DIR=${OE_BUILD_DIR}/subversion_config
         export GIT_CONFIG_DIR=${OE_BUILD_DIR}/git_config
 
-        echo "export http_proxy=\"${http_proxy}\"" >> ~/.oe/environment-oecore
-        echo "export ftp_proxy=\"${ftp_proxy}\"" >> ~/.oe/environment-oecore
-        echo "export SVN_CONFIG_DIR=\"${SVN_CONFIG_DIR}\"" >> ~/.oe/environment-oecore
-        echo "export GIT_CONFIG_DIR=\"${GIT_CONFIG_DIR}\"" >> ~/.oe/environment-oecore
+        echo "export http_proxy=\"${http_proxy}\"" >> ${OE_ENV_FILE}
+        echo "export ftp_proxy=\"${ftp_proxy}\"" >> ${OE_ENV_FILE}
+        echo "export SVN_CONFIG_DIR=\"${SVN_CONFIG_DIR}\"" >> ${OE_ENV_FILE}
+        echo "export GIT_CONFIG_DIR=\"${GIT_CONFIG_DIR}\"" >> ${OE_ENV_FILE}
 
         config_svn_proxy
         config_git_proxy
@@ -133,7 +134,7 @@ else
     #--------------------------------------------------------------------------
     export BBPATH=${OE_BUILD_DIR}:${OE_SOURCE_DIR}/openembedded-core/meta${BBPATH_EXTRA}
 
-    echo "export BBPATH=\"${BBPATH}\"" >> ~/.oe/environment-oecore
+    echo "export BBPATH=\"${BBPATH}\"" >> ${OE_ENV_FILE}
 
     #--------------------------------------------------------------------------
     # Reconfigure dash
@@ -143,8 +144,8 @@ else
         expect -c 'spawn sudo dpkg-reconfigure -freadline dash; send "n\n"; interact;'
     fi
 
-    echo "There now is a sourceable script in ~/.oe/enviroment. You can do '. ~/.oe/environment-oecore' and run 'bitbake something' without using $0 as wrapper"
-fi # if -e ~/.oe/environment-oecore
+    echo "There now is a sourceable script in ~/.oe/enviroment. You can do '. ${OE_ENV_FILE}' and run 'bitbake something' without using $0 as wrapper"
+fi # if -e ${OE_ENV_FILE}
 }
 
 
@@ -184,8 +185,8 @@ function oe_build()
     fi
 
     set_environment
-    if [ -e ~/.oe/environment-oecore ] ; then
-        echo "Using ~/.oe/environment-oecore to setup needed variables. It is recommended to do '. ~/.oe/environment-oecore' and run 'bitbake something' without using $0 as wrapper"
+    if [ -e ${OE_ENV_FILE} ] ; then
+        echo "Using ${OE_ENV_FILE} to setup needed variables. It is recommended to do '. ${OE_ENV_FILE}' and run 'bitbake something' without using $0 as wrapper"
     fi
     cd ${OE_BUILD_DIR}
     if [ -z $MACHINE ] ; then
@@ -230,27 +231,8 @@ function update_oe()
 ###############################################################################
 function config_oe()
 {
-    #--------------------------------------------------------------------------
-    # Determine the proper machine name
-    #--------------------------------------------------------------------------
-    case ${CL_MACHINE} in
-        beagle|beagleboard)
-            MACHINE="beagleboard"
-            ;;
-        dm6446evm|davinci-evm)
-            MACHINE="davinci-dvevm"
-            ;;
-        omap3evm)
-            MACHINE="omap3evm"
-            ;;
-        shiva|omap3517-evm)
-            MACHINE="omap3517-evm"
-            ;;
-        *)
-            echo "Unknown machine ${CL_MACHINE}, passing it to OE directly"
-            MACHINE="${CL_MACHINE}"
-            ;;
-    esac
+
+    MACHINE="${CL_MACHINE}"
 
     #--------------------------------------------------------------------------
     # Write out the OE bitbake configuration file.
@@ -335,7 +317,7 @@ fi
 _EOF
         chmod +x ${GIT_CONFIG_DIR}/git-proxy.sh
         export GIT_PROXY_COMMAND=${GIT_CONFIG_DIR}/git-proxy.sh
-        echo "export GIT_PROXY_COMMAND=\"\${GIT_CONFIG_DIR}/git-proxy.sh\"" >> ~/.oe/environment-oecore
+        echo "export GIT_PROXY_COMMAND=\"\${GIT_CONFIG_DIR}/git-proxy.sh\"" >> ${OE_ENV_FILE}
     fi
 }
 
@@ -392,7 +374,7 @@ echo "       $0 update"
 echo ""
 echo "       Not recommended, but also possible:"
 echo "       $0 bitbake <bitbake target>"
-echo "       It is recommended to do '. ~/.oe/environment-oecore' and run 'bitbake something' inside ${BUILDDIR} without using oebb.sh as wrapper"
+echo "       It is recommended to do '. ${OE_ENV_FILE}' and run 'bitbake something' inside ${BUILDDIR} without using oebb.sh as wrapper"
 echo ""
 echo "You must invoke \"$0 config <machine>\" and then \"$0 update\" prior"
 echo "to your first bitbake command"
