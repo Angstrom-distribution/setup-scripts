@@ -31,6 +31,8 @@ PROXYHOST=""
 # OE_BASE    - The root directory for all OE sources and development.
 ###############################################################################
 OE_BASE=${PWD}
+# incremement this to force recreation of config files
+BASE_VERSION=1
 
 ###############################################################################
 # SET_ENVIRONMENT() - Setup environment variables for OE development
@@ -44,6 +46,16 @@ export BBFETCH2=True
 #--------------------------------------------------------------------------
 # If an env already exists, use it, otherwise generate it
 #--------------------------------------------------------------------------
+
+if [ -e ~/.oe/environment-oecore ] ; then
+    . ~/.oe/environment-oecore
+fi	
+
+if [ x"${BASE_VERSION}" != x"${SCRIPTS_BASE_VERSION}" ] ; then
+	echo "BASE_VERSION mismatch, recreating ~/.oe/environment-oecore"
+	rm ~/.oe/environment-oecore
+fi	
+
 if [ -e ~/.oe/environment-oecore ] ; then
     . ~/.oe/environment-oecore
 else
@@ -56,7 +68,8 @@ else
     DISTRO="angstrom-2010.x"
     DISTRO_DIRNAME=`echo $DISTRO | sed s#[.-]#_#g`
 
-    echo "export BBFETCH2=True" > ~/.oe/environment-oecore
+    echo "export SCRIPTS_BASE_VERSION=${BASE_VERSION}" > ~/.oe/environment-oecore
+    echo "export BBFETCH2=True" >> ~/.oe/environment-oecore
 
     echo "export DISTRO=\"${DISTRO}\"" >> ~/.oe/environment-oecore
     echo "export DISTRO_DIRNAME=\"${DISTRO_DIRNAME}\"" >> ~/.oe/environment-oecore
@@ -279,7 +292,7 @@ TMPDIR = "${OE_BUILD_TMPDIR}"
 #HTTP_PROXY        = "http://${PROXYHOST}:${PROXYPORT}/"
 
 _EOF
-
+fi
     if [ ! -e ${OE_BUILD_DIR}/conf/auto.conf ]; then
         cat > ${OE_BUILD_DIR}/conf/auto.conf <<_EOF
 MACHINE ?= "${MACHINE}"
