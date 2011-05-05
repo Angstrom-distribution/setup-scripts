@@ -124,6 +124,7 @@ else
         echo "export ftp_proxy=\"${ftp_proxy}\"" >> ${OE_ENV_FILE}
         echo "export SVN_CONFIG_DIR=\"${SVN_CONFIG_DIR}\"" >> ${OE_ENV_FILE}
         echo "export GIT_CONFIG_DIR=\"${GIT_CONFIG_DIR}\"" >> ${OE_ENV_FILE}
+        echo "export GIT_PROXY_COMMAND=\"\${GIT_CONFIG_DIR}/git-proxy.sh\"" >> ${OE_ENV_FILE}
 
         config_svn_proxy
         config_git_proxy
@@ -320,7 +321,6 @@ fi
 _EOF
         chmod +x ${GIT_CONFIG_DIR}/git-proxy.sh
         export GIT_PROXY_COMMAND=${GIT_CONFIG_DIR}/git-proxy.sh
-        echo "export GIT_PROXY_COMMAND=\"\${GIT_CONFIG_DIR}/git-proxy.sh\"" >> ${OE_ENV_FILE}
     fi
 }
 
