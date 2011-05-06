@@ -50,12 +50,12 @@ export BBFETCH2=True
 
 if [ -e ${OE_ENV_FILE} ] ; then
     . ${OE_ENV_FILE}
-fi	
+fi
 
 if [ x"${BASE_VERSION}" != x"${SCRIPTS_BASE_VERSION}" ] ; then
 	echo "BASE_VERSION mismatch, recreating ${OE_ENV_FILE}"
 	rm ${OE_ENV_FILE}
-fi	
+fi
 
 if [ -e ${OE_ENV_FILE} ] ; then
     . ${OE_ENV_FILE}
@@ -78,12 +78,11 @@ else
     #--------------------------------------------------------------------------
     # Specify the root directory for your OpenEmbedded development
     #--------------------------------------------------------------------------
-    OE_BUILD_DIR=${OE_BASE}/build
-    OE_BUILD_TMPDIR="${OE_BUILD_DIR}/tmp-${DISTRO_DIRNAME}"
+    OE_BUILD_DIR=${OE_BASE}
+    OE_BUILD_TMPDIR="${OE_BUILD_DIR}/build/tmp-${DISTRO_DIRNAME}"
     OE_SOURCE_DIR=${OE_BASE}/sources
 
     export BUILDDIR=${OE_BUILD_DIR}
-
     mkdir -p ${OE_BUILD_DIR}
     mkdir -p ${OE_SOURCE_DIR}
     export OE_BASE
@@ -245,19 +244,22 @@ function config_oe()
 # LAYER_CONF_VERSION is increased each time build/conf/bblayers.conf
 # changes incompatibly
 LCONF_VERSION = "3"
+TOPDIR := "\${@os.path.dirname(os.path.dirname(d.getVar('FILE', True)))}"
 
-BBFILES ?= ""
+BBPATH = "\${TOPDIR}"
+
+BBFILES = ""
 
 # Add your overlay location to BBLAYERS
 # Make sure to have a conf/layers.conf in there
 BBLAYERS = " \\
-  ${OE_SOURCE_DIR}/openembedded-core/meta \\
-  ${OE_SOURCE_DIR}/meta-angstrom \\
-  ${OE_SOURCE_DIR}/meta-openembedded/meta-oe \\
-  ${OE_SOURCE_DIR}/meta-openembedded/meta-efl \\
-  ${OE_SOURCE_DIR}/meta-openembedded/meta-gpe \\
-  ${OE_SOURCE_DIR}/meta-openembedded/meta-gnome \\
-  ${OE_SOURCE_DIR}/meta-texasinstruments \\
+  \${TOPDIR}/sources/openembedded-core/meta \\
+  \${TOPDIR}/sources/meta-angstrom \\
+  \${TOPDIR}/sources/meta-openembedded/meta-oe \\
+  \${TOPDIR}/sources/meta-openembedded/meta-efl \\
+  \${TOPDIR}/sources/meta-openembedded/meta-gpe \\
+  \${TOPDIR}/sources/meta-openembedded/meta-gnome \\
+  \${TOPDIR}/sources/meta-texasinstruments \\
   "
 _EOF
     fi
@@ -268,6 +270,9 @@ _EOF
 
 # Where to store sources
 DL_DIR = "${OE_SOURCE_DIR}/downloads"
+
+# Where to save shared state
+SSTATE_DIR = "${OE_BUILD_DIR}/build/sstate-cache"
 
 # Which files do we want to parse:
 BBFILES ?= "${OE_SOURCE_DIR}/openembedded-core/meta/recipes-*/*/*.bb"
