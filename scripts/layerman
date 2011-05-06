@@ -20,7 +20,7 @@ if ! [ -e ${LAYERDIR} ] ; then
 	fi
 else
 	if [ "${REV}" = "HEAD" ] ; then
-		cd ${LAYERDIR} && echo "Updating layer at layers/${LAYERNAME}" && git stash >&/dev/null && git pull --rebase && git stash apply >& /dev/null
+		cd ${LAYERDIR} && echo "Updating layer at layers/${LAYERNAME}" && git stash >&/dev/null && git pull --rebase && git stash pop >& /dev/null
 	fi
 	echo ""
 fi
