@@ -245,7 +245,7 @@ function update_oe()
         if [ ! -d  ${OE_SOURCE_DIR}/openembedded/conf ]; then
             rm -rf  ${OE_SOURCE_DIR}/openembedded/
             echo Checking out OpenEmbedded
-            git clone "git://git.openembedded.org/openembedded" ${OE_SOURCE_DIR}/openembedded
+            git clone git://github.com/openembedded/openembedded.git ${OE_SOURCE_DIR}/openembedded
             cd ${OE_SOURCE_DIR}/openembedded
             if [ ! -r ${OE_COMMIT_ID} ];
             then
