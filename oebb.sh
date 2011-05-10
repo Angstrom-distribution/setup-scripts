@@ -253,13 +253,13 @@ BBFILES = ""
 # Add your overlay location to BBLAYERS
 # Make sure to have a conf/layers.conf in there
 BBLAYERS = " \\
-  \${TOPDIR}/sources/openembedded-core/meta \\
   \${TOPDIR}/sources/meta-angstrom \\
   \${TOPDIR}/sources/meta-openembedded/meta-oe \\
   \${TOPDIR}/sources/meta-openembedded/meta-efl \\
   \${TOPDIR}/sources/meta-openembedded/meta-gpe \\
   \${TOPDIR}/sources/meta-openembedded/meta-gnome \\
   \${TOPDIR}/sources/meta-texasinstruments \\
+  \${TOPDIR}/sources/openembedded-core/meta \\
   "
 _EOF
     fi
