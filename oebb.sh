@@ -259,6 +259,8 @@ BBLAYERS = " \\
   \${TOPDIR}/sources/meta-openembedded/meta-gpe \\
   \${TOPDIR}/sources/meta-openembedded/meta-gnome \\
   \${TOPDIR}/sources/meta-texasinstruments \\
+  \${TOPDIR}/sources/meta-efikamx \\
+  \${TOPDIR}/sources/meta-nslu2 \\
   \${TOPDIR}/sources/openembedded-core/meta \\
   "
 _EOF
