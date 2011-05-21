@@ -5,4 +5,5 @@ meta-openembedded,git://git.openembedded.net/meta-openembedded,master,HEAD
 meta-texasinstruments,git://git.angstrom-distribution.org/meta-texasinstruments,master,HEAD
 meta-efikamx,git://github.com/kraj/meta-efikamx.git,master,HEAD
 meta-nslu2,git://github.com/kraj/meta-nslu2.git,master,HEAD
-openembedded-core,git://git.openembedded.org/openembedded-core,master,HEAD
+meta-smartphone,http://git.shr-project.org/repo/meta-smartphone.git,master,HEAD
+openembedded-core,https://github.com/openembedded/oe-core.git,master,HEAD
