@@ -266,6 +266,7 @@ BBLAYERS = " \\
   \${TOPDIR}/sources/meta-smartphone/meta-openmoko \\
   \${TOPDIR}/sources/meta-smartphone/meta-palm \\
   \${TOPDIR}/sources/meta-smartphone/meta-zaurus \\
+  \${TOPDIR}/sources/meta-intel/meta-sugarbay \\
   \${TOPDIR}/sources/openembedded-core/meta \\
   "
 _EOF
