@@ -253,28 +253,31 @@ BBFILES = ""
 # Add your overlay location to BBLAYERS
 # Make sure to have a conf/layers.conf in there
 BBLAYERS = " \\
-  \${TOPDIR}/sources/meta-angstrom \\
-  \${TOPDIR}/sources/meta-openembedded/meta-oe \\
-  \${TOPDIR}/sources/meta-openembedded/meta-efl \\
-  \${TOPDIR}/sources/meta-openembedded/meta-gpe \\
-  \${TOPDIR}/sources/meta-openembedded/meta-gnome \\
-  \${TOPDIR}/sources/meta-texasinstruments \\
-  \${TOPDIR}/sources/meta-efikamx \\
-  \${TOPDIR}/sources/meta-nslu2 \\
-  \${TOPDIR}/sources/meta-smartphone/meta-htc \\
-  \${TOPDIR}/sources/meta-smartphone/meta-nokia \\
-  \${TOPDIR}/sources/meta-smartphone/meta-openmoko \\
-  \${TOPDIR}/sources/meta-smartphone/meta-palm \\
-  \${TOPDIR}/sources/meta-smartphone/meta-zaurus \\
-  \${TOPDIR}/sources/meta-intel/meta-sugarbay \\
-  \${TOPDIR}/sources/meta-intel/meta-crownbay \\
-  \${TOPDIR}/sources/meta-intel/meta-emenlow \\
-  \${TOPDIR}/sources/meta-intel/meta-fishriver \\
-  \${TOPDIR}/sources/meta-intel/meta-jasperforest \\
-  \${TOPDIR}/sources/meta-intel/meta-n450 \\
-  \${TOPDIR}/sources/openembedded-core/meta \\
-  "
 _EOF
+    for layer in meta-angstrom \
+                 meta-openembedded/meta-oe \
+                 meta-openembedded/meta-efl \
+                 meta-openembedded/meta-gpe \
+                 meta-openembedded/meta-gnome \
+                 meta-texasinstruments \
+                 meta-efikamx \
+                 meta-nslu2 \
+                 meta-smartphone/meta-htc \
+                 meta-smartphone/meta-nokia \
+                 meta-smartphone/meta-openmoko \
+                 meta-smartphone/meta-palm \
+                 meta-smartphone/meta-zaurus \
+                 meta-intel/meta-sugarbay \
+                 meta-intel/meta-crownbay \
+                 meta-intel/meta-emenlow \
+                 meta-intel/meta-fishriver \
+                 meta-intel/meta-jasperforest \
+                 sources/meta-intel/meta-n450 \
+                 openembedded-core/meta 
+        do
+             echo "  \${TOPDIR}/sources/$layer \\" >> ${OE_BUILD_DIR}/conf/bblayers.conf
+        done
+        echo '  "' >> ${OE_BUILD_DIR}/conf/bblayers.conf
     fi
 
     # There's no need to rewrite site.conf when changing MACHINE
