@@ -239,47 +239,6 @@ function config_oe()
     #--------------------------------------------------------------------------
     mkdir -p ${OE_BUILD_DIR}/conf
 
-    if [ ! -e ${OE_BUILD_DIR}/conf/bblayers.conf ]; then
-	cat > ${OE_BUILD_DIR}/conf/bblayers.conf <<_EOF
-# LAYER_CONF_VERSION is increased each time build/conf/bblayers.conf
-# changes incompatibly
-LCONF_VERSION = "3"
-TOPDIR := "\${@os.path.dirname(os.path.dirname(d.getVar('FILE', True)))}"
-
-BBPATH = "\${TOPDIR}"
-
-BBFILES = ""
-
-# Add your overlay location to BBLAYERS
-# Make sure to have a conf/layers.conf in there
-BBLAYERS = " \\
-_EOF
-    for layer in meta-angstrom \
-                 meta-openembedded/meta-oe \
-                 meta-openembedded/meta-efl \
-                 meta-openembedded/meta-gpe \
-                 meta-openembedded/meta-gnome \
-                 meta-texasinstruments \
-                 meta-efikamx \
-                 meta-nslu2 \
-                 meta-smartphone/meta-htc \
-                 meta-smartphone/meta-nokia \
-                 meta-smartphone/meta-openmoko \
-                 meta-smartphone/meta-palm \
-                 meta-smartphone/meta-zaurus \
-                 meta-intel/meta-sugarbay \
-                 meta-intel/meta-crownbay \
-                 meta-intel/meta-emenlow \
-                 meta-intel/meta-fishriver \
-                 meta-intel/meta-jasperforest \
-                 sources/meta-intel/meta-n450 \
-                 openembedded-core/meta 
-        do
-             echo "  \${TOPDIR}/sources/$layer \\" >> ${OE_BUILD_DIR}/conf/bblayers.conf
-        done
-        echo '  "' >> ${OE_BUILD_DIR}/conf/bblayers.conf
-    fi
-
     # There's no need to rewrite site.conf when changing MACHINE
     if [ ! -e ${OE_BUILD_DIR}/conf/site.conf ]; then
         cat > ${OE_BUILD_DIR}/conf/site.conf <<_EOF
