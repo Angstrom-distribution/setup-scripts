@@ -8,5 +8,5 @@ meta-nslu2,git://github.com/kraj/meta-nslu2.git,master,HEAD
 meta-smartphone,http://git.shr-project.org/repo/meta-smartphone.git,master,HEAD
 meta-intel,git://git.yoctoproject.org/meta-intel,master,HEAD
 meta-xilinx,git://git.yoctoproject.org/meta-xilinx,master,HEAD
-meta-openpandora,https://github.com/openpandora/meta-openpandora.git,master,HEAD
-openembedded-core,https://github.com/openembedded/oe-core.git,master,HEAD
+meta-openpandora,git://github.com/openpandora/meta-openpandora.git,master,HEAD
+openembedded-core,git://github.com/openembedded/oe-core.git,master,HEAD
