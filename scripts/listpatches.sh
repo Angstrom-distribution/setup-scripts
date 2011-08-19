@@ -18,5 +18,6 @@ do
 	cd $dir
 	git log --pretty=oneline $rev..HEAD
 	git diff --stat HEAD
+	git status -s
 	cd - >/dev/null
 done
