@@ -243,6 +243,8 @@ function config_oe()
     if [ ! -e ${OE_BUILD_DIR}/conf/site.conf ]; then
         cat > ${OE_BUILD_DIR}/conf/site.conf <<_EOF
 
+SCONF_VERSION = "1"
+
 # Where to store sources
 DL_DIR = "${OE_SOURCE_DIR}/downloads"
 
