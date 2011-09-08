@@ -1,5 +1,6 @@
 build
-sources
+sources/*
+!sources/layers.txt
 conf/auto.conf
 conf/bblayers.conf
 conf/sanity_info
@@ -10,4 +11,3 @@ subversion_config/
 package-depends.dot
 pn-depends.dot
 task-depends.dot
-
