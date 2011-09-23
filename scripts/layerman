@@ -10,9 +10,10 @@ LAYERDIR="${OE_SOURCE_DIR}/${LAYERNAME}"
 if ! [ -e ${LAYERDIR} ] ; then
 	echo "Layer checkout missing at ${LAYERDIR}, creating one"
 	git clone ${LAYERURI} ${LAYERDIR}
+	cd ${LAYERDIR}
 
 	if [ "${BRANCH}" != "master" ] ; then
-		cd ${LAYERDIR} && git checkout origin/${BRANCH} -b ${BRANCH}
+		git checkout origin/${BRANCH} -b ${BRANCH}
 	fi
 
 	if [ "${REV}" != "HEAD" ] ; then
