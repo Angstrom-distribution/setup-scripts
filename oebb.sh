@@ -32,7 +32,7 @@ PROXYHOST=""
 ###############################################################################
 OE_BASE=${PWD}
 # incremement this to force recreation of config files
-BASE_VERSION=2
+BASE_VERSION=3
 OE_ENV_FILE=~/.oe/environment-oecore
 
 ###############################################################################
