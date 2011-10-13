@@ -3,6 +3,7 @@ bitbake,git://github.com/openembedded/bitbake.git,master,HEAD
 meta-angstrom,git://git.angstrom-distribution.org/meta-angstrom,master,HEAD
 meta-openembedded,git://github.com/openembedded/meta-oe.git,master,HEAD
 meta-ti,git://git.angstrom-distribution.org/meta-texasinstruments,master,HEAD
+meta-ettus,git://github.com/balister/meta-ettus.git,master,HEAD
 meta-efikamx,git://github.com/kraj/meta-efikamx.git,master,HEAD
 meta-nslu2,git://github.com/kraj/meta-nslu2.git,master,HEAD
 meta-smartphone,http://git.shr-project.org/repo/meta-smartphone.git,master,HEAD
