@@ -265,7 +265,8 @@ fi
         cat > ${OE_BUILD_DIR}/conf/auto.conf <<_EOF
 MACHINE ?= "${MACHINE}"
 _EOF
-
+    else
+	eval "sed -i -e 's/^MACHINE.*$/MACHINE ?= ${MACHINE}/g' ${OE_BUILD_DIR}/conf/auto.conf"
 fi
 }
 
