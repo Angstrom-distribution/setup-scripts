@@ -46,6 +46,8 @@ function set_environment()
 # Workaround for differences between yocto bitbake and vanilla bitbake
 export BBFETCH2=True
 
+export TAG
+
 #--------------------------------------------------------------------------
 # If an env already exists, use it, otherwise generate it
 #--------------------------------------------------------------------------
@@ -224,7 +226,7 @@ function update_oe()
     fi
 
     #manage meta-openembedded and meta-angstrom with layerman
-    ${OE_BASE}/scripts/layers.awk ${OE_SOURCE_DIR}/layers.txt
+    env gawk -v command=update -f ${OE_BASE}/scripts/layers.awk ${OE_SOURCE_DIR}/layers.txt 
 }
 
 
@@ -309,6 +311,23 @@ _EOF
     fi
 }
 
+###############################################################################
+# tag_layers - Tag all layers with a given tag
+###############################################################################
+function tag_layers()
+{
+    set_environment
+    env gawk -v command=tag -v commandarg=$TAG -f ${OE_BASE}/scripts/layers.awk ${OE_SOURCE_DIR}/layers.txt 
+}
+
+###############################################################################
+# tag_layers - Tag all layers with a given tag
+###############################################################################
+function changelog()
+{
+set_environment
+env gawk -v command=changelog -v commandarg=$TAG -f ${OE_BASE}/scripts/layers.awk ${OE_SOURCE_DIR}/layers.txt 
+}
 
 ###############################################################################
 # Build the specified OE packages or images.
@@ -320,17 +339,33 @@ if [ $# -gt 0 ]
 then
     if [ $1 = "update" ]
     then
-        shift
-        if [ ! -r $1 ]; then
-            if [  $1 == "commit" ]
-            then
-                shift
-                OE_COMMIT_ID=$1
-            fi
-        fi
         update_all
         exit 0
     fi
+
+    if [ $1 = "tag" ]
+    then
+        if [ -n "$2" ] ; then
+            TAG="$2"
+        else
+            TAG="$(date -u +'%Y%m%d-%H%M')"
+        fi
+        tag_layers $TAG
+        exit 0
+    fi
+    
+    if [ $1 = "changelog" ]
+    then
+        if [ -z $2 ] ; then
+            echo "Changelog needs an argument"
+            exit 1
+        else
+            TAG="$2"
+        fi
+        changelog
+        exit 0
+    fi
+    
 
     if [ $1 = "bitbake" ]
     then
