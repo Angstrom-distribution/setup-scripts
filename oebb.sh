@@ -318,6 +318,7 @@ function tag_layers()
 {
     set_environment
     env gawk -v command=tag -v commandarg=$TAG -f ${OE_BASE}/scripts/layers.awk ${OE_SOURCE_DIR}/layers.txt 
+    echo $TAG >> ${OE_BASE}/tags
 }
 
 ###############################################################################
