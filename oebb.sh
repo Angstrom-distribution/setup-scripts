@@ -270,7 +270,7 @@ fi
 MACHINE ?= "${MACHINE}"
 _EOF
     else
-	eval "sed -i -e 's/^MACHINE.*$/MACHINE ?= ${MACHINE}/g' ${OE_BUILD_DIR}/conf/auto.conf"
+	eval "sed -i -e 's/^MACHINE.*$/MACHINE ?= \"${MACHINE}\"/g' ${OE_BUILD_DIR}/conf/auto.conf"
 fi
 }
 
