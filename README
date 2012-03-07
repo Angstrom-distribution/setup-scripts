@@ -1,0 +1,14 @@
+
+To configure the scripts and download the build metadata, do:
+
+	$ MACHINE=beagleboard ./oebb.sh config beagleboard
+
+To start a build of the kernel, do:
+
+	$ MACHINE=beagleboard ./oebb.sh bitbake virtual/kernel
+
+To update the metadata, do:
+
+	$ ./oebb.sh update
+
+
