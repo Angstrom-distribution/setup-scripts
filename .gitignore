@@ -11,3 +11,4 @@ subversion_config/
 package-depends.dot
 pn-depends.dot
 task-depends.dot
+tags
