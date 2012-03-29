@@ -331,7 +331,7 @@ function tag_layers()
 }
 
 ###############################################################################
-# tag_layers - Tag all layers with a given tag
+# changelog - Display changelog for all layers with a given tag
 ###############################################################################
 function changelog()
 {
