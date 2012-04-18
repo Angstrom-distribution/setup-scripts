@@ -326,8 +326,23 @@ function tag_layers()
 ###############################################################################
 function changelog()
 {
-set_environment
-env gawk -v command=changelog -v commandarg=$TAG -f ${OE_BASE}/scripts/layers.awk ${OE_SOURCE_DIR}/layers.txt 
+	set_environment
+	env gawk -v command=changelog -v commandarg=$TAG -f ${OE_BASE}/scripts/layers.awk ${OE_SOURCE_DIR}/layers.txt 
+}
+
+###############################################################################
+# layer_info - Get layer info
+###############################################################################
+function layer_info()
+{
+	set_environment
+	rm -f ${OE_SOURCE_DIR}/info.txt
+	env gawk -v command=info -f ${OE_BASE}/scripts/layers.awk ${OE_SOURCE_DIR}/layers.txt
+	echo
+	echo "Showing contents of ${OE_SOURCE_DIR}/info.txt:"
+	echo
+	cat ${OE_SOURCE_DIR}/info.txt
+	echo
 }
 
 ###############################################################################
@@ -341,6 +356,12 @@ then
     if [ $1 = "update" ]
     then
         update_all
+        exit 0
+    fi
+
+    if [ $1 = "info" ]
+    then
+        layer_info
         exit 0
     fi
 
@@ -367,7 +388,6 @@ then
         exit 0
     fi
     
-
     if [ $1 = "bitbake" ]
     then
         shift

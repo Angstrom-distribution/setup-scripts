@@ -10,6 +10,7 @@ COMMANDARG=$6
 LAYERDIR="${OE_SOURCE_DIR}/${LAYERNAME}"
 
 function check_layer() {
+	echo
     if ! [ -e ${LAYERDIR} ] ; then
         echo "Layer checkout missing at ${LAYERDIR}, creating one"
         git clone ${LAYERURI} ${LAYERDIR}
@@ -23,6 +24,17 @@ function check_layer() {
             git checkout ${REV}
         fi
     fi
+}
+
+
+function get_info() {
+	check_layer
+
+	cd ${LAYERDIR}
+	CURRENTCOMMIT="$(git log --oneline --no-abbrev-commit -1 | awk '{print $1}')"
+	CURRENTBRANCH="$(git branch | grep '*' | awk '{print $2}')"
+
+	echo "${LAYERNAME},${LAYERURI},${CURRENTBRANCH},${CURRENTCOMMIT}" >> ${OE_SOURCE_DIR}/info.txt
 }
 
 function update_layers() {
@@ -55,6 +67,8 @@ tag)
     tag_layers;;
 changelog)
     diff_tags;;
+info)
+	get_info;;
 *)
     update_layers;;
 esac
