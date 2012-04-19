@@ -34,7 +34,7 @@ PROXYHOST=""
 ###############################################################################
 OE_BASE=${PWD}
 # incremement this to force recreation of config files
-BASE_VERSION=4
+BASE_VERSION=5
 OE_ENV_FILE=~/.oe/environment-oecore
 
 ###############################################################################
@@ -70,7 +70,7 @@ else
     #--------------------------------------------------------------------------
     # Specify distribution information
     #--------------------------------------------------------------------------
-    DISTRO="angstrom-2010.x"
+    DISTRO=$(grep DISTRO conf/local.conf | awk -F\" '{print $2}')
     DISTRO_DIRNAME=`echo $DISTRO | sed s#[.-]#_#g`
 
     echo "export SCRIPTS_BASE_VERSION=${BASE_VERSION}" > ${OE_ENV_FILE}
