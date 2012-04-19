@@ -141,11 +141,11 @@ else
     echo "export BBPATH=\"${BBPATH}\"" >> ${OE_ENV_FILE}
 
     #--------------------------------------------------------------------------
-    # Reconfigure dash
+    # Look for dash
     #--------------------------------------------------------------------------
     if [ "$(readlink /bin/sh)" = "dash" ] ; then
-        sudo aptitude install expect -y
-        expect -c 'spawn sudo dpkg-reconfigure -freadline dash; send "n\n"; interact;'
+	echo "/bin/sh is a symlink to dash, please point it to bash instead"
+        exit 1
     fi
 
     echo "There now is a sourceable script in ~/.oe/enviroment. You can do '. ${OE_ENV_FILE}' and run 'bitbake something' without using $0 as wrapper"
