@@ -58,7 +58,7 @@ fi
 
 if [ x"${BASE_VERSION}" != x"${SCRIPTS_BASE_VERSION}" ] ; then
 	echo "BASE_VERSION mismatch, recreating ${OE_ENV_FILE}"
-	rm ${OE_ENV_FILE}
+	rm -f ${OE_ENV_FILE} ${OE_BUILD_DIR}/conf/site.conf
 fi
 
 if [ -e ${OE_ENV_FILE} ] ; then
