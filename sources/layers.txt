@@ -1,6 +1,6 @@
 # Name,repo-uri,branch,rev
 bitbake,git://github.com/openembedded/bitbake.git,master,HEAD
-meta-angstrom,git://github.com/Angstrom-distribution/meta-angstrom,master,HEAD
+meta-angstrom,git://github.com/Angstrom-distribution/meta-angstrom,angstrom-v2012.05-yocto1.2,HEAD
 meta-openembedded,git://github.com/openembedded/meta-oe.git,master,HEAD
 meta-ti,git://git.yoctoproject.org/meta-ti,master,HEAD
 meta-ettus,git://github.com/balister/meta-ettus.git,master,HEAD
@@ -18,4 +18,4 @@ meta-mozilla,git://github.com/OSSystems/meta-mozilla.git,master,HEAD
 meta-chromium,git://github.com/eukrea/meta-chromium.git,master,HEAD
 meta-mono,git://github.com/KokoFitClub/meta-mono.git,master,HEAD
 meta-kde,git://gitorious.org/openembedded-core-layers/meta-kde.git,master,HEAD
-openembedded-core,git://github.com/openembedded/oe-core.git,master,HEAD
+openembedded-core,git://github.com/openembedded/oe-core.git,denzil,HEAD
