@@ -38,6 +38,50 @@ BASE_VERSION=5
 OE_ENV_FILE=~/.oe/environment-oecore
 
 ###############################################################################
+# CONFIG_OE() - Configure OpenEmbedded
+###############################################################################
+function config_oe()
+{
+
+    MACHINE="${CL_MACHINE}"
+
+    #--------------------------------------------------------------------------
+    # Write out the OE bitbake configuration file.
+    #--------------------------------------------------------------------------
+    mkdir -p ${OE_BUILD_DIR}/conf
+
+    # There's no need to rewrite site.conf when changing MACHINE
+    if [ ! -e ${OE_BUILD_DIR}/conf/site.conf ]; then
+        cat > ${OE_BUILD_DIR}/conf/site.conf <<_EOF
+
+SCONF_VERSION = "1"
+
+# Where to store sources
+DL_DIR = "${OE_SOURCE_DIR}/downloads"
+
+# Where to save shared state
+SSTATE_DIR = "${OE_BUILD_DIR}/build/sstate-cache"
+
+# Which files do we want to parse:
+BBFILES ?= "${OE_SOURCE_DIR}/openembedded-core/meta/recipes-*/*/*.bb"
+
+TMPDIR = "${OE_BUILD_TMPDIR}"
+
+# Go through the Firewall
+#HTTP_PROXY        = "http://${PROXYHOST}:${PROXYPORT}/"
+
+_EOF
+fi
+    if [ ! -e ${OE_BUILD_DIR}/conf/auto.conf ]; then
+        cat > ${OE_BUILD_DIR}/conf/auto.conf <<_EOF
+MACHINE ?= "${MACHINE}"
+_EOF
+    else
+	eval "sed -i -e 's/^MACHINE.*$/MACHINE ?= \"${MACHINE}\"/g' ${OE_BUILD_DIR}/conf/auto.conf"
+fi
+}
+
+###############################################################################
 # SET_ENVIRONMENT() - Setup environment variables for OE development
 ###############################################################################
 function set_environment()
@@ -150,8 +194,12 @@ else
 
     echo "There now is a sourceable script in ~/.oe/enviroment. You can do '. ${OE_ENV_FILE}' and run 'bitbake something' without using $0 as wrapper"
 fi # if -e ${OE_ENV_FILE}
-}
 
+if ! [ -e ${OE_BUILD_DIR}/conf/site.conf ] ; then
+	config_oe
+fi
+
+}
 
 ###############################################################################
 # UPDATE_ALL() - Make sure everything is up to date
@@ -227,51 +275,6 @@ function update_oe()
 
     #manage meta-openembedded and meta-angstrom with layerman
     env gawk -v command=update -f ${OE_BASE}/scripts/layers.awk ${OE_SOURCE_DIR}/layers.txt 
-}
-
-
-###############################################################################
-# CONFIG_OE() - Configure OpenEmbedded
-###############################################################################
-function config_oe()
-{
-
-    MACHINE="${CL_MACHINE}"
-
-    #--------------------------------------------------------------------------
-    # Write out the OE bitbake configuration file.
-    #--------------------------------------------------------------------------
-    mkdir -p ${OE_BUILD_DIR}/conf
-
-    # There's no need to rewrite site.conf when changing MACHINE
-    if [ ! -e ${OE_BUILD_DIR}/conf/site.conf ]; then
-        cat > ${OE_BUILD_DIR}/conf/site.conf <<_EOF
-
-SCONF_VERSION = "1"
-
-# Where to store sources
-DL_DIR = "${OE_SOURCE_DIR}/downloads"
-
-# Where to save shared state
-SSTATE_DIR = "${OE_BUILD_DIR}/build/sstate-cache"
-
-# Which files do we want to parse:
-BBFILES ?= "${OE_SOURCE_DIR}/openembedded-core/meta/recipes-*/*/*.bb"
-
-TMPDIR = "${OE_BUILD_TMPDIR}"
-
-# Go through the Firewall
-#HTTP_PROXY        = "http://${PROXYHOST}:${PROXYPORT}/"
-
-_EOF
-fi
-    if [ ! -e ${OE_BUILD_DIR}/conf/auto.conf ]; then
-        cat > ${OE_BUILD_DIR}/conf/auto.conf <<_EOF
-MACHINE ?= "${MACHINE}"
-_EOF
-    else
-	eval "sed -i -e 's/^MACHINE.*$/MACHINE ?= \"${MACHINE}\"/g' ${OE_BUILD_DIR}/conf/auto.conf"
-fi
 }
 
 ###############################################################################
