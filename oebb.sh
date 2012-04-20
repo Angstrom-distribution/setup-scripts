@@ -35,7 +35,7 @@ PROXYHOST=""
 OE_BASE=${PWD}
 # incremement this to force recreation of config files
 BASE_VERSION=5
-OE_ENV_FILE=~/.oe/environment-oecore
+OE_ENV_FILE=~/.oe/environment-angstromv2012.05
 
 ###############################################################################
 # CONFIG_OE() - Configure OpenEmbedded
