@@ -21,9 +21,19 @@ function check_layer() {
         fi
 
         if [ "${REV}" != "HEAD" ] ; then
-            git checkout ${REV}
+            git reset --hard ${REV}
         fi
     fi
+
+	cd ${LAYERDIR}
+	CURRENTCOMMIT="$(git log --oneline --no-abbrev-commit -1 | awk '{print $1}')"
+	CURRENTBRANCH="$(git branch | grep '*' | awk '{print $2}')"
+
+	if [ "${CURRENTBRANCH}" != "${BRANCH}" ] ; then
+		echo "WARNING!!!!"
+		echo "WARNING: ${LAYERNAME} is using a different branch than configured in layers.txt"
+		echo "WARNING!!!!"
+	fi
 }
 
 
@@ -42,7 +52,15 @@ function update_layers() {
 
     if [ "${REV}" = "HEAD" ] ; then
         cd ${LAYERDIR} && echo "Updating layer at layers/${LAYERNAME}" && git stash >&/dev/null && git pull --rebase && git stash pop >& /dev/null
-    fi
+    else
+		cd ${LAYERDIR}
+		CURRENTCOMMIT="$(git log --oneline --no-abbrev-commit -1 | awk '{print $1}')"
+		if [ "${REV}" != "${CURRENTCOMMIT}" ] ; then
+			echo "WARNING!!!!"
+			echo "WARNING: ${LAYERNAME} is using a different revision than configured in layers.txt"
+			echo "WARNING!!!!"
+		fi
+	fi	
     echo ""
 
     echo "Layers present in repository:"
