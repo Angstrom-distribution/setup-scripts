@@ -1,7 +1,7 @@
 bitbake,git://github.com/openembedded/bitbake.git,master,1a39698ab8498410d159c665c015f9297f153797
 meta-angstrom,git://github.com/Angstrom-distribution/meta-angstrom,angstrom-v2012.05-yocto1.2,HEAD
 meta-openembedded,git://github.com/openembedded/meta-oe.git,master,643a5268eb934fc994a8fa88c181a63f2394eacd
-meta-ti,git://git.yoctoproject.org/meta-ti,master,bb6f1bad7fce0e9217b1747138bc71de354b3a79
+meta-ti,git://git.yoctoproject.org/meta-ti,master,2585c8864b5ba85c9aa1fe81e21e771173125b97
 meta-ettus,git://github.com/balister/meta-ettus.git,master,5a6a642f6707dc42a5210dbbf01d2bdfd869d4b0
 meta-efikamx,git://github.com/kraj/meta-efikamx.git,master,2c09a3a780b23448e8a6ca964256ff7f5ccba65d
 meta-nslu2,git://github.com/kraj/meta-nslu2.git,master,3d9fc951b05b4df476374b6fc3085ebac7f293ee
@@ -16,5 +16,5 @@ meta-java,git://github.com/woglinde/meta-java.git,master,3386ea6c96096f107f43f28
 meta-mozilla,git://github.com/OSSystems/meta-mozilla.git,master,5737d9fa26a632a27b2aa760c0d01190f0a17d0e
 meta-chromium,git://github.com/eukrea/meta-chromium.git,master,172783d6567d30429786291e401594d46f40cd69
 meta-mono,git://github.com/KokoFitClub/meta-mono.git,master,83f8233b0498aadb18bf7605c3ba6c71d9e13a3a
-meta-kde,git://gitorious.org/openembedded-core-layers/meta-kde.git,master,6d3d720a22af06855c91cc88b5dbf25fc8160644
+meta-kde,git://gitorious.org/openembedded-core-layers/meta-kde.git,master,88b105c2b4a2bed318f54115be1eaad717498823
 openembedded-core,git://github.com/openembedded/oe-core.git,denzil,HEAD
