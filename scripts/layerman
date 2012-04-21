@@ -55,10 +55,20 @@ function update_layers() {
     else
 		cd ${LAYERDIR}
 		CURRENTCOMMIT="$(git log --oneline --no-abbrev-commit -1 | awk '{print $1}')"
-		if [ "${REV}" != "${CURRENTCOMMIT}" ] ; then
-			echo "WARNING!!!!"
-			echo "WARNING: ${LAYERNAME} is using a different revision than configured in layers.txt"
-			echo "WARNING!!!!"
+		CURRENTBRANCH="$(git branch | grep '*' | awk '{print $2}')"
+
+		if [ "${BRANCH}" != "${CURRENTBRANCH}" ] ; then
+			if [ "${REV}" != "${CURRENTCOMMIT}" ] ; then
+				echo "WARNING!!!!"
+				echo "WARNING: ${LAYERNAME} is using a different revision and branch than configured in layers.txt"
+				echo "WARNING!!!!"
+			fi
+		else
+			if [ "${REV}" != "${CURRENTCOMMIT}" ] ; then
+				git remote update
+				echo "updating to ${REV}"
+				git stash >&/dev/null && git reset --hard ${REV} && git stash pop >& /dev/null
+			fi
 		fi
 	fi	
     echo ""
