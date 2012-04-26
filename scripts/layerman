@@ -26,7 +26,7 @@ function check_layer() {
     fi
 
 	cd ${LAYERDIR}
-	CURRENTCOMMIT="$(git log --oneline --no-abbrev-commit -1 | awk '{print $1}')"
+	CURRENTCOMMIT="$(git log --oneline --no-abbrev -1 | awk '{print $1}')"
 	CURRENTBRANCH="$(git branch | grep '*' | awk '{print $2}')"
 
 	if [ "${CURRENTBRANCH}" != "${BRANCH}" ] ; then
@@ -41,7 +41,7 @@ function get_info() {
 	check_layer
 
 	cd ${LAYERDIR}
-	CURRENTCOMMIT="$(git log --oneline --no-abbrev-commit -1 | awk '{print $1}')"
+	CURRENTCOMMIT="$(git log --oneline --no-abbrev -1 | awk '{print $1}')"
 	CURRENTBRANCH="$(git branch | grep '*' | awk '{print $2}')"
 
 	echo "${LAYERNAME},${LAYERURI},${CURRENTBRANCH},${CURRENTCOMMIT}" >> ${OE_SOURCE_DIR}/info.txt
@@ -54,7 +54,7 @@ function update_layers() {
         cd ${LAYERDIR} && echo "Updating layer at layers/${LAYERNAME}" && git stash >&/dev/null && git pull --rebase && git stash pop >& /dev/null
     else
 		cd ${LAYERDIR}
-		CURRENTCOMMIT="$(git log --oneline --no-abbrev-commit -1 | awk '{print $1}')"
+		CURRENTCOMMIT="$(git log --oneline --no-abbrev -1 | awk '{print $1}')"
 		CURRENTBRANCH="$(git branch | grep '*' | awk '{print $2}')"
 
 		if [ "${BRANCH}" != "${CURRENTBRANCH}" ] ; then
