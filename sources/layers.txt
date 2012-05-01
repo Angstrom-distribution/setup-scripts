@@ -16,5 +16,5 @@ meta-java,git://github.com/woglinde/meta-java.git,master,3386ea6c96096f107f43f28
 meta-mozilla,git://github.com/OSSystems/meta-mozilla.git,master,5737d9fa26a632a27b2aa760c0d01190f0a17d0e
 meta-chromium,git://github.com/eukrea/meta-chromium.git,master,172783d6567d30429786291e401594d46f40cd69
 meta-mono,git://github.com/KokoFitClub/meta-mono.git,master,83f8233b0498aadb18bf7605c3ba6c71d9e13a3a
-meta-kde,git://gitorious.org/openembedded-core-layers/meta-kde.git,master,88b105c2b4a2bed318f54115be1eaad717498823
+meta-kde,git://gitorious.org/openembedded-core-layers/meta-kde.git,master,5e1ef2906178fddd234c2eb259f8b32452eec0fc
 openembedded-core,git://github.com/openembedded/oe-core.git,denzil,HEAD
