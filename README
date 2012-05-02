@@ -1,14 +1,24 @@
+These are the setup scripts for the Angstorm buildsystem. If you want to (re)build packages or images for Angstrom, this is the thing to use.
 
 To configure the scripts and download the build metadata, do:
 
 	$ MACHINE=beagleboard ./oebb.sh config beagleboard
 
+You can change the 'beagleboard' in the commandline above into the machine you are targeting.
+
 To start a build of the kernel, do:
 
 	$ MACHINE=beagleboard ./oebb.sh bitbake virtual/kernel
 
+For an example workflow for dealing with kernels please read http://www.slimlogic.co.uk/2011/05/openembeddedangstrom-kernel-workflow/
+
 To update the metadata, do:
 
+	$ git pull
 	$ ./oebb.sh update
 
 
+
+If you find any bugs please report them here: https://github.com/angstrom-distribution/setup-scripts/issues
+
+If you have questions or feedback, please subscribe to http://lists.linuxtogo.org/cgi-bin/mailman/listinfo/angstrom-distro-devel
