@@ -355,6 +355,16 @@ function layer_info()
 }
 
 ###############################################################################
+# checkout - Checkout all layers with a given tag
+###############################################################################
+function checkout()
+{
+set_environment
+env gawk -v command=checkout -v commandarg=$TAG -f ${OE_BASE}/scripts/layers.awk ${OE_SOURCE_DIR}/layers.txt 
+}
+
+
+###############################################################################
 # Build the specified OE packages or images.
 ###############################################################################
 
@@ -397,6 +407,17 @@ then
         exit 0
     fi
     
+    if [ $1 = "checkout" ]
+    then
+        if [ -z $2 ] ; then
+            echo "Checkout needs an argument"
+            exit 1
+        else
+            TAG="$2"
+        fi
+        checkout
+        exit 0
+    fi
     if [ $1 = "bitbake" ]
     then
         shift
@@ -426,6 +447,7 @@ echo "Usage: $0 config <machine>"
 echo "       $0 update"
 echo "       $0 tag [tagname]"
 echo "       $0 changelog <tagname>"
+echo "       $0 checkout <tagname>"
 echo "       $0 clean"
 echo ""
 echo "       Not recommended, but also possible:"
