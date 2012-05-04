@@ -90,6 +90,12 @@ function diff_tags() {
     echo ""
 }
 
+function checkout_tag() {
+    check_layer
+    cd ${LAYERDIR} && echo "Checking out $COMMANDARG" && git checkout $COMMANDARG
+    echo ""
+}
+
 case $COMMAND in
 tag)
     tag_layers;;
@@ -97,6 +103,8 @@ changelog)
     diff_tags;;
 info)
 	get_info;;
+checkout)
+    checkout_tag;;	
 *)
     update_layers;;
 esac
