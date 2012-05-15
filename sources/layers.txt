@@ -17,4 +17,5 @@ meta-mozilla,git://github.com/OSSystems/meta-mozilla.git,master,HEAD
 meta-chromium,git://github.com/eukrea/meta-chromium.git,master,HEAD
 meta-mono,git://github.com/KokoFitClub/meta-mono.git,master,HEAD
 meta-kde,git://gitorious.org/openembedded-core-layers/meta-kde.git,master,HEAD
+meta-linaro,git://git.linaro.org/people/kwerner/meta-linaro.git,master,HEAD
 openembedded-core,git://github.com/openembedded/oe-core.git,master,HEAD
