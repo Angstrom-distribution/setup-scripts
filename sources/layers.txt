@@ -9,7 +9,7 @@ meta-smartphone,http://git.shr-project.org/repo/meta-smartphone.git,master,2b106
 meta-intel,git://git.yoctoproject.org/meta-intel,master,f75f9b6f68473eb0efac802409608f8389be0030
 meta-xilinx,git://git.yoctoproject.org/meta-xilinx,master,5191333565f9913b6175bb19485f7320db82080b
 meta-openpandora,git://github.com/openpandora/meta-openpandora.git,master,9221a48cd088707e0b03f27704c5825fb754bc0c
-meta-raspberrypi,git://github.com/djwillis/meta-raspberrypi.git,master,03d3e7e6325d919ff2c64c39edd9008d0a93c7a4
+meta-raspberrypi,git://github.com/djwillis/meta-raspberrypi.git,denzil,HEAD
 meta-handheld,git://git.openembedded.org/meta-handheld,master,1f05a15aceb4c3a19fa070463b58125b5658b2a9
 meta-opie,git://github.com/bluelightning/meta-opie.git,master,efa3892b20a4ef80274e56e5633ebd62c16f9731
 meta-java,git://github.com/woglinde/meta-java.git,master,3386ea6c96096f107f43f282f654e5afa456109e
