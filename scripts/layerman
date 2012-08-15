@@ -11,19 +11,19 @@ LAYERDIR="${OE_SOURCE_DIR}/${LAYERNAME}"
 
 function check_layer() {
 	echo
-    if ! [ -e ${LAYERDIR} ] ; then
-        echo "Layer checkout missing at ${LAYERDIR}, creating one"
-        git clone ${LAYERURI} ${LAYERDIR}
-        cd ${LAYERDIR}
+	if ! [ -e ${LAYERDIR} ] ; then
+		echo "Layer checkout missing at ${LAYERDIR}, creating one"
+		git clone ${LAYERURI} ${LAYERDIR}
+		cd ${LAYERDIR}
 
-        if [ "${BRANCH}" != "master" ] ; then
-            git checkout origin/${BRANCH} -b ${BRANCH}
-        fi
+		if [ "${BRANCH}" != "master" ] ; then
+			git checkout origin/${BRANCH} -b ${BRANCH}
+		fi
 
-        if [ "${REV}" != "HEAD" ] ; then
-            git reset --hard ${REV}
-        fi
-    fi
+		if [ "${REV}" != "HEAD" ] ; then
+			git reset --hard ${REV}
+		fi
+	fi
 
 	cd ${LAYERDIR}
 	CURRENTCOMMIT="$(git log --oneline --no-abbrev -1 | awk '{print $1}')"
@@ -48,11 +48,11 @@ function get_info() {
 }
 
 function update_layers() {
-    check_layer
+	check_layer
 
-    if [ "${REV}" = "HEAD" ] ; then
-        cd ${LAYERDIR} && echo "Updating layer at layers/${LAYERNAME}" && git stash >&/dev/null && git pull --rebase && git stash pop >& /dev/null
-    else
+	if [ "${REV}" = "HEAD" ] ; then
+		cd ${LAYERDIR} && echo "Updating layer at layers/${LAYERNAME}" && git stash >&/dev/null && git pull --rebase && git stash pop >& /dev/null
+	else
 		cd ${LAYERDIR}
 		CURRENTCOMMIT="$(git log --oneline --no-abbrev -1 | awk '{print $1}')"
 		CURRENTBRANCH="$(git branch | grep '*' | awk '{print $2}')"
@@ -71,40 +71,40 @@ function update_layers() {
 			fi
 		fi
 	fi	
-    echo ""
+	echo ""
 
-    echo "Layers present in repository:"
-    find ${LAYERDIR} -name "layer.conf" | sed -e s:${LAYERDIR}:${LAYERNAME}:g -e s:/conf/layer\.conf::g
-    echo
+	echo "Layers present in repository:"
+	find ${LAYERDIR} -name "layer.conf" | sed -e s:${LAYERDIR}:${LAYERNAME}:g -e s:/conf/layer\.conf::g
+	echo
 }
 
 function tag_layers() {
-    check_layer
-    cd ${LAYERDIR} && echo "Tagging layer with $COMMANDARG" && git tag $COMMANDARG
-    echo ""
+	check_layer
+	cd ${LAYERDIR} && echo "Tagging layer with $COMMANDARG" && git tag $COMMANDARG
+	echo ""
 }
 
 function diff_tags() {
-    check_layer
-    cd ${LAYERDIR} && echo "Changes in between $COMMANDARG" && git shortlog $COMMANDARG
-    echo ""
+	check_layer
+	cd ${LAYERDIR} && echo "Changes in between $COMMANDARG" && git shortlog $COMMANDARG
+	echo ""
 }
 
 function checkout_tag() {
-    check_layer
-    cd ${LAYERDIR} && echo "Checking out $COMMANDARG" && git checkout $COMMANDARG
-    echo ""
+	check_layer
+	cd ${LAYERDIR} && echo "Checking out $COMMANDARG" && git checkout $COMMANDARG
+	echo ""
 }
 
 case $COMMAND in
 tag)
-    tag_layers;;
+	tag_layers;;
 changelog)
-    diff_tags;;
+	diff_tags;;
 info)
 	get_info;;
 checkout)
-    checkout_tag;;	
+	checkout_tag;;	
 *)
-    update_layers;;
+	update_layers;;
 esac
