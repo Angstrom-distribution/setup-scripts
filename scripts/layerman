@@ -9,9 +9,11 @@ COMMANDARG=$6
 
 LAYERDIR="${OE_SOURCE_DIR}/${LAYERNAME}"
 
+LAYERINFO="layer repository name: ${LAYERNAME}\nlayer uri: ${LAYERURI}\nlayer branch/revision: ${BRANCH}/${REV}\n"
+
 function check_layer() {
-	echo
 	if ! [ -e ${LAYERDIR} ] ; then
+		echo -e ${LAYERINFO}
 		echo "Layer checkout missing at ${LAYERDIR}, creating one"
 		git clone ${LAYERURI} ${LAYERDIR}
 		cd ${LAYERDIR}
@@ -23,16 +25,22 @@ function check_layer() {
 		if [ "${REV}" != "HEAD" ] ; then
 			git reset --hard ${REV}
 		fi
-	fi
 
-	cd ${LAYERDIR}
-	CURRENTCOMMIT="$(git log --oneline --no-abbrev -1 | awk '{print $1}')"
-	CURRENTBRANCH="$(git branch | grep '*' | awk '{print $2}')"
+		echo "Layers present in repository:"
+		find ${LAYERDIR} -name "layer.conf" | sed -e s:${LAYERDIR}:${LAYERNAME}:g -e s:/conf/layer\.conf::g
+		echo
 
-	if [ "${CURRENTBRANCH}" != "${BRANCH}" ] ; then
-		echo "WARNING!!!!"
-		echo "WARNING: ${LAYERNAME} is using a different branch than configured in layers.txt"
-		echo "WARNING!!!!"
+	else
+		cd ${LAYERDIR}
+		CURRENTCOMMIT="$(git log --oneline --no-abbrev -1 | awk '{print $1}')"
+		CURRENTBRANCH="$(git branch | grep '*' | awk '{print $2}')"
+
+		if [ "${CURRENTBRANCH}" != "${BRANCH}" ] ; then
+			#echo -e ${LAYERINFO}
+			echo "WARNING!!!!"
+			echo "WARNING: ${LAYERNAME} is using a different branch than configured in layers.txt, detected ${CURRENTBRANCH} instead of ${BRANCH}"
+			echo "WARNING!!!!"
+		fi
 	fi
 }
 
@@ -50,10 +58,13 @@ function get_info() {
 function update_layers() {
 	check_layer
 
+	echo -n "Processing ${LAYERNAME}: "
+
 	if [ "${REV}" = "HEAD" ] ; then
-		cd ${LAYERDIR} && echo "Updating layer at layers/${LAYERNAME}" && git stash >&/dev/null && git pull --rebase && git stash pop >& /dev/null
+		cd ${LAYERDIR} || exit 1
+		git stash >&/dev/null && git pull --rebase && git stash pop >& /dev/null
 	else
-		cd ${LAYERDIR}
+		cd ${LAYERDIR} || exit 1
 		CURRENTCOMMIT="$(git log --oneline --no-abbrev -1 | awk '{print $1}')"
 		CURRENTBRANCH="$(git branch | grep '*' | awk '{print $2}')"
 
@@ -68,14 +79,11 @@ function update_layers() {
 				git remote update
 				echo "updating to ${REV}"
 				git stash >&/dev/null && git reset --hard ${REV} && git stash pop >& /dev/null
+			else
+				echo "Fixed to revision ${REV}, skipping update"
 			fi
 		fi
 	fi	
-	echo ""
-
-	echo "Layers present in repository:"
-	find ${LAYERDIR} -name "layer.conf" | sed -e s:${LAYERDIR}:${LAYERNAME}:g -e s:/conf/layer\.conf::g
-	echo
 }
 
 function tag_layers() {
