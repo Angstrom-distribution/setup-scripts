@@ -17,7 +17,11 @@ To update the metadata, do:
 	$ git pull
 	$ ./oebb.sh update
 
+The oebb.sh script tries hard to keep your local changes while at the same time keeping close to the original config. Please keep the following in mind:
 
+	* it will reset the origin URI based on layers.txt, so update layers.txt when changing a repo
+	* it will do a 'git reset --hard <ref>' on locked down repos, so please create a new branch for your changes
+	* As noted above, it will NOT switch branches, so be carefull when using the update function after you branched a repo
 
 If you find any bugs please report them here: https://github.com/angstrom-distribution/setup-scripts/issues
 
