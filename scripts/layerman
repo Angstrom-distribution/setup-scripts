@@ -34,7 +34,16 @@ function check_layer() {
 		cd ${LAYERDIR}
 		CURRENTCOMMIT="$(git log --oneline --no-abbrev -1 | awk '{print $1}')"
 		CURRENTBRANCH="$(git branch | grep '*' | awk '{print $2}')"
+		CURRENTURI="$(git config remote.origin.url)"
 
+		if [ "${CURRENTURI}" != "${LAYERURI}" ] ; then
+			echo "WARNING!!!!"
+			echo "WARNING: ${LAYERNAME} is using a different uri '${CURRENTURI}' than configured in layers.txt '${LAYERURI}'"
+			echo "WARNING: Changing uri to: '${LAYERURI}'"
+			echo "WARNING!!!!"
+			git remote set-url origin ${LAYERURI}
+			git remote update
+		fi
 		if [ "${CURRENTBRANCH}" != "${BRANCH}" ] ; then
 			#echo -e ${LAYERINFO}
 			echo "WARNING!!!!"
