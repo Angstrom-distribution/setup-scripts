@@ -101,6 +101,23 @@ function tag_layers() {
 	echo ""
 }
 
+function reset_layers() {
+	check_layer
+	if [ -e ${LAYERDIR} ] ; then
+		echo "WARNING!!!!"
+		echo "WARNING: ${LAYERNAME}: Removing local changes including stash and ignored files!!"
+		echo "WARNING!!!!"
+		git stash clear
+		git clean -fdx
+		if [ "${REV}" != "HEAD" ] ; then
+			git reset --hard ${REV}
+		else
+			git reset --hard ${BRANCH}
+		fi
+	fi
+	echo ""
+}
+
 function diff_tags() {
 	check_layer
 	cd ${LAYERDIR} && echo "Changes in between $COMMANDARG" && git shortlog $COMMANDARG
@@ -116,6 +133,8 @@ function checkout_tag() {
 case $COMMAND in
 tag)
 	tag_layers;;
+reset)
+	reset_layers;;	
 changelog)
 	diff_tags;;
 info)
