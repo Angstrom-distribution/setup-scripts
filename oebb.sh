@@ -332,6 +332,15 @@ function tag_layers()
 }
 
 ###############################################################################
+# reset_layers - Remove all local changes including stash and ignored files
+###############################################################################
+function reset_layers()
+{
+    set_environment
+    env gawk -v command=reset -f ${OE_BASE}/scripts/layers.awk ${OE_LAYERS_TXT} 
+}
+
+###############################################################################
 # changelog - Display changelog for all layers with a given tag
 ###############################################################################
 function changelog()
@@ -382,6 +391,12 @@ then
     if [ $1 = "info" ]
     then
         layer_info
+        exit 0
+    fi
+
+    if [ $1 = "reset" ]
+    then
+        reset_layers
         exit 0
     fi
 
@@ -446,6 +461,7 @@ fi
 echo ""
 echo "Usage: $0 config <machine>"
 echo "       $0 update"
+echo "       $0 reset"
 echo "       $0 tag [tagname]"
 echo "       $0 changelog <tagname>"
 echo "       $0 checkout <tagname>"
