@@ -146,6 +146,7 @@ else
     echo "export BUILDDIR=\"${OE_BUILD_DIR}\"" >> ${OE_ENV_FILE}
     echo "export OE_BUILD_TMPDIR=\"${OE_BUILD_TMPDIR}\"" >> ${OE_ENV_FILE}
     echo "export OE_SOURCE_DIR=\"${OE_SOURCE_DIR}\"" >> ${OE_ENV_FILE}
+    echo "export OE_LAYERS_TXT=\"${OE_LAYERS_TXT}\"" >> ${OE_ENV_FILE}
 
     echo "export OE_BASE=\"${OE_BASE}\"" >> ${OE_ENV_FILE}
 
@@ -281,7 +282,7 @@ function update_oe()
     fi
 
     #manage meta-openembedded and meta-angstrom with layerman
-    env gawk -v command=update -f ${OE_BASE}/scripts/layers.awk ${OE_LAYERS_TXT} 
+    env gawk -v command=update -f ${OE_BASE}/scripts/layers.awk ${OE_LAYERS_TXT}
 }
 
 ###############################################################################
@@ -337,7 +338,7 @@ function tag_layers()
 function reset_layers()
 {
     set_environment
-    env gawk -v command=reset -f ${OE_BASE}/scripts/layers.awk ${OE_LAYERS_TXT} 
+    env gawk -v command=reset -f ${OE_BASE}/scripts/layers.awk ${OE_LAYERS_TXT}
 }
 
 ###############################################################################
@@ -346,7 +347,7 @@ function reset_layers()
 function changelog()
 {
 	set_environment
-	env gawk -v command=changelog -v commandarg=$TAG -f ${OE_BASE}/scripts/layers.awk ${OE_LAYERS_TXT} 
+	env gawk -v command=changelog -v commandarg=$TAG -f ${OE_BASE}/scripts/layers.awk ${OE_LAYERS_TXT}
 }
 
 ###############################################################################
@@ -370,7 +371,7 @@ function layer_info()
 function checkout()
 {
 set_environment
-env gawk -v command=checkout -v commandarg=$TAG -f ${OE_BASE}/scripts/layers.awk ${OE_LAYERS_TXT} 
+env gawk -v command=checkout -v commandarg=$TAG -f ${OE_BASE}/scripts/layers.awk ${OE_LAYERS_TXT}
 }
 
 
