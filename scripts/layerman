@@ -74,6 +74,7 @@ function update_layers() {
 	if [ "${REV}" = "HEAD" ] ; then
 		cd ${LAYERDIR} || exit 1
 		git stash >&/dev/null && git pull --rebase && git stash pop >& /dev/null
+		git gc >& /dev/null && git remote prune origin >& /dev/null
 	else
 		cd ${LAYERDIR} || exit 1
 		CURRENTCOMMIT="$(git log --oneline --no-abbrev -1 | awk '{print $1}')"
