@@ -1,3 +1,4 @@
+bitbake.lock
 build
 sources/*
 !sources/layers.txt
