@@ -34,7 +34,7 @@ PROXYHOST=""
 ###############################################################################
 OE_BASE=${PWD}
 # incremement this to force recreation of config files
-BASE_VERSION=8
+BASE_VERSION=9
 OE_ENV_FILE=~/.oe/environment-angstromv2012.12
 
 if ! git help log | grep -q no-abbrev ; then 
