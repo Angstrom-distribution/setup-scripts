@@ -34,7 +34,7 @@ PROXYHOST=""
 ###############################################################################
 OE_BASE=${PWD}
 # incremement this to force recreation of config files
-BASE_VERSION=7
+BASE_VERSION=8
 OE_ENV_FILE=~/.oe/environment-angstrom
 
 if ! git help log | grep -q no-abbrev ; then 
@@ -72,6 +72,10 @@ SSTATE_DIR = "${OE_BUILD_DIR}/build/sstate-cache"
 BBFILES ?= "${OE_SOURCE_DIR}/openembedded-core/meta/recipes-*/*/*.bb"
 
 TMPDIR = "${OE_BUILD_TMPDIR}"
+
+# Set DEPLOY_DIR outside of TMPDIR
+
+DEPLOY_DIR = "${OE_BASE}/deploy"
 
 # Go through the Firewall
 #HTTP_PROXY        = "http://${PROXYHOST}:${PROXYPORT}/"
