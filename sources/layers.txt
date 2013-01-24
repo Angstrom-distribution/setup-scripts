@@ -1,4 +1,4 @@
-bitbake,git://github.com/openembedded/bitbake.git,master,1c540541c5397c38dca880a79df9ebfcda576d4c
+bitbake,git://github.com/openembedded/bitbake.git,master,7e3a99949358f4362876df5a82f8aeaae72c3c97
 meta-angstrom,git://github.com/Angstrom-distribution/meta-angstrom,angstrom-v2012.12-yocto1.3,HEAD
 meta-openembedded,git://github.com/openembedded/meta-oe.git,danny,HEAD
 meta-beagleboard,git://github.com/beagleboard/meta-beagleboard.git,master,HEAD
