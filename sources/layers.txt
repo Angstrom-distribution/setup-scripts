@@ -14,7 +14,7 @@ meta-raspberrypi,git://github.com/djwillis/meta-raspberrypi.git,master,4ed04f407
 meta-handheld,git://git.openembedded.org/meta-handheld,master,864975055d93ea7c29646b6e9efa11c6f8c0221d
 meta-opie,git://github.com/bluelightning/meta-opie.git,master,6a3dff1e12e68c039828e93b8fd81cd334d421f6
 meta-java,git://github.com/woglinde/meta-java.git,master,75dee76c7cfbf1418e5c581f50bb57b3282013f7
-meta-browser,git://github.com/OSSystems/meta-browser.git,master,5d176cb405497e5c5823fa14dbae353a2e1e3730
+meta-browser,git://github.com/OSSystems/meta-browser.git,danny,HEAD
 meta-mono,git://git.yoctoproject.org/meta-mono.git,master,adf47f078dbf788a80ff1398a15a4fd5a334d320
 meta-kde,git://gitorious.org/openembedded-core-layers/meta-kde.git,master,316d9c27e72cfebc7618268f8766624ee3f5e18e
 meta-linaro,git://git.linaro.org/openembedded/meta-linaro.git,master,02a6a819c86ac95c57526ad93a81a63ca6649b35
