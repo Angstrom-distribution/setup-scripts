@@ -12,7 +12,7 @@ meta-xilinx,git://git.yoctoproject.org/meta-xilinx,master,HEAD
 meta-openpandora,git://github.com/openpandora/meta-openpandora.git,master,HEAD
 meta-raspberrypi,git://github.com/djwillis/meta-raspberrypi.git,master,HEAD
 meta-handheld,git://git.openembedded.org/meta-handheld,master,HEAD
-meta-opie,git://github.com/bluelightning/meta-opie.git,master,HEAD
+meta-opie,git://git.openembedded.org/meta-opie.git,master,HEAD
 meta-java,git://github.com/woglinde/meta-java.git,master,HEAD
 meta-browser,git://github.com/OSSystems/meta-browser.git,master,HEAD
 meta-mono,git://git.yoctoproject.org/meta-mono.git,master,HEAD
