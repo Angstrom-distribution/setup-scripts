@@ -47,8 +47,10 @@ function check_layer() {
 		if [ "${CURRENTBRANCH}" != "${BRANCH}" ] ; then
 			#echo -e ${LAYERINFO}
 			echo "WARNING!!!!"
-			echo "WARNING: ${LAYERNAME} is using a different branch than configured in layers.txt, detected ${CURRENTBRANCH} instead of ${BRANCH}"
-			echo "WARNING!!!!"
+			echo "WARNING: ${LAYERNAME} is using a different branch '${CURRENTBRANCH}' than configured in layers.txt '${BRANCH}'"
+			echo "WARNING: Changing branch to: '${BRANCH}'"
+ 			echo "WARNING!!!!"
+			git checkout origin/${BRANCH} -b ${BRANCH} >/dev/null || git checkout ${BRANCH}
 		fi
 	fi
 }
@@ -120,7 +122,7 @@ function reset_layers() {
 
 function diff_tags() {
 	check_layer
-	cd ${LAYERDIR} && echo $(basename ${LAYERDIR}) "changes in between $COMMANDARG" && git shortlog $COMMANDARG
+	cd ${LAYERDIR} && echo "Changes in between $COMMANDARG" && git shortlog $COMMANDARG
 	echo ""
 }
 
