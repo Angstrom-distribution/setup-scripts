@@ -11,13 +11,13 @@ meta-intel,git://git.yoctoproject.org/meta-intel,danny,HEAD
 meta-xilinx,git://git.yoctoproject.org/meta-xilinx,master,d196fa93c7ff5e080d4c44e2b83aed472f32b2c7
 meta-openpandora,git://github.com/openpandora/meta-openpandora.git,master,bdd973321efabf9da4ac7bbc5e18ecab257841a3
 meta-raspberrypi,git://github.com/djwillis/meta-raspberrypi.git,master,danny
-meta-handheld,git://git.openembedded.org/meta-handheld,master,864975055d93ea7c29646b6e9efa11c6f8c0221d
-meta-opie,git://github.com/bluelightning/meta-opie.git,master,6a3dff1e12e68c039828e93b8fd81cd334d421f6
+meta-handheld,git://git.openembedded.org/meta-handheld,danny,HEAD
+meta-opie,git://github.com/bluelightning/meta-opie.git,master,c242efc6ca55772a88602f1f8f94dff697b38430
 meta-java,git://github.com/woglinde/meta-java.git,master,75dee76c7cfbf1418e5c581f50bb57b3282013f7
 meta-browser,git://github.com/OSSystems/meta-browser.git,danny,HEAD
 meta-mono,git://git.yoctoproject.org/meta-mono.git,master,adf47f078dbf788a80ff1398a15a4fd5a334d320
 meta-kde,git://gitorious.org/openembedded-core-layers/meta-kde.git,master,316d9c27e72cfebc7618268f8766624ee3f5e18e
-meta-linaro,git://git.linaro.org/openembedded/meta-linaro.git,master,02a6a819c86ac95c57526ad93a81a63ca6649b35
+meta-linaro,git://github.com/Angstrom-distribution/meta-linaro.git,danny,HEAD
 meta-minnow,git://git.infradead.org/users/dvhart/meta-minnow,danny,HEAD
 meta-allwinner,git://github.com/naguirre/meta-allwinner.git,danny,HEAD
 openembedded-core,git://github.com/openembedded/oe-core.git,danny,HEAD
