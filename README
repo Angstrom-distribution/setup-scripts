@@ -30,3 +30,6 @@ The oebb.sh script tries hard to keep your local changes while at the same time 
 If you find any bugs please report them here: https://github.com/angstrom-distribution/setup-scripts/issues
 
 If you have questions or feedback, please subscribe to http://lists.linuxtogo.org/cgi-bin/mailman/listinfo/angstrom-distro-devel
+
+Angstrom Distribution maintainers: Koen Kooi <koen@dominion.thruhere.net>
+                                   Khem Raj <raj.khem@gmail.com>
