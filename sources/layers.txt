@@ -7,7 +7,7 @@ meta-ettus,git://github.com/balister/meta-ettus.git,master,5a6a642f6707dc42a5210
 meta-efikamx,git://github.com/kraj/meta-efikamx.git,master,07f2a5c777b4f866985735303bc6d696592760a9
 meta-nslu2,git://github.com/kraj/meta-nslu2.git,master,8948458fe3ec2b3c713b2a13a87123b64e22b0d9
 meta-smartphone,http://git.shr-project.org/repo/meta-smartphone.git,danny,HEAD
-meta-intel,git://git.yoctoproject.org/meta-intel,danny,HEAD
+meta-intel,git://git.yoctoproject.org/meta-intel,danny,98342e9e685ac8066f7fe2517fd382127a286648
 meta-xilinx,git://git.yoctoproject.org/meta-xilinx,master,d196fa93c7ff5e080d4c44e2b83aed472f32b2c7
 meta-openpandora,git://github.com/openpandora/meta-openpandora.git,master,bdd973321efabf9da4ac7bbc5e18ecab257841a3
 meta-raspberrypi,git://github.com/djwillis/meta-raspberrypi.git,master,danny
