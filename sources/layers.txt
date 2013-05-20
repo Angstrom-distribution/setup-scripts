@@ -18,6 +18,6 @@ meta-browser,git://github.com/OSSystems/meta-browser.git,danny,HEAD
 meta-mono,git://git.yoctoproject.org/meta-mono.git,master,adf47f078dbf788a80ff1398a15a4fd5a334d320
 meta-kde,git://gitorious.org/openembedded-core-layers/meta-kde.git,master,316d9c27e72cfebc7618268f8766624ee3f5e18e
 meta-linaro,git://git.linaro.org/openembedded/meta-linaro.git,danny,HEAD
-meta-minnow,git://git.infradead.org/users/dvhart/meta-minnow,danny,HEAD
+meta-minnow,git://git.yoctoproject.org/meta-minnow,danny,HEAD
 meta-allwinner,git://github.com/naguirre/meta-allwinner.git,danny,HEAD
 openembedded-core,git://github.com/Angstrom-distribution/oe-core.git,angstrom-staging-yocto1.3,HEAD
