@@ -123,7 +123,7 @@ function reset_layers() {
 
 function diff_tags() {
 	check_layer
-	cd ${LAYERDIR} && echo "Changes in between $COMMANDARG" && git shortlog $COMMANDARG
+	cd ${LAYERDIR} && echo "Changes to ${LAYERNAME} in between $COMMANDARG" && git shortlog $COMMANDARG
 	echo ""
 }
 
