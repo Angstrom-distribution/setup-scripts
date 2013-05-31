@@ -120,7 +120,7 @@ else
     #--------------------------------------------------------------------------
     # Specify distribution information
     #--------------------------------------------------------------------------
-    DISTRO=$(grep DISTRO conf/local.conf | grep -v '^#' | awk -F\" '{print $2}')
+    DISTRO=$(grep -w DISTRO conf/local.conf | grep -v '^#' | awk -F\" '{print $2}')
     DISTRO_DIRNAME=`echo $DISTRO | sed s#[.-]#_#g`
 
     echo "export SCRIPTS_BASE_VERSION=${BASE_VERSION}" > ${OE_ENV_FILE}
