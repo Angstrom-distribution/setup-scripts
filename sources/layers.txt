@@ -1,8 +1,8 @@
 bitbake,git://github.com/openembedded/bitbake.git,master,c47088a86fd8ad06c1810d04d9537c4cd01e8bef
 meta-angstrom,git://github.com/Angstrom-distribution/meta-angstrom,angstrom-v2013.06-yocto1.4,HEAD
-meta-openembedded,git://github.com/openembedded/meta-oe.git,dylan,HEAD
-meta-beagleboard,git://github.com/beagleboard/meta-beagleboard.git,master,baa9c0731173efa4d9c198be0127be2a8de2f1ba
-meta-ti,git://git.yoctoproject.org/meta-ti,master,c14c386946e1ea341faeea292580e37d538d645d
+meta-openembedded,git://github.com/Angstrom-distribution/meta-oe.git,angstrom-staging-yocto1.4,HEAD
+meta-beagleboard,git://github.com/beagleboard/meta-beagleboard.git,master,HEAD
+meta-ti,git://git.yoctoproject.org/meta-ti,angstrom-staging-yocto1.4,HEAD
 meta-ettus,git://github.com/balister/meta-ettus.git,master,5a6a642f6707dc42a5210dbbf01d2bdfd869d4b0
 meta-efikamx,git://github.com/kraj/meta-efikamx.git,master,07f2a5c777b4f866985735303bc6d696592760a9
 meta-nslu2,git://github.com/kraj/meta-nslu2.git,master,8948458fe3ec2b3c713b2a13a87123b64e22b0d9
@@ -17,7 +17,7 @@ meta-java,git://github.com/woglinde/meta-java.git,master,7fb9465e5c2db618eedb59d
 meta-browser,git://github.com/OSSystems/meta-browser.git,master,359cdae903c3772796b4658dd3129742d9a76d05
 meta-mono,git://git.yoctoproject.org/meta-mono.git,master,ac286b1682e6bcc486ceb30ef90a936949bbfeab
 meta-kde,git://gitorious.org/openembedded-core-layers/meta-kde.git,master,346d4a24480252390e7c16f0cd673ad5f0665f97
-meta-linaro,git://git.linaro.org/openembedded/meta-linaro.git,master,3b3ee922a46b08488b09e82d6bab920e50d85bb7
+meta-linaro,git://github.com/Angstrom-distribution/meta-linaro.git,dylan,HEAD
 meta-minnow,git://git.yoctoproject.org/meta-minnow,dylan,HEAD
 meta-ros,git://github.com/bmwcarit/meta-ros.git,master,f69c619237e325e40b710b0c61e17b4e46eaf872
 openembedded-core,git://github.com/Angstrom-distribution/oe-core.git,angstrom-staging-yocto1.4,HEAD
