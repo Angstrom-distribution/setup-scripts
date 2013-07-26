@@ -9,7 +9,7 @@ You can change the 'beagleboard' in the commandline above into the machine you a
 
 To start a build of the kernel, source the environment file and do:
 
-	$ . ~/.oe/environment-angstrom
+	$ . environment-angstrom environment-angstrom-v2013.06
 	$ MACHINE=beagleboard bitbake virtual/kernel
 
 For an example workflow for dealing with kernels please read http://www.slimlogic.co.uk/2011/05/openembeddedangstrom-kernel-workflow/
@@ -23,7 +23,6 @@ The oebb.sh script tries hard to keep your local changes while at the same time 
 
 	* it will reset the origin URI based on layers.txt, so update layers.txt when changing a repo
 	* it will do a 'git reset --hard <ref>' on locked down repos, so please create a new branch for your changes
-	* As noted above, it will NOT switch branches, so be carefull when using the update function after you branched a repo
 
 If you find any bugs please report them here: https://github.com/angstrom-distribution/setup-scripts/issues
 
