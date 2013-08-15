@@ -14,11 +14,11 @@ meta-raspberrypi,git://github.com/djwillis/meta-raspberrypi.git,danny,HEAD
 meta-handheld,git://git.openembedded.org/meta-handheld,danny,HEAD
 meta-opie,git://github.com/bluelightning/meta-opie.git,master,c242efc6ca55772a88602f1f8f94dff697b38430
 meta-java,git://github.com/woglinde/meta-java.git,master,75dee76c7cfbf1418e5c581f50bb57b3282013f7
-meta-browser,git://github.com/OSSystems/meta-browser.git,danny,HEAD
+meta-browser,git://github.com/Angstrom-distribution/meta-browser.git,angstrom-staging-yocto1.3,HEAD
 meta-mono,git://git.yoctoproject.org/meta-mono.git,master,adf47f078dbf788a80ff1398a15a4fd5a334d320
 meta-kde,git://gitorious.org/openembedded-core-layers/meta-kde.git,master,316d9c27e72cfebc7618268f8766624ee3f5e18e
-meta-linaro,git://git.linaro.org/openembedded/meta-linaro.git,danny,HEAD
+meta-linaro,git://github.com/Angstrom-distribution/meta-linaro.git,danny,HEAD
 meta-minnow,git://git.yoctoproject.org/meta-minnow,danny,HEAD
 meta-allwinner,git://github.com/naguirre/meta-allwinner.git,danny,HEAD
-meta-ros,git://github.com/bmwcarit/meta-ros.git,master,430f67cdd8c3b54270a08a2921083843406b4f74
+meta-ros,git://github.com/bmwcarit/meta-ros.git,master,7e2cd2c0952ee35e30c8e3f9dc57f277d58419b8
 openembedded-core,git://github.com/Angstrom-distribution/oe-core.git,angstrom-staging-yocto1.3,HEAD
