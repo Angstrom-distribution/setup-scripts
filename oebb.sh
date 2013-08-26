@@ -200,7 +200,7 @@ else
         exit 1
     fi
 
-    echo "There now is a sourceable script in ~/.oe/enviroment. You can do '. ${OE_ENV_FILE}' and run 'bitbake something' without using $0 as wrapper"
+    echo "There now is a sourceable script in ${OE_ENV_FILE} You can do '. ${OE_ENV_FILE}' and run 'bitbake something' without using $0 as wrapper"
 fi # if -e ${OE_ENV_FILE}
 
 if ! [ -e ${OE_BUILD_DIR}/conf/site.conf ] ; then
