@@ -379,83 +379,86 @@ env gawk -v command=checkout -v commandarg=$TAG -f ${OE_BASE}/scripts/layers.awk
 # Build the specified OE packages or images.
 ###############################################################################
 
-# FIXME: convert to case/esac
+# FIXME: converted to case/esac
 
 if [ $# -gt 0 ]
 then
-    if [ $1 = "update" ]
-    then
-        update_all
-        exit 0
-    fi
+    case $1 in   
+       
+       "update" ) 
+           update_all
+           exit 0
+           ;;
 
-    if [ $1 = "info" ]
-    then
-        layer_info
-        exit 0
-    fi
+       "info" )
+           layer_info
+           exit 0
+           ;;
 
-    if [ $1 = "reset" ]
-    then
-        reset_layers
-        exit 0
-    fi
+       "reset" )
+           reset_layers
+           exit 0
+           ;;
 
-    if [ $1 = "tag" ]
-    then
-        if [ -n "$2" ] ; then
-            TAG="$2"
-        else
-            TAG="$(date -u +'%Y%m%d-%H%M')"
-        fi
-        tag_layers $TAG
-        exit 0
-    fi
+       "tag" )
     
-    if [ $1 = "changelog" ]
-    then
-        if [ -z $2 ] ; then
-            echo "Changelog needs an argument"
-            exit 1
-        else
-            TAG="$2"
-        fi
-        changelog
-        exit 0
-    fi
+           if [ -n "$2" ] ; then
+              TAG="$2"
+           else
+              TAG="$(date -u +'%Y%m%d-%H%M')"
+           fi
+        
+           tag_layers $TAG
+           exit 0
+           ;;
     
-    if [ $1 = "checkout" ]
-    then
-        if [ -z $2 ] ; then
-            echo "Checkout needs an argument"
-            exit 1
-        else
-            TAG="$2"
-        fi
-        checkout
-        exit 0
-    fi
-    if [ $1 = "bitbake" ]
-    then
-        shift
-        oe_build $*
-        exit 0
-    fi
+       "changelog" )
+    
+            if [ -z $2 ] ; then
+               echo "Changelog needs an argument"
+               exit 1
+            else
+               TAG="$2"
+            fi
+            changelog
+            exit 0
+            ;;
+    
+       "checkout" )
+    
+            if [ -z $2 ] ; then
+               echo "Checkout needs an argument"
+               exit 1
+            else
+               TAG="$2"
+            fi
+            checkout
+            exit 0
+            ;;
+    
+       "bitbake" )
+     
+            shift
+            oe_build $*
+            exit 0
+            ;;
 
-    if [ $1 = "config" ]
-    then
-        shift
-        CL_MACHINE=$1
-        shift
-        oe_config $*
-        exit 0
-    fi
+       "config" )
+    
+            shift
+            CL_MACHINE=$1
+            shift
+            oe_config $*
+            exit 0
+            ;;
 
-    if [ $1 = "clean" ]
-    then
-        clean_oe
-        exit 0
-    fi
+       "clean" )
+    
+            clean_oe
+            exit 0
+            ;;
+      
+    esac
 fi
 
 # Help Screen
