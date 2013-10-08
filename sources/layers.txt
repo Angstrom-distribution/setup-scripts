@@ -1,5 +1,5 @@
 bitbake,git://github.com/openembedded/bitbake.git,master,HEAD
-meta-angstrom,git://github.com/Angstrom-distribution/meta-angstrom,master,HEAD
+meta-angstrom,git://github.com/Angstrom-distribution/meta-angstrom,angstrom-v2013.12-yocto1.5,HEAD
 meta-openembedded,git://github.com/openembedded/meta-oe.git,master,HEAD
 meta-beagleboard,git://github.com/beagleboard/meta-beagleboard.git,master,HEAD
 meta-ti,git://git.yoctoproject.org/meta-ti,master,HEAD
