@@ -20,5 +20,5 @@ meta-kde,git://gitorious.org/openembedded-core-layers/meta-kde.git,master,316d9c
 meta-linaro,git://github.com/Angstrom-distribution/meta-linaro.git,danny,HEAD
 meta-minnow,git://git.yoctoproject.org/meta-minnow,danny,HEAD
 meta-allwinner,git://github.com/naguirre/meta-allwinner.git,danny,HEAD
-meta-ros,git://github.com/bmwcarit/meta-ros.git,master,7e2cd2c0952ee35e30c8e3f9dc57f277d58419b8
+meta-ros,git://github.com/bmwcarit/meta-ros.git,master,1a6a63ef2316a45a2fa07e00907a73d33aeeb7d7
 openembedded-core,git://github.com/Angstrom-distribution/oe-core.git,angstrom-staging-yocto1.3,HEAD
