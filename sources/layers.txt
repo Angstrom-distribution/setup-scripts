@@ -18,6 +18,6 @@ meta-browser,git://github.com/OSSystems/meta-browser.git,master,fc3969f63bda343c
 meta-mono,git://git.yoctoproject.org/meta-mono.git,master,ac286b1682e6bcc486ceb30ef90a936949bbfeab
 meta-kde,git://gitorious.org/openembedded-core-layers/meta-kde.git,master,f45abfd4d87b0132a2565499392d2d49f465d847
 meta-linaro,git://git.linaro.org/openembedded/meta-linaro.git,master,a809652d1cf4d06b14d0be525dd85a7efdd11864
-meta-minnow,git://git.infradead.org/users/dvhart/meta-minnow,master,d474c4304dc1c9e9703fce0cd6a4329289681f92
+meta-minnow,git://git.yoctoproject.org/meta-minnow,master,57459d0753d3b6e25b3ac431496eafa5e668d6fa
 meta-qt5,git://github.com/meta-qt5/meta-qt5,dora,HEAD
 openembedded-core,git://github.com/openembedded/oe-core.git,dora,HEAD
