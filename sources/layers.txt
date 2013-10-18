@@ -19,5 +19,6 @@ meta-mono,git://git.yoctoproject.org/meta-mono.git,master,HEAD
 meta-kde,git://gitorious.org/openembedded-core-layers/meta-kde.git,master,HEAD
 meta-linaro,git://git.linaro.org/openembedded/meta-linaro.git,master,HEAD
 meta-minnow,git://git.yoctoproject.org/meta-minnow,master,HEAD
+meta-gumstix-community,git://gitorious.org/schnitzeltony-oe-meta/meta-gumstix-community.git,master,HEAD
 meta-qt5,git://github.com/meta-qt5/meta-qt5,master,HEAD
 openembedded-core,git://github.com/openembedded/oe-core.git,master,HEAD
