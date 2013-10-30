@@ -19,5 +19,5 @@ meta-mono,git://git.yoctoproject.org/meta-mono.git,master,ac286b1682e6bcc486ceb3
 meta-kde,git://github.com/Angstrom-distribution/meta-kde.git,angstrom-staging-yocto1.4,HEAD
 meta-linaro,git://github.com/Angstrom-distribution/meta-linaro.git,dylan,HEAD
 meta-minnow,git://git.yoctoproject.org/meta-minnow,dylan,HEAD
-meta-ros,git://github.com/bmwcarit/meta-ros.git,master,f69c619237e325e40b710b0c61e17b4e46eaf872
+meta-ros,git://github.com/bmwcarit/meta-ros.git,master,cc10dee5696e914273a8548f85b0c12043919cac
 openembedded-core,git://github.com/Angstrom-distribution/oe-core.git,angstrom-staging-yocto1.4,HEAD
