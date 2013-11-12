@@ -4,7 +4,8 @@ meta-openembedded,git://github.com/openembedded/meta-oe.git,master,HEAD
 meta-beagleboard,git://github.com/koenkooi/meta-beagleboard.git,master,HEAD
 meta-ti,git://git.yoctoproject.org/meta-ti,master,HEAD
 meta-ettus,git://github.com/balister/meta-ettus.git,master,HEAD
-meta-fsl-arm,git://git.yoctoproject.org/meta-fsl-arm,master,HEAD
+meta-fsl-arm,git://git.yoctoproject.org/meta-fsl-arm.git,master,HEAD
+meta-fsl-arm-extra,git://github.com/Freescale/meta-fsl-arm-extra.git,master,HEAD
 meta-nslu2,git://github.com/kraj/meta-nslu2.git,master,HEAD
 meta-smartphone,http://git.shr-project.org/repo/meta-smartphone.git,master,HEAD
 meta-intel,git://git.yoctoproject.org/meta-intel,master,HEAD
