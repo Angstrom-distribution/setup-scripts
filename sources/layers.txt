@@ -5,7 +5,7 @@ meta-beagleboard,git://github.com/koenkooi/meta-beagleboard.git,master,b5c709b2b
 meta-ti,git://git.yoctoproject.org/meta-ti,master,466575a7e7312b57c4b43241d16894dea8692049
 meta-ettus,git://github.com/balister/meta-ettus.git,master,5a6a642f6707dc42a5210dbbf01d2bdfd869d4b0
 meta-fsl-arm,git://git.yoctoproject.org/meta-fsl-arm,dora,HEAD
-meta-fsl-arm-extra,git://github.com/Freescale/meta-fsl-arm-extra.git,master,HEAD
+meta-fsl-arm-extra,git://github.com/Freescale/meta-fsl-arm-extra.git,dora,HEAD
 meta-nslu2,git://github.com/kraj/meta-nslu2.git,master,392b7799314a49b00f20a1bef004f9b0a0c9c364
 meta-smartphone,http://git.shr-project.org/repo/meta-smartphone.git,master,537d0c2ab41284012e1ba79716b085a861a6812a
 meta-intel,git://git.yoctoproject.org/meta-intel,master,27d2663112bbc6e2cf075bdbbd6e68e1a15476d6
