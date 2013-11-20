@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 bitbake,git://github.com/openembedded/bitbake.git,1.20,HEAD
 meta-angstrom,git://github.com/Angstrom-distribution/meta-angstrom,angstrom-v2013.12-yocto1.5,HEAD
 meta-openembedded,git://github.com/openembedded/meta-oe.git,dora,HEAD
