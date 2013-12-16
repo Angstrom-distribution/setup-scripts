@@ -23,4 +23,4 @@ meta-minnow,git://git.yoctoproject.org/meta-minnow,master,57459d0753d3b6e25b3ac4
 meta-allwinner,git://github.com/naguirre/meta-allwinner.git,master,e6415635f6144d48691ccd2ec9fc23ad6f87a177
 meta-qt5,git://github.com/meta-qt5/meta-qt5,dora,HEAD
 meta-ros,git://github.com/bmwcarit/meta-ros.git,master,028d9ac86d1d1cb4222865bf78038084c0a06dd1
-openembedded-core,git://github.com/openembedded/oe-core.git,dora,HEAD
+openembedded-core,git://github.com/Angstrom-distribution/oe-core.git,angstrom-staging-yocto1.5,HEAD
