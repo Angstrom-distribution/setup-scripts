@@ -1,5 +1,7 @@
+bitbake.lock
 build
 sources/*
+deploy/
 !sources/layers.txt
 conf/auto.conf
 conf/bblayers.conf

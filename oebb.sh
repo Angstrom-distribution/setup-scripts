@@ -35,7 +35,7 @@ PROXYHOST=""
 OE_BASE=${PWD}
 # incremement this to force recreation of config files
 BASE_VERSION=9
-OE_ENV_FILE=~/.oe/environment-angstromv2012.12
+OE_ENV_FILE=environment-angstrom-v2013.06
 
 if ! git help log | grep -q no-abbrev ; then 
 	echo "Your installed version of git is too old, it lacks --no-abbrev. Please install 1.7.6 or newer"
@@ -114,8 +114,6 @@ fi
 if [ -e ${OE_ENV_FILE} ] ; then
     . ${OE_ENV_FILE}
 else
-
-    mkdir -p ~/.oe/
 
     #--------------------------------------------------------------------------
     # Specify distribution information
@@ -200,7 +198,7 @@ else
         exit 1
     fi
 
-    echo "There now is a sourceable script in ~/.oe/enviroment. You can do '. ${OE_ENV_FILE}' and run 'bitbake something' without using $0 as wrapper"
+    echo "There now is a sourceable script in ${OE_ENV_FILE} You can do '. ${OE_ENV_FILE}' and run 'bitbake something' without using $0 as wrapper"
 fi # if -e ${OE_ENV_FILE}
 
 if ! [ -e ${OE_BUILD_DIR}/conf/site.conf ] ; then
