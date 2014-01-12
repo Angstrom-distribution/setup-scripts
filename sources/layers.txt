@@ -8,7 +8,7 @@ meta-fsl-arm,git://git.yoctoproject.org/meta-fsl-arm,dora,HEAD
 meta-fsl-arm-extra,git://github.com/Freescale/meta-fsl-arm-extra.git,dora,HEAD
 meta-nslu2,git://github.com/kraj/meta-nslu2.git,master,392b7799314a49b00f20a1bef004f9b0a0c9c364
 meta-smartphone,http://git.shr-project.org/repo/meta-smartphone.git,master,537d0c2ab41284012e1ba79716b085a861a6812a
-meta-intel,git://git.yoctoproject.org/meta-intel,master,27d2663112bbc6e2cf075bdbbd6e68e1a15476d6
+meta-intel,git://git.yoctoproject.org/meta-intel,dora,HEAD
 meta-xilinx,git://git.yoctoproject.org/meta-xilinx,master,21c3cd3f058d736742ebc23a7a954f23456fbea5
 meta-openpandora,git://github.com/openpandora/meta-openpandora.git,master,53ad3e60e4ed4fc7b946a2130da4bb9a8671341c
 meta-raspberrypi,git://git.yoctoproject.org/meta-raspberrypi.git,master,0537685dc76d28808f6333dcb191bb1afce0e02f
@@ -19,7 +19,7 @@ meta-browser,git://github.com/OSSystems/meta-browser.git,master,fc3969f63bda343c
 meta-mono,git://git.yoctoproject.org/meta-mono.git,master,ac286b1682e6bcc486ceb30ef90a936949bbfeab
 meta-kde,git://gitorious.org/openembedded-core-layers/meta-kde.git,master,f45abfd4d87b0132a2565499392d2d49f465d847
 meta-linaro,git://git.linaro.org/openembedded/meta-linaro.git,master,a809652d1cf4d06b14d0be525dd85a7efdd11864
-meta-minnow,git://git.yoctoproject.org/meta-minnow,master,57459d0753d3b6e25b3ac431496eafa5e668d6fa
+meta-minnow,git://git.yoctoproject.org/meta-minnow,dora,HEAD
 meta-allwinner,git://github.com/naguirre/meta-allwinner.git,master,e6415635f6144d48691ccd2ec9fc23ad6f87a177
 meta-qt5,git://github.com/meta-qt5/meta-qt5,dora,HEAD
 meta-ros,git://github.com/bmwcarit/meta-ros.git,master,028d9ac86d1d1cb4222865bf78038084c0a06dd1
