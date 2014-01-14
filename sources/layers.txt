@@ -14,11 +14,11 @@ meta-openpandora,git://github.com/openpandora/meta-openpandora.git,master,53ad3e
 meta-raspberrypi,git://git.yoctoproject.org/meta-raspberrypi.git,master,0537685dc76d28808f6333dcb191bb1afce0e02f
 meta-handheld,git://git.openembedded.org/meta-handheld,master,5b5e68a93aae1016f5ac1d057a721b2dbf30b8d8
 meta-opie,git://git.openembedded.org/meta-opie.git,master,b241408b31c2ffd941b8b38bd385136ef675a703
-meta-java,git://github.com/woglinde/meta-java.git,master,14d6ad1608c66b8970d4052dce4cd1fc64fb6ea2
+meta-java,git://github.com/woglinde/meta-java.git,master,9dfb7ecb87e67052e94641d6e02907c582264217
 meta-browser,git://github.com/OSSystems/meta-browser.git,master,fc3969f63bda343c38c40a23f746c560c4735f3e
 meta-mono,git://git.yoctoproject.org/meta-mono.git,master,ac286b1682e6bcc486ceb30ef90a936949bbfeab
 meta-kde,git://gitorious.org/openembedded-core-layers/meta-kde.git,master,f45abfd4d87b0132a2565499392d2d49f465d847
-meta-linaro,git://git.linaro.org/openembedded/meta-linaro.git,master,a809652d1cf4d06b14d0be525dd85a7efdd11864
+meta-linaro,git://git.linaro.org/openembedded/meta-linaro.git,dora,HEAD
 meta-minnow,git://git.yoctoproject.org/meta-minnow,dora,HEAD
 meta-allwinner,git://github.com/naguirre/meta-allwinner.git,master,e6415635f6144d48691ccd2ec9fc23ad6f87a177
 meta-qt5,git://github.com/meta-qt5/meta-qt5,dora,HEAD
