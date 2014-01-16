@@ -11,7 +11,7 @@ You can change the 'beagleboard' in the commandline above into the machine you a
 
 To start a build of the kernel, source the environment file and do:
 
-	$ . environment-angstrom environment-angstrom-v2013.06
+	$ . environment-angstrom-v2013.06
 	$ MACHINE=beagleboard bitbake virtual/kernel
 
 For an example workflow for dealing with kernels please read http://www.slimlogic.co.uk/2011/05/openembeddedangstrom-kernel-workflow/
