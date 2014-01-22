@@ -37,11 +37,14 @@ OE_BASE=${PWD}
 BASE_VERSION=9
 OE_ENV_FILE=environment-angstrom-v2013.12
 
-if ! git help log | grep -q no-abbrev ; then 
-	echo "Your installed version of git is too old, it lacks --no-abbrev. Please install 1.7.6 or newer"
-	exit 1
-fi
+GITMINOR="$(git --version | awk '{print $3}' | awk -F. '{print $2}')"
 
+if [ ${GITMINOR} -lt 8 ] ; then
+	if ! git help log | grep -q no-abbrev ; then 
+		echo "Your installed version of git is too old, it lacks --no-abbrev. Please install 1.7.6 or newer"
+		exit 1
+	fi
+fi
 
 ###############################################################################
 # CONFIG_OE() - Configure OpenEmbedded
