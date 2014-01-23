@@ -255,9 +255,17 @@ function oe_build()
     if [ -z $MACHINE ] ; then
         echo "Executing: bitbake" $*
         bitbake $*
+        rc=$?
+        if [[ $rc != 0 ]] ; then
+            exit $rc
+        fi
     else
         echo "Executing: MACHINE=${MACHINE} bitbake" $*
         MACHINE=${MACHINE} bitbake $*
+        rc=$?
+        if [[ $rc != 0 ]] ; then
+            exit $rc
+        fi
     fi
 }
 
