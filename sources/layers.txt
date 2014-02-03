@@ -4,7 +4,7 @@ meta-openembedded,git://github.com/Angstrom-distribution/meta-oe.git,angstrom-st
 meta-beagleboard,git://github.com/koenkooi/meta-beagleboard.git,dora,HEAD
 meta-ti,git://github.com/Angstrom-distribution/meta-ti.git,angstrom-staging-yocto1.5,HEAD
 meta-ettus,git://github.com/balister/meta-ettus.git,master,5a6a642f6707dc42a5210dbbf01d2bdfd869d4b0
-meta-fsl-arm,git://git.yoctoproject.org/meta-fsl-arm,dora,HEAD
+meta-fsl-arm,git://github.com/Angstrom-distribution/meta-fsl-arm.git,angstrom-staging-yocto1.5,HEAD
 meta-fsl-arm-extra,git://github.com/Freescale/meta-fsl-arm-extra.git,dora,HEAD
 meta-nslu2,git://github.com/kraj/meta-nslu2.git,master,392b7799314a49b00f20a1bef004f9b0a0c9c364
 meta-smartphone,http://git.shr-project.org/repo/meta-smartphone.git,master,537d0c2ab41284012e1ba79716b085a861a6812a
