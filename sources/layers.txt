@@ -20,7 +20,7 @@ meta-mono,git://git.yoctoproject.org/meta-mono.git,master,ac286b1682e6bcc486ceb3
 meta-kde,git://gitorious.org/openembedded-core-layers/meta-kde.git,master,f45abfd4d87b0132a2565499392d2d49f465d847
 meta-linaro,git://git.linaro.org/openembedded/meta-linaro.git,dora,HEAD
 meta-minnow,git://git.yoctoproject.org/meta-minnow,dora,HEAD
-meta-sunxi,git://github.com/linux-sunxi/meta-sunxi.git,master,f87cc88b95e3ea08047da24160be7162abefb9bd
+meta-sunxi,git://github.com/linux-sunxi/meta-sunxi.git,master,58aa63f3658ea8f105b698e22794624c28342f33
 meta-qt5,git://github.com/meta-qt5/meta-qt5,dora,HEAD
 meta-ros,git://github.com/bmwcarit/meta-ros.git,master,028d9ac86d1d1cb4222865bf78038084c0a06dd1
 meta-dominion,git://github.com/koenkooi/meta-dominion.git,master,HEAD
