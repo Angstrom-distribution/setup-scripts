@@ -1,7 +1,7 @@
 These are the setup scripts for the Angstrom buildsystem. If you want to (re)build packages or images for Angstrom, this is the thing to use.
 The Angstrom buildsystem is using various components from the Yocto Project, most importantly the Openembedded buildsystem, the bitbake task executor and various application and BSP layers.
 
-This Angstrom release (v2013.12)
+This Angstrom release (v2013.12) is officially Yocto Project Compatible with the Yocto Project release 1.5 ("Dora").
 
 To configure the scripts and download the build metadata, do:
 
