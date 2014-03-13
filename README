@@ -1,7 +1,7 @@
 These are the setup scripts for the Angstrom buildsystem. If you want to (re)build packages or images for Angstrom, this is the thing to use.
 The Angstrom buildsystem is using various components from the Yocto Project, most importantly the Openembedded buildsystem, the bitbake task executor and various application and BSP layers.
 
-This Angstrom release (v2013.06) is officially Yocto Project Compatible with the Yocto Project release 1.4 ("Dylan").
+This Angstrom release (v2013.12) is officially Yocto Project Compatible with the Yocto Project release 1.5 ("Dora").
 
 To configure the scripts and download the build metadata, do:
 
@@ -11,7 +11,7 @@ You can change the 'beagleboard' in the commandline above into the machine you a
 
 To start a build of the kernel, source the environment file and do:
 
-	$ . environment-angstrom environment-angstrom-v2013.06
+	$ . ./environment-angstrom-v2013.12
 	$ MACHINE=beagleboard bitbake virtual/kernel
 
 For an example workflow for dealing with kernels please read http://www.slimlogic.co.uk/2011/05/openembeddedangstrom-kernel-workflow/

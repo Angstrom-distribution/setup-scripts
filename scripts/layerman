@@ -50,7 +50,7 @@ function check_layer() {
 			echo "WARNING: ${LAYERNAME} is using a different branch '${CURRENTBRANCH}' than configured in layers.txt '${BRANCH}'"
 			echo "WARNING: Changing branch to: '${BRANCH}'"
  			echo "WARNING!!!!"
-			git checkout origin/${BRANCH} -b ${BRANCH} >/dev/null || git checkout ${BRANCH}
+			git checkout -f origin/${BRANCH} -b ${BRANCH} >/dev/null || git checkout -f ${BRANCH}
 		fi
 	fi
 }
@@ -132,7 +132,7 @@ function diff_tags() {
 
 function checkout_tag() {
 	check_layer
-	cd ${LAYERDIR} && echo "Checking out $COMMANDARG" && git checkout $COMMANDARG
+	cd ${LAYERDIR} && echo "Checking out $COMMANDARG" && git checkout -f $COMMANDARG
 	echo ""
 }
 
