@@ -15,8 +15,10 @@ sed -i -e "s:-j2:-j${NUMCPU}:" -e 's:THREADS = "2":THREADS = "4":' conf/local.co
 # Point to shared download dir
 sed -i -e s:'${OE_SOURCE_DIR}/downloads':${SHARED_DL_DIR}: oebb.sh
 
-if [ -e ${SHARED_DL_DIR}/../v2013.12-gits.tar.xz ] ; then
-	tar xf ${SHARED_DL_DIR}/../v2013.12-gits.tar.xz
+if ! [ -d sources/meta-angstrom ] ; then
+	if [ -e ${SHARED_DL_DIR}/../v2013.12-gits.tar.xz ] ; then
+		tar xf ${SHARED_DL_DIR}/../v2013.12-gits.tar.xz
+	fi
 fi
 
 # Point to shared sstate-dir
