@@ -9,14 +9,20 @@ else
 	NUMCPU="4"
 fi
 
+echo "Parallel make set to use ${NUMCPU} processors"
+
 # Use more parallelism
 sed -i -e "s:-j2:-j${NUMCPU}:" -e 's:THREADS = "2":THREADS = "4":' conf/local.conf
 
 # Point to shared download dir
 sed -i -e s:'${OE_SOURCE_DIR}/downloads':${SHARED_DL_DIR}: oebb.sh
 
-if [ -e ${SHARED_DL_DIR}/../v2013.12-gits.tar.xz ] ; then
-	tar xf ${SHARED_DL_DIR}/../v2013.12-gits.tar.xz
+if ! [ -d sources/meta-angstrom ] ; then
+	echo "Metadata checkout missing"
+	if [ -e ${SHARED_DL_DIR}/../v2013.12-gits.tar.xz ] ; then
+		echo "Extracting metadata cache"
+		tar xf ${SHARED_DL_DIR}/../v2013.12-gits.tar.xz
+	fi
 fi
 
 # Point to shared sstate-dir
@@ -30,6 +36,7 @@ echo 'LICENSE_FLAGS_WHITELIST += "license_emgd-driver-bin commercial"' >> conf/l
 
 if [ -e /usr/bin/autogen ] ; then
 	echo 'ASSUME_PROVIDED += "autogen-native"' >> conf/local.conf
+	echo "Host autogen install detected"
 fi
 
 if [ -e /usr/bin/svn ] ; then
