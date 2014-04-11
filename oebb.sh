@@ -34,8 +34,8 @@ PROXYHOST=""
 ###############################################################################
 OE_BASE=${PWD}
 # incremement this to force recreation of config files
-BASE_VERSION=9
-OE_ENV_FILE=environment-angstrom-next
+BASE_VERSION=10
+OE_ENV_FILE=environment-angstrom-v2014.06
 
 GITMINOR="$(git --version | awk '{print $3}' | awk -F. '{print $2}')"
 
