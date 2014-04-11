@@ -22,7 +22,7 @@ meta-mono,git://git.yoctoproject.org/meta-mono.git,master,bb2ab4e709b1ae4771cd40
 meta-kde,git://gitorious.org/openembedded-core-layers/meta-kde.git,master,f45abfd4d87b0132a2565499392d2d49f465d847
 meta-linaro,git://git.linaro.org/openembedded/meta-linaro.git,master,9f8fb2cd9d1a4d25e8259b8bca5b7f8aa2923c46
 meta-minnow,git://git.yoctoproject.org/meta-minnow,master,7bdcd1140b729598bae6246a4bbc21c3950aadd8
-meta-dominion,git://github.com/koenkooi/meta-dominion.git,master,HEAD
+meta-dominion,git://github.com/koenkooi/meta-dominion.git,daisy,HEAD
 meta-exynos,git://github.com/slimlogic/meta-exynos,master,HEAD
 meta-ros,git://github.com/bmwcarit/meta-ros.git,master,455385f0f638a9e0930aec669d4a7b5270ed9a61
 meta-gumstix-community,git://gitorious.org/schnitzeltony-oe-meta/meta-gumstix-community.git,master,70c3ee546164b1bcef52863c38cfb755a4141c2d
