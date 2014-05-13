@@ -12,6 +12,7 @@ meta-intel,git://git.yoctoproject.org/meta-intel,dora,HEAD
 meta-xilinx,git://git.yoctoproject.org/meta-xilinx,master,21c3cd3f058d736742ebc23a7a954f23456fbea5
 meta-openpandora,git://github.com/openpandora/meta-openpandora.git,master,53ad3e60e4ed4fc7b946a2130da4bb9a8671341c
 meta-raspberrypi,git://git.yoctoproject.org/meta-raspberrypi.git,dora,HEAD
+meta-atmel,git://github.com/koenkooi/meta-atmel.git,angstromv2013.12-staging,HEAD
 meta-handheld,git://git.openembedded.org/meta-handheld,master,5b5e68a93aae1016f5ac1d057a721b2dbf30b8d8
 meta-opie,git://git.openembedded.org/meta-opie.git,master,b241408b31c2ffd941b8b38bd385136ef675a703
 meta-java,git://github.com/woglinde/meta-java.git,dora,HEAD
@@ -20,8 +21,11 @@ meta-mono,git://git.yoctoproject.org/meta-mono.git,master,ac286b1682e6bcc486ceb3
 meta-kde,git://gitorious.org/openembedded-core-layers/meta-kde.git,master,f45abfd4d87b0132a2565499392d2d49f465d847
 meta-linaro,http://git.linaro.org/openembedded/meta-linaro.git,dora,HEAD
 meta-minnow,git://git.yoctoproject.org/meta-minnow,dora,HEAD
-meta-sunxi,git://github.com/linux-sunxi/meta-sunxi.git,master,dc663bd5d8bd873012c90da8a9f6afc49e8a0ca6
+meta-sunxi,git://github.com/linux-sunxi/meta-sunxi.git,master,f1e777d5526ea7c7a4f3a828b21d26c2c0650b83
 meta-qt5,git://github.com/meta-qt5/meta-qt5,dora,HEAD
 meta-ros,git://github.com/bmwcarit/meta-ros.git,master,64c8b5edb221263e7fac7c03629c730ade422dff
+meta-uav,git://github.com/koenkooi/meta-uav.git,master,b465b39235e95fbd8e4f74b3d9a9138e561deec1
 meta-dominion,git://github.com/koenkooi/meta-dominion.git,master,HEAD
+meta-exynos,git://github.com/slimlogic/meta-exynos,master,HEAD
+meta-telephony,http://git.gitorious.org/sysmocom-openembedded/meta-telephony.git,master,f71f5ea031d96a5a84bde4531974542ae49f8bee
 openembedded-core,git://github.com/Angstrom-distribution/oe-core.git,angstrom-staging-yocto1.5,HEAD

@@ -7,7 +7,7 @@ nightlydir="$2"
 ssh ${HOST} "mkdir -p ${nightlydir}"
 
 # Compress raw images and extX files if needed
-for i in $(find deploy/eglibc/images/ -name "A*.ext3"; find deploy/eglibc/images/ -name "A*img" ; find deploy/eglibc/images/ -name "A*.ext2 ; find deploy/eglibc/images/ -name "A*.ext4) ; do xz -f -v -z -T0 -9 -e $i ; done
+for i in $(find deploy/eglibc/images/ -name "A*.ext3"; find deploy/eglibc/images/ -name "A*img" ; find deploy/eglibc/images/ -name "A*.ext2" ; find deploy/eglibc/images/ -name "A*.ext4" ; find deploy/eglibc/images/ -name "A*sdcard" ; find deploy/eglibc/images/ -name "A*iso") ; do xz -f -v -z -T0 -9 -e $i ; done
 
 # Clean up broken symlinks
 find deploy/eglibc/images/ -type l -exec sh -c "file -b {} | grep -q ^broken" \; -print | xargs rm || true
