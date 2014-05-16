@@ -28,4 +28,5 @@ meta-uav,git://github.com/koenkooi/meta-uav.git,master,0ad6d047d81b94a8b5f71e6bb
 meta-dominion,git://github.com/koenkooi/meta-dominion.git,master,HEAD
 meta-exynos,git://github.com/slimlogic/meta-exynos,master,HEAD
 meta-telephony,http://git.gitorious.org/sysmocom-openembedded/meta-telephony.git,master,f71f5ea031d96a5a84bde4531974542ae49f8bee
+meta-qt5,git://github.com/meta-qt5/meta-qt5,dora,HEAD
 openembedded-core,git://github.com/Angstrom-distribution/oe-core.git,angstrom-staging-yocto1.5,HEAD
