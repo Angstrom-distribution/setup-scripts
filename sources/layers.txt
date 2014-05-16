@@ -8,7 +8,7 @@ meta-fsl-arm,git://github.com/Angstrom-distribution/meta-fsl-arm.git,angstrom-st
 meta-fsl-arm-extra,git://github.com/Freescale/meta-fsl-arm-extra.git,master,9481991ec1f17bb2555a2a32d1680b1f743d7101
 meta-nslu2,git://github.com/kraj/meta-nslu2.git,master,f3f3593d8ca7d8188bde6b7a2d25b2a132ea7db4
 meta-smartphone,http://git.shr-project.org/repo/meta-smartphone.git,master,c2d5d012bebf50546a3d64513749211e9fd3724a
-meta-intel,git://git.yoctoproject.org/meta-intel,master,db84acfc8d9ed8dccd4a79de39fee337bc729662
+meta-intel,git://git.yoctoproject.org/meta-intel,daisy,HEAD
 meta-xilinx,git://git.yoctoproject.org/meta-xilinx,master,a500677ff3dc5a62a2294e2b99fa2a6d9a03a0eb
 meta-openpandora,git://github.com/openpandora/meta-openpandora.git,master,ef92fcb6d87908ae0be44cd9cc9539395a666cc8
 meta-raspberrypi,git://git.yoctoproject.org/meta-raspberrypi.git,master,fbc0947e96e8989d46b1570619554cb916e24049
