@@ -1,7 +1,7 @@
 bitbake,git://github.com/openembedded/bitbake.git,1.22,HEAD
 meta-angstrom,git://github.com/Angstrom-distribution/meta-angstrom,angstrom-v2014.06-yocto1.6,HEAD
 meta-openembedded,git://github.com/openembedded/meta-oe.git,daisy,HEAD
-meta-beagleboard,git://github.com/koenkooi/meta-beagleboard.git,master,2b628ff0f57d52551d80c741fa58829cb347ea89
+meta-beagleboard,git://github.com/koenkooi/meta-beagleboard.git,master,f346b2f8f453cb0d90e1ae40f75ddb195437d146
 meta-ti,git://git.yoctoproject.org/meta-ti,master,3e4580f365bd49835b9d46cb1868ce6d997b02e1
 meta-ettus,git://github.com/balister/meta-ettus.git,master,51422017f3a2065f136c53601f0f139fe80b7fab
 meta-fsl-arm,git://github.com/Angstrom-distribution/meta-fsl-arm.git,angstrom-staging-yocto1.6,HEAD
