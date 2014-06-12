@@ -27,6 +27,6 @@ meta-exynos,git://github.com/slimlogic/meta-exynos,master,HEAD
 meta-ros,git://github.com/bmwcarit/meta-ros.git,master,455385f0f638a9e0930aec669d4a7b5270ed9a61
 meta-gumstix-community,git://gitorious.org/schnitzeltony-oe-meta/meta-gumstix-community.git,master,70c3ee546164b1bcef52863c38cfb755a4141c2d
 meta-qt5,git://github.com/meta-qt5/meta-qt5,master,1fa7f364f682e5cfaa9d6e565b7ae6b8ec2a90ff
-meta-uav,git://github.com/koenkooi/meta-uav.git,master,da3e4cc0fbf639589d3144993a1a85523068b680
+meta-uav,git://github.com/koenkooi/meta-uav.git,master,d82a8d8e185e9d68d2cc4bf16d388473ff5b6dd9
 meta-telephony,http://git.gitorious.org/sysmocom-openembedded/meta-telephony.git,master,f71f5ea031d96a5a84bde4531974542ae49f8bee
 openembedded-core,git://github.com/openembedded/oe-core.git,daisy,HEAD
