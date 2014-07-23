@@ -4,6 +4,6 @@ PRSERVFILE="$1"
 if [ -e "${PRSERVFILE}" ] ; then
     echo "Using ${PRSERVFILE} to import PRs"
     cp ${PRSERVFILE} .
-    . ./environment-angstrom-v2014.12
+    . ./environment-angstrom-next
     time bitbake-prserv-tool import $(basename ${PRSERVFILE})
 fi
