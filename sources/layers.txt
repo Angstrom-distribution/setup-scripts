@@ -12,7 +12,7 @@ meta-intel,git://git.yoctoproject.org/meta-intel,daisy,HEAD
 meta-xilinx,git://git.yoctoproject.org/meta-xilinx,master,a500677ff3dc5a62a2294e2b99fa2a6d9a03a0eb
 meta-openpandora,git://github.com/openpandora/meta-openpandora.git,master,ef92fcb6d87908ae0be44cd9cc9539395a666cc8
 meta-raspberrypi,git://git.yoctoproject.org/meta-raspberrypi.git,daisy,HEAD
-meta-atmel,git://github.com/linux4sam/meta-atmel.git,master,ad39f6523a214fa468c970b91e2d71951e753f05
+meta-atmel,git://github.com/koenkooi/meta-atmel.git,angstromv2013.12-staging,HEAD
 meta-handheld,git://git.openembedded.org/meta-handheld,master,7684f550d4a9f238b5fff595e8432f8f716240a1
 meta-sunxi,git://github.com/linux-sunxi/meta-sunxi.git,master,ec4b40754e27cf0297a005c252455a09302bb3e0
 meta-opie,git://git.openembedded.org/meta-opie.git,master,10d6da25aad665c072113af623a6ed94c235968b
