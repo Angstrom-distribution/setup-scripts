@@ -6,7 +6,7 @@ meta-ti,git://git.yoctoproject.org/meta-ti,master,3e4580f365bd49835b9d46cb1868ce
 meta-ettus,git://github.com/balister/meta-ettus.git,master,51422017f3a2065f136c53601f0f139fe80b7fab
 meta-fsl-arm,git://github.com/Angstrom-distribution/meta-fsl-arm.git,angstrom-staging-yocto1.6,HEAD
 meta-fsl-arm-extra,git://github.com/Freescale/meta-fsl-arm-extra.git,master,9481991ec1f17bb2555a2a32d1680b1f743d7101
-meta-nslu2,git://github.com/kraj/meta-nslu2.git,master,f3f3593d8ca7d8188bde6b7a2d25b2a132ea7db4
+meta-nslu2,git://github.com/kraj/meta-nslu2.git,master,ddf38dba9426b4a2047679e936521a5b1b06653e
 meta-smartphone,http://git.shr-project.org/repo/meta-smartphone.git,master,c2d5d012bebf50546a3d64513749211e9fd3724a
 meta-intel,git://git.yoctoproject.org/meta-intel,daisy,HEAD
 meta-xilinx,git://git.yoctoproject.org/meta-xilinx,master,a500677ff3dc5a62a2294e2b99fa2a6d9a03a0eb
