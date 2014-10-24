@@ -29,5 +29,5 @@ meta-gumstix-community,git://gitorious.org/schnitzeltony-oe-meta/meta-gumstix-co
 meta-qt5,git://github.com/meta-qt5/meta-qt5,master,478fe949a957471a4d20450f6e9375fe1d628591
 meta-uav,git://github.com/koenkooi/meta-uav.git,master,edf32a392b55a4267e6b072776e2aab6c8f7617e
 meta-telephony,git://github.com/koenkooi/meta-telephony,master,65238f85305f3179491e5e4be8152ea35454ac84
-meta-qualcomm,http://git.linaro.org/people/nicolas.dechesne/meta-qualcomm.git,master,afd2f1148b019fd1119c46313af0de1ccb016d7a
+meta-qualcomm,http://git.linaro.org/people/nicolas.dechesne/meta-qualcomm.git,master,1c876ee4dc5cb66d26d960f5b58c958ada2452a1
 openembedded-core,git://github.com/openembedded/oe-core.git,dizzy,HEAD
