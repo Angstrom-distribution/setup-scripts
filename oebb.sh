@@ -254,16 +254,20 @@ function oe_build()
         echo "Executing: bitbake" $*
         bitbake $*
         rc=$?
-        if [[ $rc != 0 ]] ; then
-            exit $rc
+        if [ -z $IGNOREERRORS ] ; then
+            if [[ $rc != 0 ]] ; then
+                exit $rc
+            fi
         fi
     else
         echo "Executing: MACHINE=${MACHINE} bitbake" $*
         MACHINE=${MACHINE} bitbake $*
         rc=$?
-        if [[ $rc != 0 ]] ; then
-            exit $rc
-        fi
+        if [ -z $IGNOREERRORS ] ; then
+            if [[ $rc != 0 ]] ; then
+                exit $rc
+            fi
+       fi
     fi
 }
 
@@ -445,6 +449,14 @@ then
             exit 0
             ;;
     
+       "bitbake-k" )
+     
+            shift
+	    export IGNOREERRORS="1"
+	    oe_build $*
+            exit 0
+            ;;
+
        "bitbake" )
      
             shift
