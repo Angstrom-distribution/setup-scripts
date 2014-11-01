@@ -18,7 +18,7 @@ meta-opie,git://git.openembedded.org/meta-opie.git,master,b241408b31c2ffd941b8b3
 meta-java,git://github.com/woglinde/meta-java.git,dora,HEAD
 meta-browser,git://github.com/OSSystems/meta-browser.git,master,fc3969f63bda343c38c40a23f746c560c4735f3e
 meta-mono,git://git.yoctoproject.org/meta-mono.git,master,ac286b1682e6bcc486ceb30ef90a936949bbfeab
-meta-kde,git://gitorious.org/openembedded-core-layers/meta-kde.git,master,f45abfd4d87b0132a2565499392d2d49f465d847
+meta-kde4,git://gitorious.org/openembedded-core-layers/meta-kde4.git,master,f45abfd4d87b0132a2565499392d2d49f465d847
 meta-linaro,http://git.linaro.org/openembedded/meta-linaro.git,dora,HEAD
 meta-minnow,git://git.yoctoproject.org/meta-minnow,dora,HEAD
 meta-sunxi,git://github.com/linux-sunxi/meta-sunxi.git,master,f1e777d5526ea7c7a4f3a828b21d26c2c0650b83
