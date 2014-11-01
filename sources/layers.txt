@@ -19,7 +19,7 @@ meta-opie,git://git.openembedded.org/meta-opie.git,master,10d6da25aad665c072113a
 meta-java,git://github.com/woglinde/meta-java.git,master,20fa82037c93e6814f1b76c0b8adc73616be8aa2
 meta-browser,git://github.com/OSSystems/meta-browser.git,master,cdf79fa08366eba24e6072e7a5899c50d11f7fbd
 meta-mono,git://git.yoctoproject.org/meta-mono.git,master,bb2ab4e709b1ae4771cd40b445f4b0ec864786fd
-meta-kde,git://gitorious.org/openembedded-core-layers/meta-kde.git,master,f45abfd4d87b0132a2565499392d2d49f465d847
+meta-kde4,git://gitorious.org/openembedded-core-layers/meta-kde4.git,master,f45abfd4d87b0132a2565499392d2d49f465d847
 meta-linaro,git://git.linaro.org/openembedded/meta-linaro.git,daisy,HEAD
 meta-minnow,git://git.yoctoproject.org/meta-minnow,master,7bdcd1140b729598bae6246a4bbc21c3950aadd8
 meta-dominion,git://github.com/koenkooi/meta-dominion.git,daisy,HEAD
