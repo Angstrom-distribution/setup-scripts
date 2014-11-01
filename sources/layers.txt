@@ -16,7 +16,7 @@ meta-opie,git://github.com/bluelightning/meta-opie.git,master,c242efc6ca55772a88
 meta-java,git://github.com/woglinde/meta-java.git,master,75dee76c7cfbf1418e5c581f50bb57b3282013f7
 meta-browser,git://github.com/Angstrom-distribution/meta-browser.git,angstrom-staging-yocto1.3,HEAD
 meta-mono,git://git.yoctoproject.org/meta-mono.git,master,adf47f078dbf788a80ff1398a15a4fd5a334d320
-meta-kde,git://gitorious.org/openembedded-core-layers/meta-kde.git,master,316d9c27e72cfebc7618268f8766624ee3f5e18e
+meta-kde4,git://gitorious.org/openembedded-core-layers/meta-kde4.git,master,316d9c27e72cfebc7618268f8766624ee3f5e18e
 meta-linaro,git://github.com/Angstrom-distribution/meta-linaro.git,danny,HEAD
 meta-minnow,git://git.yoctoproject.org/meta-minnow,danny,HEAD
 meta-allwinner,git://github.com/naguirre/meta-allwinner.git,danny,HEAD
