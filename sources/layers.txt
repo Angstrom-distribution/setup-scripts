@@ -16,7 +16,7 @@ meta-opie,git://git.openembedded.org/meta-opie.git,master,c242efc6ca55772a88602f
 meta-java,git://github.com/woglinde/meta-java.git,master,7fb9465e5c2db618eedb59de5e5e013fd86cc06d
 meta-browser,git://github.com/Angstrom-distribution/meta-browser,dylan,HEAD
 meta-mono,git://git.yoctoproject.org/meta-mono.git,master,ac286b1682e6bcc486ceb30ef90a936949bbfeab
-meta-kde,git://github.com/Angstrom-distribution/meta-kde.git,angstrom-staging-yocto1.4,HEAD
+meta-kde4,git://github.com/Angstrom-distribution/meta-kde4.git,angstrom-staging-yocto1.4,HEAD
 meta-linaro,git://github.com/Angstrom-distribution/meta-linaro.git,dylan,HEAD
 meta-minnow,git://git.yoctoproject.org/meta-minnow,dylan,HEAD
 meta-ros,git://github.com/bmwcarit/meta-ros.git,master,cc10dee5696e914273a8548f85b0c12043919cac
