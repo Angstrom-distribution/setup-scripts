@@ -8,7 +8,7 @@ meta-fsl-arm,git://git.yoctoproject.org/meta-fsl-arm.git,dizzy,HEAD
 meta-fsl-arm-extra,git://github.com/Freescale/meta-fsl-arm-extra.git,dizzy,HEAD
 meta-nslu2,git://github.com/kraj/meta-nslu2.git,master,ddf38dba9426b4a2047679e936521a5b1b06653e
 meta-smartphone,http://git.shr-project.org/repo/meta-smartphone.git,master,04eb33be364d5dad05a8c127fc3b62af9b34ab19
-meta-intel,git://git.yoctoproject.org/meta-intel,master,8e5fe6c0f5cf710e1a46c5f203e52f069874768a
+meta-intel,git://git.yoctoproject.org/meta-intel,dizzy,HEAD
 meta-xilinx,git://git.yoctoproject.org/meta-xilinx,master,14a88e974ce149030046873250e45c274b26a0d8
 meta-openpandora,git://github.com/openpandora/meta-openpandora.git,master,ef92fcb6d87908ae0be44cd9cc9539395a666cc8
 meta-raspberrypi,git://git.yoctoproject.org/meta-raspberrypi.git,master,6b63f6fcbdbde1694d55e314b86fadaa74dc858a
