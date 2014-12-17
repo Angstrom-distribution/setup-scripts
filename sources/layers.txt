@@ -29,4 +29,5 @@ meta-gumstix-community,git://gitorious.org/schnitzeltony-oe-meta/meta-gumstix-co
 meta-qt5,git://github.com/meta-qt5/meta-qt5,master,HEAD
 meta-uav,git://github.com/koenkooi/meta-uav.git,master,HEAD
 meta-telephony,git://github.com/sysmocom/meta-telephony,master,HEAD
+meta-qualcomm,http://git.linaro.org/people/nicolas.dechesne/meta-qualcomm.git,master,HEAD
 openembedded-core,git://github.com/openembedded/oe-core.git,master,HEAD
