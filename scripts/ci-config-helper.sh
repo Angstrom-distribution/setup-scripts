@@ -28,7 +28,7 @@ if ! [ -d sources/meta-angstrom ] ; then
 	echo "Metadata checkout missing"
 	if [ -e ${SHARED_DL_DIR}/../${ANGSTROMVERSION}-gits.tar.xz ] ; then
 		echo "Extracting metadata cache"
-		tar xf ${SHARED_DL_DIR}/../${ANGSTROMVERSION}-gits.tar.xz
+		xz -T0 -dkc  ${SHARED_DL_DIR}/../${ANGSTROMVERSION}-gits.tar.xz | tar x
 	fi
 fi
 
