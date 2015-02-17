@@ -31,4 +31,5 @@ meta-uav,git://github.com/koenkooi/meta-uav.git,master,edf32a392b55a4267e6b07277
 meta-photography,git://github.com/koenkooi/meta-photography.git,master,b4cc4768b39610cc7fbb424e82a217d7e86fa25f
 meta-telephony,git://github.com/koenkooi/meta-telephony,master,65238f85305f3179491e5e4be8152ea35454ac84
 meta-qualcomm,http://git.linaro.org/people/nicolas.dechesne/meta-qualcomm.git,master,1c876ee4dc5cb66d26d960f5b58c958ada2452a1
+meta-96boards,git://github.com/96boards/meta-96boards.git,dizzy,HEAD
 openembedded-core,git://github.com/openembedded/oe-core.git,dizzy,HEAD
