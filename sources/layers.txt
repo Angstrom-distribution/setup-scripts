@@ -19,13 +19,13 @@ meta-opie,git://git.openembedded.org/meta-opie.git,master,10d6da25aad665c072113a
 meta-java,git://github.com/woglinde/meta-java.git,master,20fa82037c93e6814f1b76c0b8adc73616be8aa2
 meta-browser,git://github.com/OSSystems/meta-browser.git,master,cdf79fa08366eba24e6072e7a5899c50d11f7fbd
 meta-mono,git://git.yoctoproject.org/meta-mono.git,master,bb2ab4e709b1ae4771cd40b445f4b0ec864786fd
-meta-kde4,git://gitorious.org/openembedded-core-layers/meta-kde4.git,master,f45abfd4d87b0132a2565499392d2d49f465d847
+meta-kde4,https://gitorious.org/openembedded-core-layers/meta-kde4.git,master,f45abfd4d87b0132a2565499392d2d49f465d847
 meta-linaro,git://git.linaro.org/openembedded/meta-linaro.git,daisy,HEAD
 meta-minnow,git://git.yoctoproject.org/meta-minnow,master,7bdcd1140b729598bae6246a4bbc21c3950aadd8
 meta-dominion,git://github.com/koenkooi/meta-dominion.git,daisy,HEAD
 meta-exynos,git://github.com/slimlogic/meta-exynos,master,HEAD
 meta-ros,git://github.com/bmwcarit/meta-ros.git,master,455385f0f638a9e0930aec669d4a7b5270ed9a61
-meta-gumstix-community,git://gitorious.org/schnitzeltony-oe-meta/meta-gumstix-community.git,master,70c3ee546164b1bcef52863c38cfb755a4141c2d
+meta-gumstix-community,https://gitorious.org/schnitzeltony-oe-meta/meta-gumstix-community.git,master,70c3ee546164b1bcef52863c38cfb755a4141c2d
 meta-qt5,git://github.com/meta-qt5/meta-qt5,master,1fa7f364f682e5cfaa9d6e565b7ae6b8ec2a90ff
 meta-uav,git://github.com/koenkooi/meta-uav.git,master,74c23fabc18da7e8d161d196aa4f0e9a13486010
 meta-telephony,git://github.com/koenkooi/meta-telephony,master,f71f5ea031d96a5a84bde4531974542ae49f8bee
