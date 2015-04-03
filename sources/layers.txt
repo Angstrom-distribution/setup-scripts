@@ -34,4 +34,5 @@ meta-qualcomm,http://git.linaro.org/people/nicolas.dechesne/meta-qualcomm.git,ma
 meta-96boards,git://github.com/96boards/meta-96boards.git,dizzy,HEAD
 meta-edison,git://github.com/koenkooi/meta-edison.git,master,bcfe06e72158ec3b84279a27b4a5db9c9c50f5d3
 meta-intel-iot-middleware,http://git.yoctoproject.org/git/meta-intel-iot-middleware,master,48604925ea011b6dba2953b407aff0fce5e7cbbb
+meta-ci,git://github.com/koenkooi/meta-ci.git,master,HEAD
 openembedded-core,git://github.com/openembedded/oe-core.git,dizzy,HEAD
