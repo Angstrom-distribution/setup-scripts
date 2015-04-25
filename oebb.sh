@@ -392,6 +392,19 @@ env gawk -v command=checkout -v commandarg=$TAG -f ${OE_BASE}/scripts/layers.awk
 
 
 ###############################################################################
+# list_patches - List local/pending patches in layers.
+###############################################################################
+function list_patches()
+{
+    if [ "x$PROXYHOST" != "x" ] ; then
+        config_git_proxy
+    fi
+
+    #manage meta-openembedded and meta-angstrom with layerman
+    env gawk -v command=patches -v commandarg=$PATCHES -f ${OE_BASE}/scripts/layers.awk ${OE_LAYERS_TXT}
+}
+
+###############################################################################
 # Build the specified OE packages or images.
 ###############################################################################
 
@@ -403,6 +416,16 @@ then
        
        "update" ) 
            update_all
+           exit 0
+           ;;
+
+       "patches" )
+           if [ -n "$2" ] ; then
+               PATCHES="$2"
+           else
+               PATCHES="pending"
+           fi
+           list_patches
            exit 0
            ;;
 
@@ -494,6 +517,7 @@ echo "       $0 tag [tagname]"
 echo "       $0 changelog <tagname>"
 echo "       $0 checkout <tagname>"
 echo "       $0 clean"
+echo "       $0 patches [local|pending|next]"
 echo ""
 echo "       Not recommended, but also possible:"
 echo "       $0 bitbake <bitbake target>"
