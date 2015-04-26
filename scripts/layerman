@@ -136,6 +136,42 @@ function checkout_tag() {
 	echo ""
 }
 
+function list_patches() {
+	check_layer
+	cd ${LAYERDIR} && echo "Listing out ${COMMANDARG} patches in ${LAYERNAME}:"
+
+	git fetch origin
+
+	if [ "${REV}" = "HEAD" ] ; then
+		REV="origin/${BRANCH}"
+	fi
+
+	case "${COMMANDARG}" in
+		"pending" )
+			git log --pretty=oneline HEAD..${REV}
+			;;
+
+		"next" )
+			if ! git rev-list --quiet origin/${BRANCH}-next 2>/dev/null ; then
+				echo "Branch ${BRANCH}-next not found"
+				return
+			fi
+			git log --pretty=oneline origin/${BRANCH}..origin/${BRANCH}-next
+			;;
+
+		"local" )
+			git log --pretty=oneline "${REV}"..HEAD
+			git diff --stat HEAD
+			git status -s
+			;;
+
+		* )
+			echo "not supported"
+			;;
+
+	esac
+}
+
 case $COMMAND in
 tag)
 	tag_layers;;
@@ -147,6 +183,8 @@ info)
 	get_info;;
 checkout)
 	checkout_tag;;	
+patches)
+    list_patches;;
 *)
 	update_layers;;
 esac
