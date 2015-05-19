@@ -200,9 +200,14 @@ else
     # Look for dash
     #--------------------------------------------------------------------------
     if [ "$(readlink /bin/sh)" = "dash" ] ; then
-	echo "/bin/sh is a symlink to dash, please point it to bash instead"
+        echo "/bin/sh is a symlink to dash, please input your password and we will set to bash for you!!"
+        sudo -k ln -sf bash /bin/sh
+    fi
+    if [ "$(readlink /bin/sh)" = "dash" ] ; then
+        echo "/bin/sh set up failed, you may try it youself by 'sudo ln -sf bash /bin/sh' or other methods to setup it to avoid some buggys!"
         exit 1
     fi
+ 
 
     echo "There now is a sourceable script in ${OE_ENV_FILE} You can do '. ${OE_ENV_FILE}' and run 'bitbake something' without using $0 as wrapper"
 fi # if -e ${OE_ENV_FILE}
