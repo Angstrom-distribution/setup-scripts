@@ -25,7 +25,7 @@ meta-sunxi,git://github.com/linux-sunxi/meta-sunxi.git,master,f1e777d5526ea7c7a4
 meta-qt5,git://github.com/meta-qt5/meta-qt5,dora,HEAD
 meta-ros,git://github.com/bmwcarit/meta-ros.git,master,64c8b5edb221263e7fac7c03629c730ade422dff
 meta-uav,git://github.com/koenkooi/meta-uav.git,master,6f663cc32532ae66dd6c06d3d79c0f3578975a6c
-meta-dominion,git://github.com/koenkooi/meta-dominion.git,master,HEAD
+meta-dominion,git://github.com/koenkooi/meta-dominion.git,master,84c26a4cb3aab9c8eaf2041ac57d01ff547400fc
 meta-exynos,git://github.com/slimlogic/meta-exynos,master,ac21b106ce5c4c928f62e8f72ebeac9b02d113e2
 meta-telephony,git://github.com/koenkooi/meta-telephony,master,f71f5ea031d96a5a84bde4531974542ae49f8bee
 meta-qt5,git://github.com/meta-qt5/meta-qt5,dora,HEAD
