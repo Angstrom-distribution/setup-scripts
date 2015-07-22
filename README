@@ -1,7 +1,7 @@
 These are the setup scripts for the Angstrom buildsystem. If you want to (re)build packages or images for Angstrom, this is the thing to use.
 The Angstrom buildsystem is using various components from the Yocto Project, most importantly the Openembedded buildsystem, the bitbake task executor and various application and BSP layers.
 
-This Angstrom release (v2013.12) is officially Yocto Project Compatible with the Yocto Project release 1.5 ("Dora").
+This is the Angstrom Distribution v2014.12 release.
 
 To configure the scripts and download the build metadata, do:
 
@@ -11,7 +11,7 @@ You can change the 'beagleboard' in the commandline above into the machine you a
 
 To start a build of the kernel, source the environment file and do:
 
-	$ . ./environment-angstrom-v2013.12
+	$ . environment-angstrom
 	$ MACHINE=beagleboard bitbake virtual/kernel
 
 For an example workflow for dealing with kernels please read http://www.slimlogic.co.uk/2011/05/openembeddedangstrom-kernel-workflow/
@@ -25,6 +25,7 @@ The oebb.sh script tries hard to keep your local changes while at the same time 
 
 	* it will reset the origin URI based on layers.txt, so update layers.txt when changing a repo
 	* it will do a 'git reset --hard <ref>' on locked down repos, so please create a new branch for your changes
+	* As noted above, it will NOT switch branches, so be carefull when using the update function after you branched a repo
 
 If you find any bugs please report them here: https://github.com/angstrom-distribution/setup-scripts/issues
 

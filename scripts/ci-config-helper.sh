@@ -19,9 +19,9 @@ sed -i -e s:'${OE_SOURCE_DIR}/downloads':${SHARED_DL_DIR}: oebb.sh
 
 if ! [ -d sources/meta-angstrom ] ; then
 	echo "Metadata checkout missing"
-	if [ -e ${SHARED_DL_DIR}/../v2013.12-gits.tar.xz ] ; then
+	if [ -e ${SHARED_DL_DIR}/../v2014.12-gits.tar.xz ] ; then
 		echo "Extracting metadata cache"
-		tar xf ${SHARED_DL_DIR}/../v2013.12-gits.tar.xz
+		xz -T0 -dkc ${SHARED_DL_DIR}/../v2014.12-gits.tar.xz | tar x 
 	fi
 fi
 

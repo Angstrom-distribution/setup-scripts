@@ -35,7 +35,7 @@ PROXYHOST=""
 OE_BASE=${PWD}
 # incremement this to force recreation of config files
 BASE_VERSION=9
-OE_ENV_FILE=environment-angstrom-v2013.12
+OE_ENV_FILE=environment-angstrom-v2014.12
 
 GITMAJOR="$(git --version | awk '{print $3}' | awk -F. '{print $1}')"
 GITMINOR="$(git --version | awk '{print $3}' | awk -F. '{print $2}')"
@@ -257,16 +257,20 @@ function oe_build()
         echo "Executing: bitbake" $*
         bitbake $*
         rc=$?
-        if [[ $rc != 0 ]] ; then
-            exit $rc
+        if [ -z $IGNOREERRORS ] ; then
+            if [[ $rc != 0 ]] ; then
+                exit $rc
+            fi
         fi
     else
         echo "Executing: MACHINE=${MACHINE} bitbake" $*
         MACHINE=${MACHINE} bitbake $*
         rc=$?
-        if [[ $rc != 0 ]] ; then
-            exit $rc
-        fi
+        if [ -z $IGNOREERRORS ] ; then
+            if [[ $rc != 0 ]] ; then
+                exit $rc
+            fi
+       fi
     fi
 }
 
@@ -448,6 +452,14 @@ then
             exit 0
             ;;
     
+       "bitbake-k" )
+     
+            shift
+	    export IGNOREERRORS="1"
+	    oe_build $*
+            exit 0
+            ;;
+
        "bitbake" )
      
             shift
