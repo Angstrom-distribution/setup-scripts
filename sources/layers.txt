@@ -13,7 +13,7 @@ meta-xilinx,git://git.yoctoproject.org/meta-xilinx,master,14a88e974ce14903004687
 meta-openpandora,git://github.com/openpandora/meta-openpandora.git,master,ef92fcb6d87908ae0be44cd9cc9539395a666cc8
 meta-raspberrypi,git://git.yoctoproject.org/meta-raspberrypi.git,master,6b63f6fcbdbde1694d55e314b86fadaa74dc858a
 meta-handheld,git://git.openembedded.org/meta-handheld,master,57044c88e22443f312fe812cc481449c0110f2ef
-meta-sunxi,git://github.com/linux-sunxi/meta-sunxi.git,master,05769afd3b2f8bfdc17a6df2c5a533cae227f3e6
+meta-sunxi,git://github.com/linux-sunxi/meta-sunxi.git,master,211d55b4374ff3df5eabee39b5173c8e7c824c34
 meta-opie,git://git.openembedded.org/meta-opie.git,master,4123fb4d8fdde0a8e67c0d1042119158d0d2df57
 meta-java,git://git.yoctoproject.org/meta-java,master,d2b75b615e4612f9fa05950c1d76d4a719e573d4
 meta-browser,git://github.com/OSSystems/meta-browser.git,master,1ed7500cc43706165ccac8daccba47124e63d3eb
