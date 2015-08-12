@@ -16,7 +16,7 @@ meta-handheld,git://git.openembedded.org/meta-handheld,master,57044c88e22443f312
 meta-sunxi,git://github.com/linux-sunxi/meta-sunxi.git,master,211d55b4374ff3df5eabee39b5173c8e7c824c34
 meta-opie,git://git.openembedded.org/meta-opie.git,master,4123fb4d8fdde0a8e67c0d1042119158d0d2df57
 meta-java,git://git.yoctoproject.org/meta-java,master,d2b75b615e4612f9fa05950c1d76d4a719e573d4
-meta-browser,git://github.com/OSSystems/meta-browser.git,master,1ed7500cc43706165ccac8daccba47124e63d3eb
+meta-browser,git://github.com/OSSystems/meta-browser.git,master,4b27058a8275a5310161459c9bb8f4c52a77762c
 meta-mono,git://git.yoctoproject.org/meta-mono.git,master,e8c390589dd83659506564c448d086b4f3d13666
 meta-kde4,https://github.com/Angstrom-distribution/meta-kde.git,master,f45abfd4d87b0132a2565499392d2d49f465d847
 meta-linaro,git://git.linaro.org/openembedded/meta-linaro.git,dizzy,HEAD
