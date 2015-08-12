@@ -13,10 +13,10 @@ meta-xilinx,git://git.yoctoproject.org/meta-xilinx,master,14a88e974ce14903004687
 meta-openpandora,git://github.com/openpandora/meta-openpandora.git,master,ef92fcb6d87908ae0be44cd9cc9539395a666cc8
 meta-raspberrypi,git://git.yoctoproject.org/meta-raspberrypi.git,master,6b63f6fcbdbde1694d55e314b86fadaa74dc858a
 meta-handheld,git://git.openembedded.org/meta-handheld,master,57044c88e22443f312fe812cc481449c0110f2ef
-meta-sunxi,git://github.com/linux-sunxi/meta-sunxi.git,master,715f2ace5bfe597ad93f3eec13d46f753023d8f0
+meta-sunxi,git://github.com/linux-sunxi/meta-sunxi.git,master,211d55b4374ff3df5eabee39b5173c8e7c824c34
 meta-opie,git://git.openembedded.org/meta-opie.git,master,4123fb4d8fdde0a8e67c0d1042119158d0d2df57
 meta-java,git://git.yoctoproject.org/meta-java,master,d2b75b615e4612f9fa05950c1d76d4a719e573d4
-meta-browser,git://github.com/OSSystems/meta-browser.git,master,1ed7500cc43706165ccac8daccba47124e63d3eb
+meta-browser,git://github.com/OSSystems/meta-browser.git,master,4b27058a8275a5310161459c9bb8f4c52a77762c
 meta-mono,git://git.yoctoproject.org/meta-mono.git,master,e8c390589dd83659506564c448d086b4f3d13666
 meta-kde4,https://github.com/Angstrom-distribution/meta-kde.git,master,f45abfd4d87b0132a2565499392d2d49f465d847
 meta-linaro,git://git.linaro.org/openembedded/meta-linaro.git,dizzy,HEAD
@@ -25,7 +25,7 @@ meta-atmel,git://github.com/koenkooi/meta-atmel.git,angstromv2014.12-staging,7b6
 meta-dominion,git://github.com/koenkooi/meta-dominion.git,dizzy,HEAD
 meta-exynos,git://github.com/slimlogic/meta-exynos,master,f8395cd11111c7f94938e292592d6f5d66efa64a
 meta-ros,git://github.com/bmwcarit/meta-ros.git,master,37c6fd01ddfe862ec6af7a4c2d24b51d9d1cdd55
-meta-gumstix-community,https://gitorious.org/schnitzeltony-oe-meta/meta-gumstix-community.git,master,d2017d3efe8d63940ec6aa33cd6e102e2d39dfc5
+meta-gumstix-community,https://github.com/schnitzeltony/meta-gumstix-community.git,master,d2017d3efe8d63940ec6aa33cd6e102e2d39dfc5
 meta-qt5,git://github.com/meta-qt5/meta-qt5,master,478fe949a957471a4d20450f6e9375fe1d628591
 meta-uav,git://github.com/koenkooi/meta-uav.git,master,edf32a392b55a4267e6b072776e2aab6c8f7617e
 meta-photography,git://github.com/koenkooi/meta-photography.git,master,b4cc4768b39610cc7fbb424e82a217d7e86fa25f
