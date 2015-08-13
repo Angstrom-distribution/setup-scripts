@@ -157,9 +157,10 @@ else
     #--------------------------------------------------------------------------
     # Include up-to-date bitbake in our PATH.
     #--------------------------------------------------------------------------
-    export PATH=${OE_SOURCE_DIR}/openembedded-core/scripts:${OE_SOURCE_DIR}/bitbake/bin:${PATH}
+	OE_EXEC_PATH=${OE_SOURCE_DIR}/openembedded-core/scripts:${OE_SOURCE_DIR}/bitbake/bin
+    export PATH=${OE_EXEC_PATH}:${PATH}
 
-    echo "export PATH=\"${PATH}\"" >> ${OE_ENV_FILE}
+    echo "export PATH=${OE_EXEC_PATH}:\${PATH}" >> ${OE_ENV_FILE}
 
     #--------------------------------------------------------------------------
     # Make sure Bitbake doesn't filter out the following variables from our
