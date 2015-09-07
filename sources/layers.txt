@@ -28,7 +28,7 @@ meta-ros,git://github.com/bmwcarit/meta-ros.git,master,37c6fd01ddfe862ec6af7a4c2
 meta-gumstix-community,https://github.com/schnitzeltony/meta-gumstix-community.git,master,d2017d3efe8d63940ec6aa33cd6e102e2d39dfc5
 meta-qt5,git://github.com/meta-qt5/meta-qt5,master,478fe949a957471a4d20450f6e9375fe1d628591
 meta-uav,git://github.com/koenkooi/meta-uav.git,master,edf32a392b55a4267e6b072776e2aab6c8f7617e
-meta-photography,git://github.com/koenkooi/meta-photography.git,master,b4cc4768b39610cc7fbb424e82a217d7e86fa25f
+meta-photography,git://github.com/koenkooi/meta-photography.git,master,06e16858cd9a35b40c8b8e6d2b76ab8c1db4b054
 meta-telephony,git://github.com/koenkooi/meta-telephony,master,65238f85305f3179491e5e4be8152ea35454ac84
 meta-qualcomm,http://git.linaro.org/people/nicolas.dechesne/meta-qualcomm.git,master,1c876ee4dc5cb66d26d960f5b58c958ada2452a1
 meta-96boards,git://github.com/96boards/meta-96boards.git,dizzy,HEAD
